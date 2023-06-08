@@ -18,10 +18,15 @@ body{
   align-items: center;
 }
 
-.CharacterCardContainer{
+.CharacterCardContainer {
   width: 70vw;
   height: 70vh;
   background-color: grey;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap; /* Added this line to wrap character cards to the next line */
+  justify-content: center; /* Added this line to center align character cards */
+  align-items: flex-start; /* Added this line to align character cards at the top */
+  overflow: auto; /* Added this line to enable scrolling if the content overflows */
+  padding: 10px; /* Added this line to provide some spacing */
+  box-sizing: border-box; /* Added this line to include padding in the total width */
 }

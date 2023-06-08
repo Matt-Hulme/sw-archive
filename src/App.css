@@ -1,0 +1,27 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.HomePage
+ {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.CharacterCardContainer{
+  width: 70vw;
+  height: 70vh;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+}

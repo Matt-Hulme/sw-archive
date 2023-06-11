@@ -1,11 +1,9 @@
-body{
-  margin: 0px;
-  padding: 0px;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-
-.HomePage
- {
+.HomePage {
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
@@ -13,8 +11,8 @@ body{
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -22,11 +20,27 @@ body{
   width: 70vw;
   height: 70vh;
   background-color: grey;
-  display: flex;
-  flex-wrap: wrap; /* Added this line to wrap character cards to the next line */
-  justify-content: center; /* Added this line to center align character cards */
-  align-items: flex-start; /* Added this line to align character cards at the top */
-  overflow: auto; /* Added this line to enable scrolling if the content overflows */
-  padding: 10px; /* Added this line to provide some spacing */
-  box-sizing: border-box; /* Added this line to include padding in the total width */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-auto-rows: 1fr; 
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: flex-start;
+  overflow: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.CharacterCard {
+  border: 1px solid black;
+  padding: 5px;
+  max-width: 100%;
+  margin: 0 10px;
+  border-radius: 7px;
+}
+
+.SeeMoreButton {
+  padding: 10px 20px;
+  margin-top: 10px;
+  grid-column: 1 / -1;
 }

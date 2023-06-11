@@ -5,7 +5,8 @@ export default function CharacterCard({ character }) {
     <div className="CharacterCard">
       <h3>{character.name}</h3>
       <p>Homeworld: {character.homeworld}</p>
-      <p>Films: {character.films.join(', ')}</p>
+      <p>Birth Year: {character.birth_year}</p>
+      <p>First Appearance: {character.films[0]}</p>
     </div>
   );
 }

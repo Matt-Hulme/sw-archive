@@ -4,7 +4,12 @@ export default function CharacterDataFetcher({ children }) {
   const [characterData, setCharacterData] = useState([]);
 
   useEffect(() => {
-    fetchAllCharacters();
+    const cachedData = localStorage.getItem('characterData');
+    if (cachedData) {
+      setCharacterData(JSON.parse(cachedData));
+    } else {
+      fetchAllCharacters();
+    }
   }, []);
 
   const fetchAllCharacters = async () => {
@@ -42,6 +47,7 @@ export default function CharacterDataFetcher({ children }) {
       });
       const characterData = await Promise.all(characterDataPromises);
       setCharacterData(characterData);
+      localStorage.setItem('characterData', JSON.stringify(characterData));
     } catch (error) {
       console.error('Error fetching characters:', error);
     }

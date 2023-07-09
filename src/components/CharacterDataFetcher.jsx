@@ -6,52 +6,41 @@ export default function CharacterDataFetcher({ children }) {
   useEffect(() => {
     const cachedData = localStorage.getItem('characterData');
     if (cachedData) {
-      setCharacterData(JSON.parse(cachedData));
+      const parsedData = JSON.parse(cachedData);
+      if (Array.isArray(parsedData) && parsedData.length > 0) {
+        setCharacterData(parsedData);
+      } else {
+        console.log("fetching character data");
+        fetchAllCharacters();
+      }
     } else {
+      console.log("fetching character data");
       fetchAllCharacters();
     }
   }, []);
+  
+  
 
   const fetchAllCharacters = async () => {
     try {
-      const response = await fetch('https://swapi.dev/api/people/');
-      const data = await response.json();
-      const characters = data.results;
-      const characterDataPromises = characters.map(async (character) => {
-        const homeworldPromise = fetch(character.homeworld)
-          .then((response) => response.json())
-          .then((homeworldData) => homeworldData.name)
-          .catch((error) => {
-            console.error('Error fetching homeworld:', error);
-            return '';
-          });
+      let allCharacters = [];
+      let nextUrl = 'https://swapi.dev/api/people/';
+  
+      while (nextUrl) {
+        const response = await fetch(nextUrl);
+        const data = await response.json();
+        const characters = data.results;
+        allCharacters = [...allCharacters, ...characters];
+        nextUrl = data.next;
+      }
+  
+      setCharacterData(allCharacters);
+      localStorage.setItem('characterData', JSON.stringify(allCharacters));
 
-        const filmPromises = character.films.map((film) =>
-          fetch(film)
-            .then((response) => response.json())
-            .then((filmData) => filmData.title)
-            .catch((error) => {
-              console.error('Error fetching film:', error);
-              return '';
-            })
-        );
-
-        const homeworld = await homeworldPromise;
-        const films = await Promise.all(filmPromises);
-
-        return {
-          ...character,
-          homeworld,
-          films,
-        };
-      });
-      const characterData = await Promise.all(characterDataPromises);
-      setCharacterData(characterData);
-      localStorage.setItem('characterData', JSON.stringify(characterData));
     } catch (error) {
       console.error('Error fetching characters:', error);
     }
   };
-
+  
   return <>{children(characterData)}</>;
 }

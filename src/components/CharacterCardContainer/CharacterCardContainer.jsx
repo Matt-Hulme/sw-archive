@@ -3,25 +3,27 @@ import CharacterCard from 'src/Components/CharacterCardContainer/CharacterCard.j
 import CharacterDataFetcher from 'src/Components/CharacterDataFetcher.jsx';
 
 export default function CharacterCardContainer() {
-  const [visibleCharacterCount, setVisibleCharacterCount] = useState(20);
+  const [visibleCharacterCount, setVisibleCharacterCount] = useState(9);
 
   const handleSeeMore = () => {
-    setVisibleCharacterCount((prevCount) => prevCount + 20);
+    setVisibleCharacterCount((prevCount) => prevCount + 9);
   };
 
   return (
     <CharacterDataFetcher>
       {(characterData) => (
-        <div className="CharacterCardContainer">
-          {characterData.slice(0, visibleCharacterCount).map((character, index) => (
-            <CharacterCard key={index} character={character} />
-          ))}
-          {visibleCharacterCount < characterData.length && (
+        <>
+          <div className="CharacterCardContainer">
+            {characterData.slice(0, visibleCharacterCount).map((character, index) => (
+              <CharacterCard key={index} character={character} />
+            ))}
+          </div>
+            {visibleCharacterCount < characterData.length && (
             <button className="SeeMoreButton" onClick={handleSeeMore}>
               See More
             </button>
           )}
-        </div>
+        </>
       )}
     </CharacterDataFetcher>
   );

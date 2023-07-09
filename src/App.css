@@ -20,16 +20,18 @@ body {
 .CharacterCardContainer {
   display: flex;
   width: 70vw;
-  height: 70vh;
   background-color: grey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2px;
+  gap: 10px;
+  overflow-y: auto;
 }
 
 .CharacterCard {
-  border: 1px solid black;
-  padding: 0px 5px 10px;
+  padding: 5px;
+  width: 90%;
+  height: auto; 
+  border: 1px solid white;
   border-radius: 7px;
   overflow: hidden;
   background-color: black;

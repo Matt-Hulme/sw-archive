@@ -4,7 +4,18 @@ export default function CharacterDataFetcher({ children }) {
   const [characterData, setCharacterData] = useState([]);
 
   useEffect(() => {
-    fetchAllCharacters();
+    const cachedCharacterData = localStorage.getItem('characterData');
+
+    if (cachedCharacterData) {
+      const parsedData = JSON.parse(cachedCharacterData);
+      if (parsedData.length < 82) {
+        fetchAllCharacters();
+      } else {
+        setCharacterData(parsedData);
+      }
+    } else {
+      fetchAllCharacters();
+    }
   }, []);
 
   const fetchAllCharacters = async () => {

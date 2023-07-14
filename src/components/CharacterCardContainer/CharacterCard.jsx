@@ -15,7 +15,7 @@ import image13 from '../../assets/Images/profileImages/13.jpg';
 import image14 from '../../assets/Images/profileImages/14.jpg';
 import image15 from '../../assets/Images/profileImages/15.jpg';
 import image16 from '../../assets/Images/profileImages/16.jpg';
-import image17 from '../../assets/Images/profileImages/17.jpg';
+import image17 from '../../assets/Images/profileImages/A17.jpg';
 import image18 from '../../assets/Images/profileImages/18.jpg';
 import image19 from '../../assets/Images/profileImages/19.jpg';
 import image20 from '../../assets/Images/profileImages/20.jpg';
@@ -82,7 +82,6 @@ import image80 from '../../assets/Images/profileImages/80.jpg';
 import image81 from '../../assets/Images/profileImages/81.jpg';
 import image82 from '../../assets/Images/profileImages/82.jpg';
 import image83 from '../../assets/Images/profileImages/83.jpg';
-
 
 const imageUrlArray = [
   image1,
@@ -175,7 +174,7 @@ export default function CharacterCard({ character }) {
   return (
     <div className="CharacterCard">
       <h3>{character.name}</h3>
-      <img src={imageUrlArray[character.id]} alt='Image Not Available' />
+      <img src={imageUrlArray[character.id - 1]} alt='Image Not Available' />
     </div>
   );
 }

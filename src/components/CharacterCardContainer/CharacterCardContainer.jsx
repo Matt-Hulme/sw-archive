@@ -13,32 +13,31 @@ export default function CharacterCardContainer() {
       const parsedData = JSON.parse(cachedCharacterData);
       setCharacterData(parsedData);
     } else {
-      fetchCharacters('https://swapi.dev/api/people/');
+      handleFetchMore('https://swapi.dev/api/people/'); // Initial fetch with default URL
     }
   }, []);
-  
+
   const fetchCharacters = async (url) => {
     try {
       const response = await fetch(url);
       const data = await response.json();
       const characters = data.results.map((character) => ({
-        ...character,
+        name: character.name,
         id: character.url.split("/").slice(0, -1).pop(),
       }));
       const updatedCharacterData = [...characterData, ...characters];
       console.log("Updated character data:", updatedCharacterData);
       setCharacterData(updatedCharacterData);
       setNextUrl(data.next);
-  
+      setFetchCount(0);
+
       localStorage.setItem('characterData', JSON.stringify(updatedCharacterData));
     } catch (error) {
       console.error('Error fetching characters:', error);
     }
   };
-  
-  
+
   const handleSeeMoreAndFetchMore = () => {
-    setFetchCount(0);
     handleSeeMore();
     handleFetchMore();
   };
@@ -48,13 +47,13 @@ export default function CharacterCardContainer() {
     console.log("VisibleChar Count:", visibleCharacterCount);
   };
 
-  const handleFetchMore = () => {
-    if (nextUrl && fetchCount === 0) {
-      fetchCharacters(nextUrl);
+  const handleFetchMore = (initialUrl) => {
+    if ((nextUrl || initialUrl) && fetchCount === 0) {
+      fetchCharacters(nextUrl || initialUrl);
       setFetchCount(1);
+      initialUrl=null;
     }
   };
-
 
   return (
     <>

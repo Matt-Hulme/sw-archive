@@ -24,7 +24,6 @@ body {
   grid-auto-rows: 250px; 
   gap: 10px;
   overflow-y: auto;
-  margin-bottom: 50px;
 }
 
 .CharacterCard {
@@ -56,23 +55,48 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  min-width: 100px;
+  min-height: 55px;
 }
 
 
 .SeeMoreButton:active {
   background-color:black;
-
+  color: white;
 }
 
-
-.EndButton{
-  border-radius: 22px;
-  width: 7vw;
-  height: 7vh;
-  font-size: 20px;
+.NavBar {
+  position: relative;
+  top: 0;
+  max-width: 100%;
+  width: 70vw;
+  height: 5vh;
+  padding-top: 5px;
+  background-color: rgba(0, 0, 0, .9);
+  color: white;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  margin-top: 10px;
+  padding: 0px 10px;
 }
+
+.NavBar ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.NavBar li{
+  display: flex;
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+.NavBar a{
+  text-decoration: none;
+  font-size: 30px;
+}
+
 

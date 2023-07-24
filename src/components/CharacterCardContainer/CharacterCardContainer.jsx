@@ -6,6 +6,8 @@ export default function CharacterCardContainer() {
   const [characterData, setCharacterData] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
+  const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [buttonText, setButtonText] = useState("See More");
 
   useEffect(() => {
     const cachedCharacterData = localStorage.getItem('characterData');
@@ -13,11 +15,13 @@ export default function CharacterCardContainer() {
       const parsedData = JSON.parse(cachedCharacterData);
       setCharacterData(parsedData);
     } else {
-      handleFetchMore('https://swapi.dev/api/people/'); // Initial fetch with default URL
+      handleFetchMore('https://swapi.dev/api/people/');
     }
   }, []);
+  
 
   const fetchCharacters = async (url) => {
+    setButtonText("Loading...");
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -35,6 +39,8 @@ export default function CharacterCardContainer() {
     } catch (error) {
       console.error('Error fetching characters:', error);
     }
+    setIsDataLoaded(true);
+    setButtonText("See More");
   };
 
   const handleSeeMoreAndFetchMore = () => {
@@ -64,9 +70,9 @@ export default function CharacterCardContainer() {
             <CharacterCard key={index} character={character} />
           ))}
       </div>
-      {visibleCharacterCount > 0 && visibleCharacterCount < 82 && (
+      {isDataLoaded && visibleCharacterCount > 0 && visibleCharacterCount < 82 && (
         <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
-          See More
+          {buttonText}
         </button>
       )}
     </>

@@ -1,1 +1,1 @@
-https://swapi.dev/api/people/
+https://swapi.dev/api/vehicles/

@@ -2,16 +2,82 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.HomePage {
-  height: 100vh;
-  width: 100vw;
-  box-sizing: border-box;
-  background-image: url(src/assets/Images/Star-Background.jpg);
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.HomePage {
+  background-image: url(src/assets/Images/Star-Background.jpg);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.HomePageContainer {
+  width: 80vw;
+  height: 80vh;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.HomePageContainer li {
+  padding: 2px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-family: "arial black", sans-serif;
+  color: yellow;
+}
+
+.HomePageContainer li:last-child {
+  border-right: none;
+}
+
+.HomePageCharacters{
+  background-image: url(src/assets/Images/HomePageImages/Luke.jpg);
+  background-position:center;
+  background-size: cover;
+}
+.HomePageFilms{
+  background-image: url(src/assets/Images/HomePageImages/V.jpg);
+  background-position:center;
+  background-size: cover;
+}
+.HomePagePlanets{
+  background-image: url(src/assets/Images/HomePageImages/Tatooine.jpeg);
+  background-position:center;
+  background-size: cover;
+}
+.HomePageSpecies{
+  background-image: url(src/assets/Images/HomePageImages/Wookie.jpg);
+  background-position:center;
+  background-size: cover;
+}
+.HomePageStarships{
+  background-image: url(src/assets/Images/HomePageImages/MilleniumFalcon.jpeg);
+  background-position:center;
+  background-position-x: 28%;
+  background-size: cover;
+}
+.HomePageVehicles{
+  background-image: url(src/assets/Images/HomePageImages/ATAT.webp);
+  background-position:center;
+  background-position-x: 10%;
+  background-size: cover;
+}
+
+
+.CharactersPage {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;

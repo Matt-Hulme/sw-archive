@@ -3,17 +3,17 @@ import CharacterCard from './CharacterCard.jsx';
 
 export default function CharacterCardContainer() {
   const [visibleCharacterCount, setVisibleCharacterCount] = useState(10);
-  const [characterData, setCharacterData] = useState([]);
+  const [charactersData, setcharactersData] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
 
   useEffect(() => {
-    const cachedCharacterData = localStorage.getItem('characterData');
-    if (cachedCharacterData) {
-      const parsedData = JSON.parse(cachedCharacterData);
-      setCharacterData(parsedData);
+    const cachedCharactersData = localStorage.getItem('charactersData');
+    if (cachedCharactersData) {
+      const parsedData = JSON.parse(cachedCharactersData);
+      setcharactersData(parsedData);
     } else {
       handleFetchMore('https://swapi.dev/api/people/');
     }
@@ -29,18 +29,19 @@ export default function CharacterCardContainer() {
         name: character.name,
         id: character.url.split("/").slice(0, -1).pop(),
       }));
-      const updatedCharacterData = [...characterData, ...characters];
-      console.log("Updated character data:", updatedCharacterData);
-      setCharacterData(updatedCharacterData);
+      const updatedCharactersData = [...charactersData, ...characters];
+      console.log("Updated characters data:", updatedCharactersData);
+      setcharactersData(updatedCharactersData);
       setNextUrl(data.next);
       setFetchCount(0);
 
-      localStorage.setItem('characterData', JSON.stringify(updatedCharacterData));
+      localStorage.setItem('charactersData', JSON.stringify(updatedCharactersData));
     } catch (error) {
       console.error('Error fetching characters:', error);
     }
     setIsDataLoaded(true);
     setButtonText("See More");
+    console.log(charactersData);
   };
 
   const handleSeeMoreAndFetchMore = () => {
@@ -64,7 +65,7 @@ export default function CharacterCardContainer() {
   return (
     <>
       <div className="CharacterCardContainer">
-        {characterData
+        {charactersData
           .slice(0, visibleCharacterCount)
           .map((character, index) => (
             <CharacterCard key={index} character={character} />

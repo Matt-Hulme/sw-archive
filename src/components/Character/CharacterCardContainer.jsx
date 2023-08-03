@@ -50,8 +50,12 @@ export default function CharacterCardContainer() {
   };
 
   const handleSeeMore = () => {
-    setVisibleCharacterCount((prevCount) => prevCount + 10);
-    console.log("VisibleChar Count:", visibleCharacterCount);
+    if (fetchCount === 0){
+      setFetchCount(1);
+      setVisibleCharacterCount((prevCount) => prevCount + 10);
+      console.log("VisibleChar Count:", visibleCharacterCount);
+    }
+
   };
 
   const handleFetchMore = (initialUrl) => {

@@ -12,7 +12,6 @@ export default function FilmCardContainer () {
     if (cachedFilmsData) {
       const parsedData = JSON.parse(cachedFilmsData);
       setFilmsData(parsedData);
-      console.log(cachedFilmsData);
     } else {
       handleFetchMore('https://swapi.dev/api/films/');
     }
@@ -33,10 +32,9 @@ export default function FilmCardContainer () {
       const data = await response.json();
       const films = data.results.map((film) => ({
         name: film.title,
-        id: film.id,
+        id: film.episode_id,
       }));
       const updatedFilmsData = [...filmsData, ...films];
-      console.log("Updated films data:", updatedFilmsData);
       setFilmsData(updatedFilmsData);
       setFetchCount(0);
 

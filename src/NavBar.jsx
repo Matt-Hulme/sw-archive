@@ -1,6 +1,6 @@
 export default function NavBar() {
     return (
-        <div className="NavBar">
+        <nav className="NavBar">
             <ul>
                 <li><a>Characters</a></li>
                 <li><a>Films</a></li>
@@ -9,6 +9,6 @@ export default function NavBar() {
                 <li><a>Vehicles</a></li>
                 <li><a>Planets</a></li>     
             </ul>
-        </div>
+        </nav>
     );
 }

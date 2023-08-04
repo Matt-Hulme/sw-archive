@@ -75,7 +75,7 @@ export default function CharacterCardContainer() {
             <PlanetCard key={index} planet={planet} />
           ))}
       </div>
-      {isDataLoaded && visiblePlanetCount > 0 && visiblePlanetCount < 82 && (
+      {isDataLoaded && visiblePlanetCount > 0 && visiblePlanetCount < 60 && (
         <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
           {buttonText}
         </button>

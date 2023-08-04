@@ -175,11 +175,13 @@
   grid-auto-rows: 250px; 
   gap: 5px;
   overflow-y: auto;  
+  position: relative;
 }
 
 .PlanetCard{
   padding-top: 12px;
   display: flex;
+  position:relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -189,6 +191,14 @@
   background-color: black;
   color: #ffbe00;
   background-size: cover;
+}
+
+.PlanetCard h3{
+  position: absolute;
+  justify-content: center;
+  bottom: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 

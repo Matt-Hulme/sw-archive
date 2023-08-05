@@ -1,5 +1,5 @@
 import React from 'react';
-import FilmCardContainer from 'src/Components/Film/FilmCardContainer.jsx';
+import FilmCardContainer from '../../components/Film/FilmCardContainer.jsx';
 
 export default function FilmsPage() {
   return (

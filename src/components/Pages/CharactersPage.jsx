@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacterCardContainer from 'src/Components/Character/CharacterCardContainer.jsx';
+import CharacterCardContainer from '../../components/Character/CharacterCardContainer.jsx';
 
 export default function CharactersPage() {
   return (

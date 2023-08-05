@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import 'src/App.css';
-import Layout from 'src/components/pages/layout.jsx'
-import HomePage from 'src/Components/Pages/HomePage.jsx';
-import CharactersPage from 'src/Components/Pages/CharactersPage.jsx';
-import FilmsPage from 'src/Components/Pages/FilmsPage.jsx';
-import PlanetsPage from 'src/Components/Pages/PlanetsPage.jsx';
-import SpeciesPage from 'src/Components/Pages/SpeciesPage.jsx';
-import StarshipsPage from 'src/Components/Pages/StarshipsPage.jsx';
-import VehiclesPage from 'src/Components/Pages/VehiclesPage.jsx';
+import './App.css';
+import Layout from './components/pages/layout.jsx'
+import HomePage from './components/Pages/HomePage.jsx';
+import CharactersPage from './components/Pages/CharactersPage.jsx';
+import FilmsPage from './components/Pages/FilmsPage.jsx';
+import PlanetsPage from './components/Pages/PlanetsPage.jsx';
+import SpeciesPage from './components/Pages/SpeciesPage.jsx';
+import StarshipsPage from './components/Pages/StarshipsPage.jsx';
+import VehiclesPage from './components/Pages/VehiclesPage.jsx';
 
 
 export default function App() {

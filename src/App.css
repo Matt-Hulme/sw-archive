@@ -9,7 +9,7 @@
 }
 
 .HomePage {
-  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -46,33 +46,33 @@
 }
 
 .HomePageCharacters{
-  background-image: url(src/assets/Images/HomePageImages/Luke.jpg);
+  background-image: url(assets/Images/HomePageImages/Luke.jpg);
   background-position:center;
   background-size: cover;
 }
 .HomePageFilms{
-  background-image: url(src/assets/Images/HomePageImages/V.jpg);
+  background-image: url(assets/Images/HomePageImages/V.jpg);
   background-position:center;
   background-size: cover;
 }
 .HomePagePlanets{
-  background-image: url(src/assets/Images/HomePageImages/Tatooine.jpeg);
+  background-image: url(assets/Images/HomePageImages/Tatooine.jpeg);
   background-position:center;
   background-size: cover;
 }
 .HomePageSpecies{
-  background-image: url(src/assets/Images/HomePageImages/Wookie.jpg);
+  background-image: url(assets/Images/HomePageImages/Wookie.jpg);
   background-position:center;
   background-size: cover;
 }
 .HomePageStarships{
-  background-image: url(src/assets/Images/HomePageImages/MilleniumFalcon.jpeg);
+  background-image: url(assets/Images/HomePageImages/MilleniumFalcon.jpeg);
   background-position:center;
   background-position-x: 28%;
   background-size: cover;
 }
 .HomePageVehicles{
-  background-image: url(src/assets/Images/HomePageImages/ATAT.webp);
+  background-image: url(assets/Images/HomePageImages/ATAT.webp);
   background-position:center;
   background-position-x: 10%;
   background-size: cover;
@@ -80,7 +80,7 @@
 
 
 .CharactersPage {
-  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -118,7 +118,7 @@
 
 
 .FilmsPage{
-  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -159,7 +159,7 @@
 
 
 .PlanetsPage {
-  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -202,7 +202,7 @@
 }
 
 .SpeciesPage {
-  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -246,7 +246,7 @@
 
 
 .StarshipsPage {
-  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -292,7 +292,7 @@
 
 
 .VehiclesPage {
-  background-image: url(src/assets/Images/Star-Background.jpg);
+  background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
   display: flex;

@@ -3,7 +3,7 @@ import PlanetCard from './PlanetCard.jsx';
 
 export default function CharacterCardContainer() {
   const [visiblePlanetCount, setVisiblePlanetCount] = useState(10);
-  const [planetsData, setplanetsData] = useState([]);
+  const [planetsData, setPlanetsData] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
@@ -13,7 +13,7 @@ export default function CharacterCardContainer() {
     const cachedPlanetsData = localStorage.getItem('planetsData');
     if (cachedPlanetsData) {
       const parsedData = JSON.parse(cachedPlanetsData);
-      setplanetsData(parsedData);
+      setPlanetsData(parsedData);
     } else {
       handleFetchMore('https://swapi.dev/api/planets/');
     }
@@ -31,7 +31,7 @@ export default function CharacterCardContainer() {
       }));
       const updatedPlanetsData = [...planetsData, ...planets];
       console.log("Updated planets data:", updatedPlanetsData);
-      setplanetsData(updatedPlanetsData);
+      setPlanetsData(updatedPlanetsData);
       setNextUrl(data.next);
       setFetchCount(0);
 

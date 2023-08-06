@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Layout from './components/pages/layout.jsx'
+import Layout from './components/Pages/Layout.jsx'
 import HomePage from './components/Pages/HomePage.jsx';
 import CharactersPage from './components/Pages/CharactersPage.jsx';
 import FilmsPage from './components/Pages/FilmsPage.jsx';

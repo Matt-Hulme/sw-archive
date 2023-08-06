@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <div className="HomePage">
       <div className="HomePageContainer">
-          <li className="HomePageCharacters">Characters123</li>
+          <li className="HomePageCharacters">Characters</li>
           <li className="HomePageFilms">Films</li>
           <li className="HomePagePlanets">Planets</li>
           <li className="HomePageSpecies">Species</li>

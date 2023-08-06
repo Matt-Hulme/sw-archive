@@ -1,4 +1,5 @@
 import React from 'react';
+import VehiclesCardContainer from '../Vehicle'
 import VehiclesCardContainer from '../Vehicle/VehicleCardContainer.jsx'
 
 export default function VehiclesPage() {

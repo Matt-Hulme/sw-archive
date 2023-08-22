@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link, Routes, Route } from 'react-router-dom';
 import FilmCard from './FilmCard.jsx';
+import FilmPage from './FilmPage.jsx';
+import FilmImageArray from './FilmImageArray'
 
-export default function FilmCardContainer () {
+export default function FilmCardContainer() {
   const [filmsData, setFilmsData] = useState([]);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
@@ -18,10 +21,10 @@ export default function FilmCardContainer () {
   }, []);
 
   const handleFetchMore = (initialUrl) => {
-    if ( initialUrl && fetchCount === 0) {
+    if (initialUrl && fetchCount === 0) {
       fetchFilms(initialUrl);
       setFetchCount(1);
-      initialUrl=null;
+      initialUrl = null;
     }
   };
 
@@ -44,17 +47,22 @@ export default function FilmCardContainer () {
     }
     setIsDataLoaded(false);
     setButtonText("See More");
-    console.log(filmsData);
   } 
+  console.log("Films Data", filmsData)
 
   return (
-    <>
-      <div className="FilmCardContainer">
-        {filmsData
-          .map((film, index) => (
-            <FilmCard key={index} film={film} />
-          ))}
-      </div>
-    </>
-  );
+  <>
+    <div className="FilmCardContainer">
+      {filmsData.length > 0 && filmsData.map((film, index) => (
+        <Link
+          key={index}
+          to={`/films/${film.id}`}
+          state={{ filmsData }}
+        >
+          <FilmCard key={index} film={film} />
+        </Link>
+      ))}
+    </div>
+  </>
+);
 }

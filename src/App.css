@@ -5,7 +5,13 @@
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: "arial black", sans-serif;
   
+}
+
+a{
+  color: inherit;
+  text-decoration:none;
 }
 
 .HomePage {
@@ -34,7 +40,6 @@
   align-items: center;
   justify-content: center;
   list-style: none;
-  font-family: "arial black", sans-serif;
   color: yellow;
   white-space: nowrap;
   overflow: hidden;
@@ -127,15 +132,34 @@
   align-items: center;
 }
 
+.FilmPage {
+  background-image: url(assets/Images/Star-Background.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffbe00
+}
+
+.FilmPageImage {
+  max-width: 100%; 
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+
+
 .FilmCardContainer {
   width: 80vw;
+  max-height: 80vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-auto-rows: 250px; 
   gap: 10px;
   overflow-y: auto;
-  font-family: "arial black", sans-serif;
-  color: yellow;
+  color: #ffbe00;
   font-size: 10px
 }
 
@@ -145,17 +169,29 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  max-width: 100%;
-  max-height: 100%; 
+  width: 100%;
+  height: 100%; 
   border: .05px solid red;
   overflow: hidden;
   background-color: black;
+  position: relative;
+}
+
+.FilmCard h3 {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 1); /* Add background to make text more readable */
+  text-align: center; /* Center the text horizontally */
 }
 
 .FilmCard img{
   max-width: 100%;
   max-height: 100%;
 }
+
+
 
 
 .PlanetsPage {
@@ -359,7 +395,7 @@
   position: absolute;
   top: 0;
   width: 100%;
-  height: 5vh;
+  height: 3vh;
   margin-bottom: 1px;
   background-color: rgba(0, 0, 0, .9);
   color: white;
@@ -367,9 +403,12 @@
   justify-content: center;
   align-items: center;
   color: #ffbe00;
+  z-index: 999;
 }
 
 .NavBar ul{
+  left: 50%;
+  position: inline block;
   max-width: 100%;
   list-style: none;
   margin: 0;
@@ -377,6 +416,7 @@
   display: flex;
   flex: 1;
   flex-direction: row;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -401,6 +441,16 @@
 .NavBar a:hover {
   color: white;
   text-decoration: none;
+}
+
+.HomePageContainer,
+.CharacterCardContainer,
+.FilmCardContainer,
+.PlanetCardContainer,
+.SpeciesCardContainer,
+.StarshipCardContainer,
+.VehicleCardContainer {
+  margin-top: 3vh; 
 }
 
 

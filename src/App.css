@@ -33,7 +33,8 @@ a{
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
-.HomePageContainer li {
+
+.HomePageContainer a li {
   padding: 2px;
   font-size: 35px;
   display: flex;
@@ -54,33 +55,94 @@ a{
   background-image: url(assets/Images/HomePageImages/Luke.jpg);
   background-position:center;
   background-size: cover;
+  padding: 2px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  color: yellow;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis
+  
 }
 .HomePageFilms{
   background-image: url(assets/Images/HomePageImages/V.jpg);
   background-position:center;
   background-size: cover;
+  padding: 2px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  color: yellow;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis
 }
 .HomePagePlanets{
   background-image: url(assets/Images/HomePageImages/Tatooine.jpeg);
   background-position:center;
   background-size: cover;
+  padding: 2px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  color: yellow;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis
 }
 .HomePageSpecies{
   background-image: url(assets/Images/HomePageImages/Wookie.jpg);
   background-position:center;
   background-size: cover;
+  padding: 2px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  color: yellow;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis
 }
 .HomePageStarships{
   background-image: url(assets/Images/HomePageImages/MilleniumFalcon.jpeg);
   background-position:center;
   background-position-x: 28%;
   background-size: cover;
+  padding: 2px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  color: yellow;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis
 }
 .HomePageVehicles{
   background-image: url(assets/Images/HomePageImages/ATAT.webp);
   background-position:center;
   background-position-x: 10%;
   background-size: cover;
+  padding: 2px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  color: yellow;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis
 }
 
 

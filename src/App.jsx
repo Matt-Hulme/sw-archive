@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Pages/Layout.jsx';
 import HomePage from './components/Pages/HomePage.jsx';
 import CharactersPage from './components/Pages/CharactersPage.jsx';
+import CharacterPage from './components/Character/CharacterPage.jsx';
 import FilmsPage from './components/Pages/FilmsPage.jsx';
 import FilmPage from './components/Film/FilmPage.jsx';
 import PlanetsPage from './components/Pages/PlanetsPage.jsx';
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="characters" element={<CharactersPage />} />
+          <Route path="characters/:characterId" element={<CharacterPage />} /> 
           <Route path="films" element={<FilmsPage />} />
           <Route path="films/:filmId" element={<FilmPage />} /> 
           <Route path="planets" element={<PlanetsPage />} />

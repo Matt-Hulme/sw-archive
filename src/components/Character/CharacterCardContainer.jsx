@@ -1,23 +1,43 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard.jsx';
 
 export default function CharacterCardContainer() {
   const [visibleCharacterCount, setVisibleCharacterCount] = useState(10);
-  const [charactersData, setcharactersData] = useState([]);
+  const [charactersData, setCharactersData] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
 
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const cachedCharactersData = localStorage.getItem('charactersData');
     if (cachedCharactersData) {
       const parsedData = JSON.parse(cachedCharactersData);
-      setcharactersData(parsedData);
+      setCharactersData(parsedData);
+
+      const cachedVisibleCharacterCount = localStorage.getItem('visibleCharacterCount');
+      if (cachedVisibleCharacterCount) {
+        setVisibleCharacterCount(parseInt(cachedVisibleCharacterCount, 10));
+      }
+
+      const cachedNextUrl = localStorage.getItem('nextUrl');
+      if (cachedNextUrl) {
+        setNextUrl(cachedNextUrl);
+      }
     } else {
       handleFetchMore('https://swapi.dev/api/people/');
     }
-  }, []);
+  
+    if (navigate.state && navigate.state.visibleCharacterCount) {
+      setVisibleCharacterCount(navigate.state.visibleCharacterCount);
+      setFetchCount(0); 
+    }
+  
+  }, [navigate, visibleCharacterCount]);
   
 
   const fetchCharacters = async (url) => {
@@ -31,11 +51,12 @@ export default function CharacterCardContainer() {
       }));
       const updatedCharactersData = [...charactersData, ...characters];
       console.log("Updated characters data:", updatedCharactersData);
-      setcharactersData(updatedCharactersData);
+      setCharactersData(updatedCharactersData);
       setNextUrl(data.next);
       setFetchCount(0);
 
       localStorage.setItem('charactersData', JSON.stringify(updatedCharactersData));
+      localStorage.setItem('nextUrl', data.next);
     } catch (error) {
       console.error('Error fetching characters:', error);
     }
@@ -50,12 +71,16 @@ export default function CharacterCardContainer() {
   };
 
   const handleSeeMore = () => {
-    if (fetchCount === 0){
+    console.log('See More fetchCount value:', fetchCount)
+    console.log('nextUrl value:', nextUrl)
+    if (fetchCount === 0) {
       setFetchCount(1);
-      setVisibleCharacterCount((prevCount) => prevCount + 10);
-      console.log("VisibleChar Count:", visibleCharacterCount);
+      setVisibleCharacterCount((prevCount) => {
+        const newCount = prevCount + 10;
+        localStorage.setItem('visibleCharacterCount', newCount);
+        return newCount;
+      });
     }
-
   };
 
   const handleFetchMore = (initialUrl) => {
@@ -72,7 +97,13 @@ export default function CharacterCardContainer() {
         {charactersData
           .slice(0, visibleCharacterCount)
           .map((character, index) => (
+            <Link
+            key={index}
+            to={`/characters/${character.id}`}
+            state={{ charactersData }}
+            >
             <CharacterCard key={index} character={character} />
+          </Link>
           ))}
       </div>
       {isDataLoaded && visibleCharacterCount > 0 && visibleCharacterCount < 82 && (

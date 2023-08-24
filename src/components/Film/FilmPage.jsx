@@ -19,8 +19,6 @@ export default function FilmPage() {
     <div className="FilmPage">
       <h2>{selectedFilm.name}</h2>
       <img className="FilmPageImage" src={filmImage} alt="Film" />
-      {/* Display more details as needed */}
     </div>
   );
 }
-

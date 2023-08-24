@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FilmCard from './FilmCard.jsx';
-import FilmPage from './FilmPage.jsx';
-import FilmImageArray from './FilmImageArray'
+
 
 export default function FilmCardContainer() {
   const [filmsData, setFilmsData] = useState([]);
@@ -48,7 +47,6 @@ export default function FilmCardContainer() {
     setIsDataLoaded(false);
     setButtonText("See More");
   } 
-  console.log("Films Data", filmsData)
 
   return (
   <>

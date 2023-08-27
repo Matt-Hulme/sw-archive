@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import SpeciesCard from './SpeciesCard.jsx'
 
 export default function SpeciesCardContainer() {
@@ -9,15 +10,35 @@ export default function SpeciesCardContainer() {
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
 
+  const navigate = useNavigate();
+
+  console.log('Species Load fetchCount:', fetchCount)
+
   useEffect(() => {
     const cachedSpeciesData = localStorage.getItem('speciesData');
     if (cachedSpeciesData) {
       const parsedData = JSON.parse(cachedSpeciesData);
       setSpeciesData(parsedData);
+
+      const cachedVisibleSpeciesCount = localStorage.getItem('visibleSpeciesCount');
+      if (cachedVisibleSpeciesCount) {
+        setVisibleSpeciesCount(parseInt(cachedVisibleSpeciesCount, 10));
+      }
+
+      const cachedNextUrl = localStorage.getItem('nextUrl');
+      if (cachedNextUrl) {
+        setNextUrl(cachedNextUrl);
+      }
     } else {
       handleFetchMore('https://swapi.dev/api/species/');
     }
-  }, []);
+  
+    if (navigate.state && navigate.state.visibleSpeciesCount) {
+      setVisibleSpeciesCount(navigate.state.visibleSpeciesCount);
+      setFetchCount(0); 
+    }
+  
+  }, [navigate, visibleSpeciesCount]);
   
 
   const fetchSpecies = async (url) => {
@@ -36,6 +57,7 @@ export default function SpeciesCardContainer() {
       setFetchCount(0);
 
       localStorage.setItem('speciesData', JSON.stringify(updatedSpeciesData));
+      localStorage.setItem('nextUrl', data.next);
     } catch (error) {
       console.error('Error fetching species:', error);
     }
@@ -52,13 +74,18 @@ export default function SpeciesCardContainer() {
   const handleSeeMore = () => {
     if (fetchCount === 0){
       setFetchCount(1);
-      setVisibleSpeciesCount((prevCount) => prevCount + 10);
-      console.log("Visible Species Count:", visibleSpeciesCount);
+      setVisibleSpeciesCount((prevCount) => {
+        const newCount = prevCount + 10;
+        localStorage.setItem('visibleSpeciesCount', newCount);
+        return newCount;
+      });
     }
 
   };
 
   const handleFetchMore = (initialUrl) => {
+    console.log('fetchCount:', fetchCount)
+    console.log(nextUrl)
     if ((nextUrl || initialUrl) && fetchCount === 0) {
       fetchSpecies(nextUrl || initialUrl);
       setFetchCount(1);
@@ -70,10 +97,16 @@ export default function SpeciesCardContainer() {
     <>
       <div className="SpeciesCardContainer">
         {speciesData
-          .slice(0, visibleSpeciesCount)
-          .map((specie, index) => (
-            <SpeciesCard key={index} specie={specie} />
-          ))}
+            .slice(0, visibleSpeciesCount)
+            .map((specie, index) => (
+              <Link
+              key={index}
+              to={`/species/${specie.id}`}
+              state={{ speciesData }}
+              >
+              <SpeciesCard key={index} specie={specie} />
+            </Link>
+            ))}
       </div>
       {isDataLoaded && visibleSpeciesCount > 0 && visibleSpeciesCount < 37 && (
         <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>

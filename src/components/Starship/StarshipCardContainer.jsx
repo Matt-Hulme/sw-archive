@@ -6,7 +6,7 @@ export default function StarshipCardContainer() {
   const [visibleStarshipCount, setVisibleStarshipCount] = useState(10);
   const [starshipArrayId, setStarshipArrayId] = useState (0);
   const [starshipsData, setStarshipsData] = useState([]);
-  const [nextUrl, setNextUrl] = useState(null);
+  const [nextStarshipsUrl, setNextStarshipsUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
@@ -20,13 +20,15 @@ export default function StarshipCardContainer() {
       setStarshipsData(parsedData);
 
       const cachedVisibleStarshipCount = localStorage.getItem('visibleStarshipCount');
+
       if (cachedVisibleStarshipCount) {
         setVisibleStarshipCount(parseInt(cachedVisibleStarshipCount, 10));
       }
 
-      const cachedNextUrl = localStorage.getItem('nextUrl');
-      if (cachedNextUrl) {
-        setNextUrl(cachedNextUrl);
+      const cachedNextStarshipsUrl = localStorage.getItem('nextStarshipsUrl');
+      console.log('CACHED URL:', cachedNextStarshipsUrl)
+      if (cachedNextStarshipsUrl) {
+        setNextStarshipsUrl(cachedNextStarshipsUrl);
       }
     } else {
       handleFetchMore('https://swapi.dev/api/starships/');
@@ -64,11 +66,11 @@ export default function StarshipCardContainer() {
       const updatedStarshipsData = [...starshipsData, ...starships];
       console.log("Updated starships data:", updatedStarshipsData);
       setStarshipsData(updatedStarshipsData);
-      setNextUrl(data.next);
+      setNextStarshipsUrl(data.next);
       setFetchCount(0);
 
       localStorage.setItem('starshipsData', JSON.stringify(updatedStarshipsData));
-      localStorage.setItem('nextUrl', data.next);
+      localStorage.setItem('nextStarshipsUrl', data.next);
     } catch (error) {
       console.error('Error fetching starships:', error);
     }
@@ -85,7 +87,7 @@ export default function StarshipCardContainer() {
 
   const handleSeeMore = () => {
     console.log('See More fetchCount value:', fetchCount)
-    console.log('nextUrl value:', nextUrl)
+    console.log('nextStarshipsUrl value:', nextStarshipsUrl)
     if (fetchCount === 0) {
       setFetchCount(1);
       setVisibleStarshipCount((prevCount) => {
@@ -97,8 +99,8 @@ export default function StarshipCardContainer() {
   };
 
   const handleFetchMore = (initialUrl) => {
-    if ((nextUrl || initialUrl) && fetchCount === 0) {
-      fetchStarships(nextUrl || initialUrl);
+    if ((nextStarshipsUrl || initialUrl) && fetchCount === 0) {
+      fetchStarships(nextStarshipsUrl || initialUrl);
       setFetchCount(1);
       initialUrl=null;
     }

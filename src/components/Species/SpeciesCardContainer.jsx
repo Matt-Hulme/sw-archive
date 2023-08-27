@@ -5,7 +5,7 @@ import SpeciesCard from './SpeciesCard.jsx'
 export default function SpeciesCardContainer() {
   const [visibleSpeciesCount, setVisibleSpeciesCount] = useState(10);
   const [speciesData, setSpeciesData] = useState([]);
-  const [nextUrl, setNextUrl] = useState(null);
+  const [nextSpeciesUrl, setNextSpeciesUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
@@ -25,9 +25,9 @@ export default function SpeciesCardContainer() {
         setVisibleSpeciesCount(parseInt(cachedVisibleSpeciesCount, 10));
       }
 
-      const cachedNextUrl = localStorage.getItem('nextUrl');
-      if (cachedNextUrl) {
-        setNextUrl(cachedNextUrl);
+      const cachedNextSpeciesUrl = localStorage.getItem('nextSpeciesUrl');
+      if (cachedNextSpeciesUrl) {
+        setNextSpeciesUrl(cachedNextSpeciesUrl);
       }
     } else {
       handleFetchMore('https://swapi.dev/api/species/');
@@ -53,11 +53,11 @@ export default function SpeciesCardContainer() {
       const updatedSpeciesData = [...speciesData, ...species];
       console.log("Updated species data:", updatedSpeciesData);
       setSpeciesData(updatedSpeciesData);
-      setNextUrl(data.next);
+      setNextSpeciesUrl(data.next);
       setFetchCount(0);
 
       localStorage.setItem('speciesData', JSON.stringify(updatedSpeciesData));
-      localStorage.setItem('nextUrl', data.next);
+      localStorage.setItem('nextSpeciesUrl', data.next);
     } catch (error) {
       console.error('Error fetching species:', error);
     }
@@ -85,9 +85,9 @@ export default function SpeciesCardContainer() {
 
   const handleFetchMore = (initialUrl) => {
     console.log('fetchCount:', fetchCount)
-    console.log(nextUrl)
-    if ((nextUrl || initialUrl) && fetchCount === 0) {
-      fetchSpecies(nextUrl || initialUrl);
+    console.log(nextSpeciesUrl)
+    if ((nextSpeciesUrl || initialUrl) && fetchCount === 0) {
+      fetchSpecies(nextSpeciesUrl || initialUrl);
       setFetchCount(1);
       initialUrl=null;
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import StarshipCardContainer from '../Starship/StarshipCardContainer.jsx'
+import StarshipCardContainer from '../Starship/StarshipCardContainer.jsx';
 
 export default function StarshipsPage() {
   return (

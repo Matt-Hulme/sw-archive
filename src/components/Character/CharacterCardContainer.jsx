@@ -5,7 +5,7 @@ import CharacterCard from './CharacterCard.jsx';
 export default function CharacterCardContainer() {
   const [visibleCharacterCount, setVisibleCharacterCount] = useState(10);
   const [charactersData, setCharactersData] = useState([]);
-  const [nextUrl, setNextUrl] = useState(null);
+  const [nextCharactersUrl, setNextCharactersUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
@@ -18,15 +18,17 @@ export default function CharacterCardContainer() {
     if (cachedCharactersData) {
       const parsedData = JSON.parse(cachedCharactersData);
       setCharactersData(parsedData);
+      console.log('CACHE VALUE DATA:', parsedData)
 
       const cachedVisibleCharacterCount = localStorage.getItem('visibleCharacterCount');
       if (cachedVisibleCharacterCount) {
         setVisibleCharacterCount(parseInt(cachedVisibleCharacterCount, 10));
       }
 
-      const cachedNextUrl = localStorage.getItem('nextUrl');
-      if (cachedNextUrl) {
-        setNextUrl(cachedNextUrl);
+      const cachedNextCharactersUrl = localStorage.getItem('nextCharactersUrl');
+      if (cachedNextCharactersUrl) {
+        setNextCharactersUrl(cachedNextCharactersUrl);
+        console.log('CACHE VALUE COUNT:', parsedData);
       }
     } else {
       handleFetchMore('https://swapi.dev/api/people/');
@@ -52,11 +54,11 @@ export default function CharacterCardContainer() {
       const updatedCharactersData = [...charactersData, ...characters];
       console.log("Updated characters data:", updatedCharactersData);
       setCharactersData(updatedCharactersData);
-      setNextUrl(data.next);
+      setNextCharactersUrl(data.next);
       setFetchCount(0);
 
       localStorage.setItem('charactersData', JSON.stringify(updatedCharactersData));
-      localStorage.setItem('nextUrl', data.next);
+      localStorage.setItem('nextCharactersUrl', data.next);
     } catch (error) {
       console.error('Error fetching characters:', error);
     }
@@ -72,7 +74,7 @@ export default function CharacterCardContainer() {
 
   const handleSeeMore = () => {
     console.log('See More fetchCount value:', fetchCount)
-    console.log('nextUrl value:', nextUrl)
+    console.log('nextCharactersUrl value:', nextCharactersUrl)
     if (fetchCount === 0) {
       setFetchCount(1);
       setVisibleCharacterCount((prevCount) => {
@@ -84,8 +86,8 @@ export default function CharacterCardContainer() {
   };
 
   const handleFetchMore = (initialUrl) => {
-    if ((nextUrl || initialUrl) && fetchCount === 0) {
-      fetchCharacters(nextUrl || initialUrl);
+    if ((nextCharactersUrl || initialUrl) && fetchCount === 0) {
+      fetchCharacters(nextCharactersUrl || initialUrl);
       setFetchCount(1);
       initialUrl=null;
     }

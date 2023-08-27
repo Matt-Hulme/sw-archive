@@ -6,7 +6,7 @@ export default function VehicleCardContainer() {
   const [visibleVehicleCount, setVisibleVehicleCount] = useState(10);
   const [vehicleArrayId, setVehicleArrayId] = useState (0);
   const [vehiclesData, setVehiclesData] = useState([]);
-  const [nextUrl, setNextUrl] = useState(null);
+  const [nextVehiclesUrl, setNextVehiclesUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
@@ -24,9 +24,9 @@ export default function VehicleCardContainer() {
         setVisibleVehicleCount(parseInt(cachedVisibleVehicleCount, 10));
       }
 
-      const cachedNextUrl = localStorage.getItem('nextUrl');
-      if (cachedNextUrl) {
-        setNextUrl(cachedNextUrl);
+      const cachedNextVehiclesUrl = localStorage.getItem('nextVehiclesUrl');
+      if (cachedNextVehiclesUrl) {
+        setNextVehiclesUrl(cachedNextVehiclesUrl);
       }
     } else {
       handleFetchMore('https://swapi.dev/api/vehicles/');
@@ -64,11 +64,11 @@ export default function VehicleCardContainer() {
       const updatedVehiclesData = [...vehiclesData, ...vehicles];
       console.log("Updated vehicles data:", updatedVehiclesData);
       setVehiclesData(updatedVehiclesData);
-      setNextUrl(data.next);
+      setNextVehiclesUrl(data.next);
       setFetchCount(0);
 
       localStorage.setItem('vehiclesData', JSON.stringify(updatedVehiclesData));
-      localStorage.setItem('nextUrl', data.next);
+      localStorage.setItem('nextVehiclesUrl', data.next);
     } catch (error) {
       console.error('Error fetching vehicles:', error);
     }
@@ -85,7 +85,7 @@ export default function VehicleCardContainer() {
 
   const handleSeeMore = () => {
     console.log('See More fetchCount value:', fetchCount)
-    console.log('nextUrl value:', nextUrl)
+    console.log('nextVehiclesUrl value:', nextVehiclesUrl)
     if (fetchCount === 0) {
       setFetchCount(1);
       setVisibleVehicleCount((prevCount) => {
@@ -97,8 +97,8 @@ export default function VehicleCardContainer() {
   };
 
   const handleFetchMore = (initialUrl) => {
-    if ((nextUrl || initialUrl) && fetchCount === 0) {
-      fetchVehicles(nextUrl || initialUrl);
+    if ((nextVehiclesUrl || initialUrl) && fetchCount === 0) {
+      fetchVehicles(nextVehiclesUrl || initialUrl);
       setFetchCount(1);
       initialUrl=null;
     }

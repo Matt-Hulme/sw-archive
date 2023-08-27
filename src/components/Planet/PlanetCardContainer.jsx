@@ -5,7 +5,7 @@ import PlanetCard from './PlanetCard.jsx';
 export default function PlanetCardContainer() {
   const [visiblePlanetCount, setVisiblePlanetCount] = useState(10);
   const [planetsData, setPlanetsData] = useState([]);
-  const [nextUrl, setNextUrl] = useState(null);
+  const [nextPlanetsUrl, setNextPlanetsUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
   const [buttonText, setButtonText] = useState("See More");
@@ -17,15 +17,17 @@ export default function PlanetCardContainer() {
     if (cachedPlanetsData) {
       const parsedData = JSON.parse(cachedPlanetsData);
       setPlanetsData(parsedData);
+      console.log('CACHE VALUE DATA:', parsedData)
 
       const cachedVisiblePlanetCount = localStorage.getItem('visiblePlanetCount');
       if (cachedVisiblePlanetCount) {
         setVisiblePlanetCount(parseInt(cachedVisiblePlanetCount, 10));
       }
 
-      const cachedNextUrl = localStorage.getItem('nextUrl');
-      if (cachedNextUrl) {
-        setNextUrl(cachedNextUrl);
+      const cachedNextPlanetsUrl = localStorage.getItem('nextPlanetsUrl');
+      if (cachedNextPlanetsUrl) {
+        setNextPlanetsUrl(cachedNextPlanetsUrl);
+        console.log('CACHE VALUE URL:', nextPlanetsUrl);
       }
     } else {
       handleFetchMore('https://swapi.dev/api/planets/');
@@ -52,11 +54,11 @@ export default function PlanetCardContainer() {
       const updatedPlanetsData = [...planetsData, ...planets];
       console.log("Updated planets data:", updatedPlanetsData);
       setPlanetsData(updatedPlanetsData);
-      setNextUrl(data.next);
+      setNextPlanetsUrl(data.next);
       setFetchCount(0);
 
       localStorage.setItem('planetsData', JSON.stringify(updatedPlanetsData));
-      localStorage.setItem('nextUrl', data.next);
+      localStorage.setItem('nextPlanetsUrl', data.next);
     } catch (error) {
       console.error('Error fetching planets:', error);
     }
@@ -72,7 +74,7 @@ export default function PlanetCardContainer() {
 
   const handleSeeMore = () => {
     console.log('See More fetchCount value:', fetchCount)
-    console.log('nextUrl value:', nextUrl)
+    console.log('nextPlanetsUrl value:', nextPlanetsUrl)
     if (fetchCount === 0) {
       setFetchCount(1);
       setVisiblePlanetCount((prevCount) => {
@@ -84,8 +86,8 @@ export default function PlanetCardContainer() {
   };
 
   const handleFetchMore = (initialUrl) => {
-    if ((nextUrl || initialUrl) && fetchCount === 0) {
-      fetchPlanets(nextUrl || initialUrl);
+    if ((nextPlanetsUrl || initialUrl) && fetchCount === 0) {
+      fetchPlanets(nextPlanetsUrl || initialUrl);
       setFetchCount(1);
       initialUrl=null;
     }

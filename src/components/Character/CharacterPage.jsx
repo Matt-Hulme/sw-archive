@@ -5,7 +5,7 @@ import SpeciesImageArray from '../Species/SpeciesImageArray';
 import PlanetsImageArray from '../Planet/PlanetImageArray';
 import FilmImageArray from '../Film/FilmImageArray';
 import StarshipImageArray from '../Starship/StarshipImageArray';
-import VehicleImageArray from '../Vehicle/VehicleImageArray'; // Import the VehicleImageArray
+import VehicleImageArray from '../Vehicle/VehicleImageArray';
 
 export default function CharacterPage() {
   const [characterData, setCharacterData] = useState(null);
@@ -103,6 +103,7 @@ export default function CharacterPage() {
           return {
             name: filmData.title,
             id: filmId,
+            episodeId: filmData.episode_id,
             image: matchingFilmImage ? matchingFilmImage.image : null,
           };
         });
@@ -113,28 +114,23 @@ export default function CharacterPage() {
 
         // Fetch data for starships
         const starshipPromises = updatedCharacterData.starships.map(async (starshipUrl) => {
-          try {
-            const starshipResponse = await fetch(starshipUrl);
-            const starshipData = await starshipResponse.json();
+          const starshipResponse = await fetch(starshipUrl);
+          const starshipData = await starshipResponse.json();
 
-            // Extract the ID from the starship URL
-            const starshipId = starshipUrl.split('/').slice(-2, -1)[0];
+          // Extract the ID from the starship URL
+          const starshipId = starshipUrl.split('/').slice(-2, -1)[0];
 
-            // Find the corresponding image from 'StarshipImageArray' using the ID
-            const matchingStarshipImage = StarshipImageArray.find(
-              (img) => img.id === parseInt(starshipId, 10)
-            );
+          // Find the corresponding image from 'StarshipImageArray' using the ID
+          const matchingStarshipImage = StarshipImageArray.find(
+            (img) => img.id === parseInt(starshipId, 10)
+          );
 
-            // Return the starship data with name, ID, and image
-            return {
-              name: starshipData.name,
-              id: starshipId,
-              image: matchingStarshipImage ? matchingStarshipImage.image : null,
-            };
-          } catch (error) {
-            console.error('Error fetching starship data:', error);
-            return null; // Handle the error gracefully if needed
-          }
+          // Return the starship data with name, ID, and image
+          return {
+            name: starshipData.name,
+            id: starshipId,
+            image: matchingStarshipImage ? matchingStarshipImage.image : null,
+          };
         });
 
         const starshipsData = await Promise.all(starshipPromises);
@@ -142,29 +138,24 @@ export default function CharacterPage() {
         updatedCharacterData.starships = starshipsData;
 
         // Fetch data for vehicles (similar to starships)
-        const vehiclePromises = updatedCharacterData.vehicles.map(async (vehicleUrl) => {
-          try {
-            const vehicleResponse = await fetch(vehicleUrl);
-            const vehicleData = await vehicleResponse.json();
+        const vehiclePromises = updatedCharacterData.vehicles.map(async(vehicleUrl) => {
+          const vehicleResponse = await fetch(vehicleUrl);
+          const vehicleData = await vehicleResponse.json();
 
-            // Extract the ID from the vehicle URL
-            const vehicleId = vehicleUrl.split('/').slice(-2, -1)[0];
+          // Extract the ID from the vehicle URL
+          const vehicleId = vehicleUrl.split('/').slice(-2, -1)[0];
 
-            // Find the corresponding image from 'VehicleImageArray' using the ID
-            const matchingVehicleImage = VehicleImageArray.find(
-              (img) => img.id === parseInt(vehicleId, 10)
-            );
+          // Find the corresponding image from 'VehicleImageArray' using the ID
+          const matchingVehicleImage = VehicleImageArray.find(
+            (img) => img.id === parseInt(vehicleId, 10)
+          );
 
-            // Return the vehicle data with name, ID, and image
-            return {
-              name: vehicleData.name,
-              id: vehicleId,
-              image: matchingVehicleImage ? matchingVehicleImage.image : null,
-            };
-          } catch (error) {
-            console.error('Error fetching vehicle data:', error);
-            return null; // Handle the error gracefully if needed
-          }
+          // Return the vehicle data with name, ID, and image
+          return {
+            name: vehicleData.name,
+            id: vehicleId,
+            image: matchingVehicleImage ? matchingVehicleImage.image : null,
+          };
         });
 
         const vehiclesData = await Promise.all(vehiclePromises);

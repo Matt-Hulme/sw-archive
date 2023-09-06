@@ -206,7 +206,7 @@ export default function FilmPage() {
 
   return (
     <div className="FilmPage">
-      <h2>{selectedFilm.name}</h2>
+      <h1>{selectedFilm.name}</h1>
       <img className="FilmPageImage" src={filmImage.image} alt="Film" />
     </div>
   );

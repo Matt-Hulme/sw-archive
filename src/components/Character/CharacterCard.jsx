@@ -1,10 +1,11 @@
 import React from 'react';
-import CharacterImageArray from './CharacterImageArray'
+import CharacterImageArray from './CharacterImageArray';
 
 export default function CharacterCard({ character }) {
+  const characterImage = CharacterImageArray.find(img => img.id == character.id);
 
   return (
-    <div className="CharacterCard" style={{ backgroundImage: `url(${CharacterImageArray[character.id - 1]}`}}>
+    <div className="CharacterCard" style={{ backgroundImage: `url(${characterImage ? characterImage.image : '/src/assets/images/Image-Not-Found-2.jpg'})` }}>
       <h3>{character.name}</h3>
     </div>
   );

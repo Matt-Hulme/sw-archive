@@ -18,7 +18,6 @@ export default function CharacterCardContainer() {
     if (cachedCharactersData) {
       const parsedData = JSON.parse(cachedCharactersData);
       setCharactersData(parsedData);
-      console.log('CACHE VALUE DATA:', parsedData)
 
       const cachedVisibleCharacterCount = localStorage.getItem('visibleCharacterCount');
       if (cachedVisibleCharacterCount) {
@@ -28,7 +27,6 @@ export default function CharacterCardContainer() {
       const cachedNextCharactersUrl = localStorage.getItem('nextCharactersUrl');
       if (cachedNextCharactersUrl) {
         setNextCharactersUrl(cachedNextCharactersUrl);
-        console.log('CACHE VALUE COUNT:', parsedData);
       }
     } else {
       handleFetchMore('https://swapi.dev/api/people/');
@@ -64,7 +62,6 @@ export default function CharacterCardContainer() {
     }
     setIsDataLoaded(true);
     setButtonText("See More");
-    console.log(charactersData);
   };
 
   const handleSeeMoreAndFetchMore = () => {

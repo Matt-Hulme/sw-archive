@@ -7,22 +7,24 @@ export default function StarshipPage() {
   const location = useLocation();
 
   const starshipsData = location.state?.starshipsData || [];
-  const selectedStarship = starshipsData.find((starship) => starship.id == parseInt(starshipId, 10));
-  console.log('Starships Data:', starshipsData)
+  console.log('starshipsData:', starshipsData);
+
+
+
+  let selectedStarship = [];
+  starshipsData.length > 1 ? selectedStarship = starshipsData.find((starship) => starship.id == parseInt(starshipId, 10)) : selectedStarship = starshipsData;
   console.log('selectedStarship:', selectedStarship)
  
   if (!selectedStarship) {
     return <div>Starship not found.</div>;
   }
 
-  const starshipArrayId = selectedStarship.arrayid;
-  console.log('Array Id:', starshipArrayId)
-  const starshipImage = StarshipImageArray[starshipArrayId];
+  const starshipImage = StarshipImageArray.find(img => img.id == starshipId)
 
   return (
     <div className="StarshipPage">
       <h2>{selectedStarship.name}</h2>
-      <img className="StarshipPageImage" src={starshipImage} alt="Starship" />
+      <img className="StarshipPageImage" src={starshipImage.image} alt="Starship" />
     </div>
   );
 }

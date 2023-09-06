@@ -19,6 +19,7 @@ export default function SpeciesCardContainer() {
     if (cachedSpeciesData) {
       const parsedData = JSON.parse(cachedSpeciesData);
       setSpeciesData(parsedData);
+      console.log('speciesData:', speciesData)
 
       const cachedVisibleSpeciesCount = localStorage.getItem('visibleSpeciesCount');
       if (cachedVisibleSpeciesCount) {

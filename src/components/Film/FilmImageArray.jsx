@@ -6,12 +6,12 @@ import FilmImage5 from '../../assets/Images/FilmCardImages/5.webp';
 import FilmImage6 from '../../assets/Images/FilmCardImages/6.webp';
 
 const FilmImageArray = [
-  FilmImage1,
-  FilmImage2,
-  FilmImage3,
-  FilmImage4,
-  FilmImage5,
-  FilmImage6
+  { id:1, image: FilmImage1 },
+  { id:2, image: FilmImage2 },
+  { id:3, image: FilmImage3 },
+  { id:4, image: FilmImage4 },
+  { id:5, image: FilmImage5 },
+  { id:6, image: FilmImage6 }
 ]
 
 export default FilmImageArray;

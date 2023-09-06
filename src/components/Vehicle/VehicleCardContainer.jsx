@@ -4,7 +4,6 @@ import VehicleCard from './VehicleCard.jsx'
 
 export default function VehicleCardContainer() {
   const [visibleVehicleCount, setVisibleVehicleCount] = useState(10);
-  const [vehicleArrayId, setVehicleArrayId] = useState (0);
   const [vehiclesData, setVehiclesData] = useState([]);
   const [nextVehiclesUrl, setNextVehiclesUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
@@ -31,19 +30,13 @@ export default function VehicleCardContainer() {
     } else {
       handleFetchMore('https://swapi.dev/api/vehicles/');
     }
-
-    const maxArrayId = vehiclesData.reduce(
-      (maxId, vehicle) => Math.max(maxId, vehicle.arrayid),
-      vehicleArrayId // Initialize with the current value of vehicleArrayId
-    );
-    setVehicleArrayId(maxArrayId); // Update vehicleArrayId
   
     if (navigate.state && navigate.state.visibleVehicleCount) {
       setVisibleVehicleCount(navigate.state.visibleVehicleCount);
       setFetchCount(0); 
     }
   
-  }, [navigate, visibleVehicleCount. vehiclesData, vehicleArrayId]);
+  }, [navigate, visibleVehicleCount. vehiclesData]);
   
 
   const fetchVehicles = async (url) => {
@@ -51,15 +44,9 @@ export default function VehicleCardContainer() {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      let maxArrayId = vehiclesData.reduce(
-        (maxId, vehicle) => Math.max(maxId, vehicle.arrayid),
-        0
-      )
-      maxArrayId > 8 ? maxArrayId = maxArrayId + 1 : maxArrayId;
       const vehicles = data.results.map((vehicle, index) => ({
         name: vehicle.name,
         id: vehicle.url.split("/").slice(0, -1).pop(),
-        arrayid: maxArrayId + index // Calculate arrayid based on maxArrayId
       }));
       const updatedVehiclesData = [...vehiclesData, ...vehicles];
       console.log("Updated vehicles data:", updatedVehiclesData);
@@ -119,7 +106,7 @@ export default function VehicleCardContainer() {
           </Link>
           ))}
       </div>
-      {isDataLoaded && visibleVehicleCount > 0 && visibleVehicleCount < 36 && (
+      {isDataLoaded && visibleVehicleCount > 0 && visibleVehicleCount < 39 && (
         <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
           {buttonText}
         </button>

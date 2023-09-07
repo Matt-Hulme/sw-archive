@@ -73,16 +73,15 @@ export default function CharacterPage() {
           console.log('HOMEWORLD DATA:', homeworldData);
 
           const homeworldId = homeworldData.url.split('/').slice(-2, -1)[0];
-          const matchingImage = PlanetsImageArray.find(
+          const matchingHomeworldImage = PlanetsImageArray.find(
             (img) => img.id === parseInt(homeworldId, 10)
           );
 
-          if (matchingImage) {
+          if (matchingHomeworldImage) {
             updatedCharacterData.homeworld = {
               id: homeworldId,
               name: homeworldData.name,
-              image: matchingImage.image,
-              url: updatedCharacterData.homeworld,
+              image: matchingHomeworldImage.image,
             };
           }
         }

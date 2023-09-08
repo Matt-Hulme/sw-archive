@@ -20,8 +20,10 @@ export default function FilmPage() {
   if (filmsData.length > 1) {
     selectedFilm = filmsData.find((film) => film.id == parseInt(filmId, 10));
   } else {
-    selectedFilm = filmsData[0];
+    selectedFilm = filmsData;
   }
+
+  console.log('selectedFilm:', selectedFilm)
 
   selectedFilm.UrlId = null
   switch (selectedFilm.id) {
@@ -184,6 +186,7 @@ export default function FilmPage() {
         updatedFilmData.species = speciesData;
 
         setFilmData(updatedFilmData);
+        
       } catch (error){
         console.error('Error fetching Film data:', error);
       }

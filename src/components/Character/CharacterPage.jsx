@@ -162,6 +162,7 @@ export default function CharacterPage() {
         updatedCharacterData.vehicles = vehiclesData;
 
         setCharacterData(updatedCharacterData);
+        
       } catch (error) {
         console.error('Error fetching character data:', error);
       }

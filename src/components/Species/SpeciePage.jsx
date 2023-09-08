@@ -116,6 +116,7 @@ export default function SpeciePage() {
         updatedSpecieData.films = filmsData;
 
         setSpecieData(updatedSpecieData);
+        
       } catch (error){
         console.error('Error fetching Species Data:', error);
       }

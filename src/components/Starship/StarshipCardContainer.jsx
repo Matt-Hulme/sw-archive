@@ -39,7 +39,7 @@ export default function StarshipCardContainer() {
       setFetchCount(0); 
     }
   
-  }, [navigate, visibleStarshipCount. starshipsData, starshipArrayId]);
+  }, [navigate, visibleStarshipCount. starshipsData]);
   
 
   const fetchStarships = async (url) => {

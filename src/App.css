@@ -198,7 +198,7 @@ a{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: white;
+  background-color: rgba(255, 255, 255, .10);
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -225,12 +225,15 @@ a{
   height: 100%;
   display: flex;
   justify-content: center;
+  background-color: rgba(255, 255, 255, .10);
 
 }
 
 .CharacterPagePanel1{
   text-transform: capitalize;
   margin-left: 20px;
+  
+
 }
 
 
@@ -238,7 +241,7 @@ a{
 .CharacterPagePanel2 {
   flex: 1;
   /* background-color: rgba(255, 255, 255, .10); */
-  background-color: red;
+
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -257,7 +260,7 @@ a{
 
 .CharacterPagePanel3{
   flex: 1;
-  background-color: grey;
+
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -268,7 +271,7 @@ a{
 
 .CharacterPagePanel4{
   flex: 1;
-  background-color: green;
+
   display: flex;
   flex-direction: column;
   text-align: center;

@@ -123,8 +123,19 @@ export default function PlanetPage() {
 
   return (
     <div className="PlanetPage">
-      {planetId !== '28' ? <h2>{selectedPlanet.name}</h2> : null}
-      <img className="PlanetPageImage" src={planetImage.image} alt="Planet" />
+      <div className="PlanetPageContainer">
+        <div className="PlanetPageMain">
+          <img className="PlanetPageImage" src={planetImage.image} alt="Planet"/>
+          <div className ="PlanetPagePanel1">
+          </div>
+        </div>
+        <div className="PlanetPageLower">
+          <div className="PlanetPagePanel2">
+          </div>
+          <div className="PlanetPagePanel3">
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

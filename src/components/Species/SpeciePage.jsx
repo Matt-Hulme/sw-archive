@@ -133,13 +133,24 @@ export default function SpeciePage() {
     return <div>Species not found.</div>;
   }
 
-  const speciesImage = SpeciesImageArray.find(img => img.id == speciesId)
-  console.log('speciesImage:', speciesImage)
+  const specieImage = SpeciesImageArray.find(img => img.id == speciesId)
+  console.log('specieImage:', specieImage)
 
   return (
     <div className="SpeciePage">
-      <h2>{selectedSpecies.name}</h2>
-      <img className="SpeciesPageImage" src={speciesImage.image} alt="Species" />
+      <div className="SpeciePageContainer">
+        <div className="SpeciePageMain">
+          <img className="SpeciePageImage" src={specieImage.image} alt="Specie"/>
+          <div className ="SpeciePagePanel1">
+          </div>
+        </div>
+        <div className="SpeciePageLower">
+          <div className="SpeciePagePanel2">
+          </div>
+          <div className="SpeciePagePanel3">
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -43,7 +43,7 @@ export default function StarshipPage() {
           speed: data.max_atmosphering_speed,
           crew: data.crew,
           passengers: data.passengers,
-          capacity: data.cargo_capacity,
+          cargoCapacity: data.cargo_capacity,
           consumables: data.consumables,
           hyperdrive: data.hyperdrive_rating,
           MGLT: data.MGLT,
@@ -125,8 +125,19 @@ export default function StarshipPage() {
 
   return (
     <div className="StarshipPage">
-      <h2>{selectedStarship.name}</h2>
-      <img className="StarshipPageImage" src={starshipImage.image} alt="Starship" />
+      <div className="StarshipPageContainer">
+        <div className="StarshipPageMain">
+          <img className="StarshipPageImage" src={starshipImage.image} alt="Starship"/>
+          <div className ="StarshipPagePanel1">
+          </div>
+        </div>
+        <div className="StarshipPageLower">
+          <div className="StarshipPagePanel2">
+          </div>
+          <div className="StarshipPagePanel3">
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -209,8 +209,25 @@ export default function FilmPage() {
 
   return (
     <div className="FilmPage">
-      <h1>{selectedFilm.name}</h1>
-      <img className="FilmPageImage" src={filmImage.image} alt="Film" />
+      <div className="FilmPageContainer">
+        <div className="FilmPageMain">
+          <img className="FilmPageImage" src={filmImage.image} alt="Film"/>
+          <div className ="FilmPagePanel1">
+          </div>
+        </div>
+        <div className="FilmPageLower">
+          <div className="FilmPagePanel2">
+          </div>
+          <div className="FilmPagePanel3">
+          </div>
+          <div className="FilmPagePanel4">
+          </div>
+          <div className="FilmPagePanel5">
+          </div>
+          <div className="FilmPagePanel6">
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

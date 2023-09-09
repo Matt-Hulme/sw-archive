@@ -21,7 +21,7 @@ export default function CharacterPage() {
   if (charactersData.length > 1) {
     selectedCharacter = charactersData.find((character) => character.id == parseInt(characterId, 10));
   } else {
-    selectedCharacter = charactersData[0];
+    selectedCharacter = charactersData;
   }
   
   console.log('selectedCharacter:', selectedCharacter);

@@ -260,7 +260,6 @@ a{
 
 .CharacterPagePanel3{
   flex: 1;
-
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -271,7 +270,6 @@ a{
 
 .CharacterPagePanel4{
   flex: 1;
-
   display: flex;
   flex-direction: column;
   text-align: center;

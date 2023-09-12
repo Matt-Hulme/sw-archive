@@ -201,12 +201,12 @@ a{
   background-color: rgba(255, 255, 255, .10);
   overflow-y: auto;
   overflow-x: hidden;
+  border: 1px solid white;
 }
 
 
 
 .CharacterPageMain h3 {
-
   font-size: 30px;
 
 }
@@ -232,123 +232,166 @@ a{
 .CharacterPagePanel1{
   text-transform: capitalize;
   margin-left: 20px;
-  
-
+  border: 1px
 }
 
 
 
 .CharacterPagePanel2 {
+  height: 100%;
   flex: 1;
-  /* background-color: rgba(255, 255, 255, .10); */
-
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   text-align: center;
-  align-items: center; /* Center film images horizontally */
-  overflow-y: auto; /* Enable scrolling if there are too many films */
+  align-items: center;  
+  position: relative;
 }
 
-.CharacterPagePanel2 h1{
-  margin-top: 3px;
+.CharacterPagePanel2 h1{  flex: 1;
+  height: 12%;
+  margin: 0;
   padding: 0px 8px;
-  background-color: rgba(0, 0, 0, .75);
   text-transform: capitalize;
-  position: fixed;
+  position: relative;
+  z-index: 2;
 }
 
 
 .CharacterPagePanel3{
+  height: 100%;
   flex: 1;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   text-align: center;
-  align-items: center; /* Center film images horizontally */
-  overflow-y: auto;
-  
+  align-items: center;  
 }
+
+.CharacterPagePanel3 h1{
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+}
+
 
 .CharacterPagePanel4{
   flex: 1;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
   text-align: center;
-  align-items: center; /* Center film images horizontally */
-  overflow-y: auto;
-}
-
-.FilmList {
-  margin-top: 10px;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap; /* Wrap films to the next row when necessary */
-  justify-content: center; /* Center films horizontally in the container */
   align-items: center;
 }
 
+.CharacterPagePanel4 h1{
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+}
+
+.MainPanelContainer div{
+  padding-top: 10px;
+}
+
+.FilmList {
+  height: 88%;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
 .FilmListItem {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 200px;
   max-height: 100%;
   width: 50%;
-  padding: 10px; /* Add spacing between films */
+  padding: 10px;
+  margin: 10px;
   text-align: center;
   display: flex;
-  flex-direction: column; /* Display film name below the image */
-  align-items: center; /* Center film items vertically */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 .FilmListItem img {
-  max-width: 100px; /* Adjust the maximum width of film images */
-  max-height: 100px; /* Adjust the maximum height of film images */
+  max-width: 200px;
+  max-height: 200px;
 }
 
-/* Vehicle List */
+
 .VehicleList {
+  height: 88%;
+  width: 100%;
   list-style: none;
-  padding: 0;
   display: flex;
-  flex-wrap: wrap; /* Wrap films to the next row when necessary */
-  justify-content: center; /* Center films horizontally in the container */
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .VehicleListItem {
-  margin: 5px 0;
-  padding: 5px;
-  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 200px;
+  max-height: 100%;
+  width: 50%;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .VehicleListItem img {
-  max-width: 100px; /* Adjust the maximum width of film images */
-  max-height: 100px; /* Adjust the maximum height of film images */
+  max-width: 150px;
+  max-height: 150px;
 }
 
-
-
-/* Starship List */
 .StarshipList {
+  height: 88%;
+  width: 100%;
   list-style: none;
-  padding: 0;
   display: flex;
-  flex-wrap: wrap; /* Wrap films to the next row when necessary */
-  justify-content: center; /* Center films horizontally in the container */
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .StarshipListItem {
-  padding: 10px; /* Add spacing between films */
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 100%;
+  width: auto;
+  padding: 10px;
   text-align: center;
   display: flex;
-  flex-direction: column; /* Display film name below the image */
-  align-items: center; /* Center film items vertically */
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 .StarshipListItem img {
-  max-width: 100px; /* Adjust the maximum width of film images */
-  max-height: 100px; /* Adjust the maximum height of film images */
+  max-width: 150px;
+  max-height: 150px;
 }
+
 
 
 

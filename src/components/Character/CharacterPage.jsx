@@ -193,7 +193,7 @@ export default function CharacterPage() {
           <div className="CharacterPagePanel1">
             <h1>{selectedCharacter.name}</h1>
             {characterData && (
-              <div>
+              <div className="MainPanelContainer">
                 {characterData.species.length !== 0 && (
                   <div style={{ whiteSpace: 'nowrap' }}>
                     Species:&nbsp;
@@ -211,7 +211,8 @@ export default function CharacterPage() {
                 <div>Skin Color: {characterData.skinColor}</div>
                 <div>Birth Year: {characterData.birthYear}</div>
                 <div>Gender: {characterData.gender}</div>
-                <div style={{ whiteSpace: 'nowrap' }}>
+                {characterData.homeworld.length !== 0 && (
+                  <div style={{ whiteSpace: 'nowrap' }}>
                   Homeworld:&nbsp;
                   <Link
                     to={{pathname: `/planets/${characterData.homeworld.id}`}}
@@ -220,6 +221,7 @@ export default function CharacterPage() {
                     {characterData.homeworld.name}
                   </Link>
                 </div>
+                )}
               </div>
             )}
           </div>

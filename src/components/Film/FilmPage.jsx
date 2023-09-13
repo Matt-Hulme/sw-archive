@@ -213,6 +213,13 @@ export default function FilmPage() {
         <div className="FilmPageMain">
           <img className="FilmPageImage" src={filmImage.image} alt="Film"/>
           <div className ="FilmPagePanel1">
+            <h1>{selectedFilm.name}</h1>
+            {filmData && (
+              <div className="FilmMainPanelContainer">
+                
+              </div>
+                
+            )}
           </div>
         </div>
         <div className="FilmPageLower">

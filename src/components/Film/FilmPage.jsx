@@ -216,14 +216,32 @@ export default function FilmPage() {
             <h1>{selectedFilm.name}</h1>
             {filmData && (
               <div className="FilmMainPanelContainer">
-                
+                <div>Director: {filmData.director}</div>
+                <div>Producer: {filmData.producer}</div>
+                <div>Release Date: {filmData.releaseDate}</div>
+                <div>Opening Crawl: {filmData.openingCrawl}</div>
               </div>
-                
             )}
           </div>
         </div>
         <div className="FilmPageLower">
           <div className="FilmPagePanel2">
+            <h1>Characters</h1>
+              {filmData && (
+                <div className="CharacterList">
+                  {filmData.characters.map((character, index) => (
+                    <div className="Character" key={index}>
+                      <Link
+                        to ={{pathname: `/characters/${character.id}`}}
+                        state ={{charactersData: filmData.characters}}
+                      >
+                        {character.image && <img src={character.image} />} 
+                      <div>{character.name}</div>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
           </div>
           <div className="FilmPagePanel3">
           </div>

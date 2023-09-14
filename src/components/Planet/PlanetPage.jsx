@@ -131,8 +131,40 @@ export default function PlanetPage() {
         </div>
         <div className="PlanetPageLower">
           <div className="PlanetPagePanel2">
+            <h1>Characters</h1>
+            {planetData && (
+              <div className="CharacterList">
+                {planetData.characters.map((character, index) => (
+                  <div className="Character" key={index}>
+                    <Link
+                      to ={{pathname: `/characters/${character.id}`}}
+                      state ={{charactersData: planetData.characters}}
+                    >
+                      {character.image && <img src={character.image} />} 
+                    <div>{character.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="PlanetPagePanel3">
+            <h1>Films</h1>
+            {planetData && (
+              <div className="FilmList">
+                {planetData.films.map((film) => (
+                  <div className="FilmListItem" key={film.id}>
+                    <Link
+                      to={{pathname: `/films/${film.id}`}}
+                      state={{ filmsData: planetData.films}}
+                    >
+                      {film.image && <img src={film.image} alt={film.name} />}
+                      <div>{film.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -146,8 +146,40 @@ export default function SpeciePage() {
         </div>
         <div className="SpeciePageLower">
           <div className="SpeciePagePanel2">
+            <h1>Characters</h1>
+            {specieData && (
+              <div className="CharacterList">
+                {specieData.characters.map((character, index) => (
+                  <div className="Character" key={index}>
+                    <Link
+                      to ={{pathname: `/characters/${character.id}`}}
+                      state ={{charactersData: specieData.characters}}
+                    >
+                      {character.image && <img src={character.image} />} 
+                    <div>{character.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="SpeciePagePanel3">
+            <h1>Films</h1>
+            {specieData && (
+              <div className="FilmList">
+                {specieData.films.map((film) => (
+                  <div className="FilmListItem" key={film.id}>
+                    <Link
+                      to={{pathname: `/films/${film.id}`}}
+                      state={{ filmsData: specieData.films}}
+                    >
+                      {film.image && <img src={film.image} alt={film.name} />}
+                      <div>{film.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

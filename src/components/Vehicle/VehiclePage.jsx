@@ -45,12 +45,12 @@ export default function VehiclePage() {
           cargoCapacity: data.cargo_capacity,
           consumables: data.consumables,
           class: data.vehicle_class,
-          pilots: data.pilots,
+          characters: data.pilots,
           films: data.films,
         }
 
-        if (updatedVehicleData.pilots.length !== 0){
-          const pilotsPromises = updatedVehicleData.pilots.map(async (pilotUrl) => {
+        if (updatedVehicleData.characters.length !== 0){
+          const pilotsPromises = updatedVehicleData.characters.map(async (pilotUrl) => {
             const pilotResponse = await fetch(pilotUrl);
             const pilotData = await pilotResponse.json();
 
@@ -68,7 +68,7 @@ export default function VehiclePage() {
           });
           const pilotsData = await Promise.all(pilotsPromises);
 
-          updatedVehicleData.pilots = pilotsData;
+          updatedVehicleData.characters = pilotsData;
         };
 
         const filmsPromises = updatedVehicleData.films.map(async (filmUrl) =>{
@@ -126,8 +126,40 @@ export default function VehiclePage() {
         </div>
         <div className="VehiclePageLower">
           <div className="VehiclePagePanel2">
+            <h1>Pilots</h1>
+            {vehicleData && (
+              <div className="CharacterList">
+                {vehicleData.characters.map((character, index) => (
+                  <div className="Character" key={index}>
+                    <Link
+                      to ={{pathname: `/characters/${character.id}`}}
+                      state ={{charactersData: vehicleData.characters}}
+                    >
+                      {character.image && <img src={character.image} />} 
+                    <div>{character.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-          <div className="VehiclePagePanel3">
+          <div className="StarshipPagePanel3">
+            <h1>Films</h1>
+            {vehicleData && (
+              <div className="FilmList">
+                {vehicleData.films.map((film) => (
+                  <div className="FilmListItem" key={film.id}>
+                    <Link
+                      to={{pathname: `/films/${film.id}`}}
+                      state={{ filmsData: vehicleData.films}}
+                    >
+                      {film.image && <img src={film.image} alt={film.name} />}
+                      <div>{film.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

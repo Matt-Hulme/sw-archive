@@ -48,12 +48,12 @@ export default function StarshipPage() {
           hyperdrive: data.hyperdrive_rating,
           MGLT: data.MGLT,
           class: data.starship_class,
-          pilots: data.pilots,
+          characters: data.pilots,
           films: data.films,
         }
 
-        if (updatedStarshipData.pilots.length !== 0){
-          const pilotsPromises = updatedStarshipData.pilots.map(async (pilotUrl) => {
+        if (updatedStarshipData.characters.length !== 0){
+          const pilotsPromises = updatedStarshipData.characters.map(async (pilotUrl) => {
             const pilotResponse = await fetch(pilotUrl);
             const pilotData = await pilotResponse.json();
 
@@ -71,7 +71,7 @@ export default function StarshipPage() {
           });
           const pilotsData = await Promise.all(pilotsPromises);
           
-          updatedStarshipData.pilots = pilotsData;
+          updatedStarshipData.characters = pilotsData;
         };
         
 
@@ -133,8 +133,40 @@ export default function StarshipPage() {
         </div>
         <div className="StarshipPageLower">
           <div className="StarshipPagePanel2">
+            <h1>Pilots</h1>
+            {starshipData && (
+              <div className="CharacterList">
+                {starshipData.characters.map((character, index) => (
+                  <div className="Character" key={index}>
+                    <Link
+                      to ={{pathname: `/characters/${character.id}`}}
+                      state ={{charactersData: starshipData.characters}}
+                    >
+                      {character.image && <img src={character.image} />} 
+                    <div>{character.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="StarshipPagePanel3">
+            <h1>Films</h1>
+            {starshipData && (
+              <div className="FilmList">
+                {starshipData.films.map((film) => (
+                  <div className="FilmListItem" key={film.id}>
+                    <Link
+                      to={{pathname: `/films/${film.id}`}}
+                      state={{ filmsData: starshipData.films}}
+                    >
+                      {film.image && <img src={film.image} alt={film.name} />}
+                      <div>{film.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

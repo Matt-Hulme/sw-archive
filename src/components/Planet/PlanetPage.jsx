@@ -20,7 +20,7 @@ export default function PlanetPage() {
   let selectedPlanet = null;
 
   if (planetsData.length > 1){
-    console.Consolelog('IF SELECTED')
+    console.log('IF SELECTED')
     selectedPlanet = planetsData.find((planet) => planet.id == parseInt(planetId, 10));
   } else {
     console.log('ELSE SELECTED')

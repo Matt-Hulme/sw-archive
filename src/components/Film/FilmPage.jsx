@@ -75,7 +75,7 @@ export default function FilmPage() {
           const characterResponse = await fetch(characterUrl);
           const characterData = await characterResponse.json();
 
-          const characterId = characterUrl.split('/').slice(-2, -1)[0];
+          const characterId = characterUrl.split('/').slice(-2, -1)[0];``
 
           const matchingCharacterImage = CharacterImageArray.find(
             (img) => img.id === parseInt(characterId, 10)
@@ -227,29 +227,93 @@ export default function FilmPage() {
         <div className="FilmPageLower">
           <div className="FilmPagePanel2">
             <h1>Characters</h1>
-              {filmData && (
-                <div className="CharacterList">
-                  {filmData.characters.map((character, index) => (
-                    <div className="Character" key={index}>
-                      <Link
-                        to ={{pathname: `/characters/${character.id}`}}
-                        state ={{charactersData: filmData.characters}}
-                      >
-                        {character.image && <img src={character.image} />} 
-                      <div>{character.name}</div>
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              )}
+            {filmData && (
+              <div className="CharacterList">
+                {filmData.characters.map((character, index) => (
+                  <div className="Character" key={index}>
+                    <Link
+                      to ={{pathname: `/characters/${character.id}`}}
+                      state ={{charactersData: filmData.characters}}
+                    >
+                      {character.image && <img src={character.image} />} 
+                    <div>{character.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="FilmPagePanel3">
-          </div>
+            <h1>Planets</h1>
+            {filmData && (
+              <div className="PlanetList">
+                {filmData.planets.map ((planet, index) => (
+                  <div className="PlanetListItem" key={index}>
+                    <Link
+                      to ={{pathname: `/planets/${planet.id}`}}
+                      state={{planetsData: filmData.planets}}
+                    >
+                      {planet.image && <img src={planet.image} alt={planet.name} />}
+                      <div>{planet.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
+         </div>
           <div className="FilmPagePanel4">
+            <h1>Species</h1>
+            {filmData && (
+              <div className="SpeciesList">
+                {filmData.species.map((species, index) => (
+                  <div className="SpeciesListItem" key={index}>
+                    <Link
+                      to={{pathname: `/species/${species.id}`}}
+                      state={{speciesData: filmData.species}}
+                    >
+                      {species.image && <img src={species.image} alt={species.name} />}
+                      <div>{species.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="FilmPagePanel5">
+            <h1>Vehicles</h1>
+            {filmData && (
+              <div className="VehicleList">
+                {filmData.vehicles.map((vehicle, index) => (
+                  <div className="VehicleListItem" key={index}>
+                    <Link
+                      to={{pathname: `/vehicles/${vehicle.id}`}}
+                      state={{vehiclesData: filmData.vehicles}}
+                    >
+                      {vehicle.image && <img src={vehicle.image} alt={vehicle.name} />}
+                      <div>{vehicle.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="FilmPagePanel6">
+            <h1>Starships</h1>
+            {filmData && (
+              <div className="StarshipList">
+                {filmData.starships.map((starship, index) => (
+                  <div className="StarshipListItem" key={index}>
+                    <Link
+                      to={{pathname: `/starships/${starship.id}`}}
+                      state={{starshipsData: filmData.starships}}
+                    >
+                      {starship.image && <img src={starship.image} alt={starship.name} />}
+                      <div>{starship.name}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -145,7 +145,7 @@ export default function VehiclePage() {
             {vehicleData && (
               <div className="CharacterList">
                 {vehicleData.characters.map((character, index) => (
-                  <div className="Character" key={index}>
+                  <div className="CharacterListItem" key={index}>
                     <Link
                       to ={{pathname: `/characters/${character.id}`}}
                       state ={{charactersData: vehicleData.characters}}

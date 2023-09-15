@@ -154,7 +154,7 @@ export default function StarshipPage() {
             {starshipData && (
               <div className="CharacterList">
                 {starshipData.characters.map((character, index) => (
-                  <div className="Character" key={index}>
+                  <div className="CharacterListItem" key={index}>
                     <Link
                       to ={{pathname: `/characters/${character.id}`}}
                       state ={{charactersData: starshipData.characters}}

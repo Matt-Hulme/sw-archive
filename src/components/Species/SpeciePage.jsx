@@ -155,7 +155,7 @@ export default function SpeciePage() {
                 <div>Language: {specieData.language}</div>
                 {specieData.homeworld.length !== 0 && (
                   <div>
-                    Homeworld
+                    Homeworld:
                     <Link
                       to={{pathname: `/planets/${specieData.homeworld.id}`}}
                       state={{ planetsData: specieData.homeworld}}
@@ -174,7 +174,7 @@ export default function SpeciePage() {
             {specieData && (
               <div className="CharacterList">
                 {specieData.characters.map((character, index) => (
-                  <div className="Character" key={index}>
+                  <div className="CharacterListItem" key={index}>
                     <Link
                       to ={{pathname: `/characters/${character.id}`}}
                       state ={{charactersData: specieData.characters}}

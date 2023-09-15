@@ -129,7 +129,7 @@ export default function PlanetPage() {
           <div className ="PlanetPagePanel1">
             <h1>{selectedPlanet.name}</h1>
             {planetData && (
-              <div className="FilmMainPanelContainer">
+              <div className="PlanetMainPanelContainer">
                 <div>Rotation: {planetData.rotation_period}</div>
                 <div>Orbital: {planetData.orbital_period}</div>
                 <div>Diameter: {planetData.diameter}</div>
@@ -148,7 +148,7 @@ export default function PlanetPage() {
             {planetData && (
               <div className="CharacterList">
                 {planetData.characters.map((character, index) => (
-                  <div className="Character" key={index}>
+                  <div className="CharacterListItem" key={index}>
                     <Link
                       to ={{pathname: `/characters/${character.id}`}}
                       state ={{charactersData: planetData.characters}}

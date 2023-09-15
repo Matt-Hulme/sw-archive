@@ -240,6 +240,11 @@ a{
   border: 1px
 }
 
+.CharacterMainPanelContainer{
+  height: 88%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 
 .CharacterPagePanel2 {
@@ -308,18 +313,18 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.CharacterListItem {
-  margin-left: auto;
-  margin-right: auto;
+.CharacterListItem {  
+  margin-left: 10px;
+  margin-right: 10px;
   max-width: 200px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
-  margin: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -329,8 +334,9 @@ a{
 }
 
 .CharacterListItem img {
-  max-width: 200px;
-  max-height: 200px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 
@@ -342,19 +348,18 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .FilmListItem {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 226px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
-  margin: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -364,8 +369,9 @@ a{
 }
 
 .FilmListItem img {
-  max-width: 200px;
-  max-height: 200px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 .PlanetList {
@@ -375,19 +381,18 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .PlanetListItem {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   max-width: 200px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
-  margin: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -397,8 +402,9 @@ a{
 }
 
 .PlanetListItem img {
-  max-width: 150px;
-  max-height: 150px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 
@@ -416,13 +422,10 @@ a{
 }
 
 .SpeciesListItem {
-  margin-left: auto;
-  margin-right: auto;
   max-width: 200px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
-  margin: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -431,11 +434,10 @@ a{
   text-align: center;
 }
 
-
-
 .SpeciesListItem img {
-  max-width: auto;
-  max-height: 150px
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 .StarshipList {
@@ -445,31 +447,31 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .StarshipListItem {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   max-width: 200px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
-  margin: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-
 }
 
+
 .StarshipListItem img {
-  max-width: auto;
-  max-height: 150px
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 .VehicleList {
@@ -485,13 +487,12 @@ a{
 }
 
 .VehicleListItem {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   max-width: 200px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
-  margin: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -501,9 +502,17 @@ a{
 }
 
 .VehicleListItem img {
-  max-width: auto;
-  max-height: 150px
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
+
+/* .VehicleListItem div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+} */
 
 
 .CharacterCardContainer {
@@ -567,14 +576,6 @@ a{
   color: #ffbe00;
   overflow-y: auto
 }
-
-.FilmPageImage {
-  max-width: 100%; 
-  max-height: 80vh;
-  object-fit: contain;
-}
-
-
 
 .FilmCardContainer {
   width: 90vw;
@@ -764,9 +765,6 @@ a{
   text-transform: capitalize;
 }
 
-
-
-
 .FilmCard {
   background-position: center;
   display: flex;
@@ -798,8 +796,6 @@ a{
   max-height: 100%;
 }
 
-
-
 .PlanetsPage {
   background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
@@ -819,6 +815,103 @@ a{
   justify-content: center;
   align-items: center;
   color: #ffbe00;
+}
+
+.PlanetPageContainer {
+  width: 80%;
+  height: 80%;
+  /* margin: 10px; */
+  display: flex;
+  flex-direction: column;
+  color: #ffbe00;
+  align-items: center;
+}
+
+
+.PlanetPageMain{
+  flex: 1;
+  width: 70%;
+  max-width: 70%;
+  height: 50%;
+  max-height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, .10);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid white;
+}
+
+.PlanetMainPanelContainer div{
+  padding-top: 10px;
+}
+
+.PlanetPageMain h3 {
+  font-size: 30px;
+}
+
+.PlanetPageImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.PlanetPageLower{
+  flex: 1;
+  max-width: 100%;
+  width: 100%;
+  max-height: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .10);
+}
+
+.PlanetPagePanel1{
+  text-transform: capitalize;
+  margin-left: 20px;
+  border: 1px
+}
+
+.PlanetPagePanel2 {
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+  position: relative;
+}
+
+.PlanetPagePanel2 h1{  
+  flex: 1;
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+  position: relative;
+  z-index: 2;
+}
+
+.PlanetPagePanel3{
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+}
+
+.PlanetPagePanel3 h1{
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
 }
 
 .PlanetCardContainer{
@@ -882,6 +975,111 @@ a{
 
 
 
+.SpeciePageContainer {
+  width: 80%;
+  height: 80%;
+  /* margin: 10px; */
+  display: flex;
+  flex-direction: column;
+  color: #ffbe00;
+  align-items: center;
+}
+
+
+.SpeciePageMain{
+  flex: 1;
+  width: 70%;
+  max-width: 70%;
+  height: 50%;
+  max-height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, .10);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid white;
+}
+
+
+.SpecieMainPanelContainer div{
+  padding-top: 10px;
+}
+
+
+
+
+.SpeciePageMain h3 {
+  font-size: 30px;
+
+}
+
+.SpeciePageImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.SpeciePageLower{
+  flex: 1;
+  max-width: 100%;
+  width: 100%;
+  max-height: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .10);
+}
+
+.SpeciePagePanel1{
+  text-transform: capitalize;
+  margin-left: 20px;
+  border: 1px
+}
+
+
+
+.SpeciePagePanel2 {
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+  position: relative;
+}
+
+.SpeciePagePanel2 h1{  
+  flex: 1;
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+  position: relative;
+  z-index: 2;
+}
+
+
+.SpeciePagePanel3{
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+}
+
+.SpeciePagePanel3 h1{
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+}
+
 .SpeciesCardContainer{
   max-height: 100%;
   height: 85vh;
@@ -924,7 +1122,7 @@ a{
   overflow-y: scroll;
 } */
 
-.SpeciePageContainer{
+/* .SpeciePageContainer{
   overflow-y: scroll;
 }
 
@@ -938,7 +1136,7 @@ a{
 
 .VehiclePageContainer{
   overflow-y: scroll;
-}
+} */
 
 
 
@@ -965,6 +1163,117 @@ a{
   align-items: center;
   color: #ffbe00
 }
+
+
+.StarshipPageContainer {
+  width: 80%;
+  height: 80%;
+  /* margin: 10px; */
+  display: flex;
+  flex-direction: column;
+  color: #ffbe00;
+  align-items: center;
+}
+
+
+.StarshipPageMain{
+  flex: 1;
+  width: 70%;
+  max-width: 70%;
+  height: 50%;
+  max-height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, .10);
+  border: 1px solid white;
+}
+
+.StarshipMainPanelContainer div{
+  padding-top: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.StarshipPageMain h3 {
+  font-size: 30px;
+}
+
+.StarshipPageImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.StarshipPageLower{
+  flex: 1;
+  max-width: 100%;
+  width: 100%;
+  max-height: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .10);
+}
+
+.StarshipPagePanel1{
+  height: 88%;
+  text-transform: capitalize;
+  margin-left: 20px;
+  border: 1px;
+
+}
+
+.StarshipMainPanelContainer{
+  height: 88%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.StarshipPagePanel2 {
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+  position: relative;
+}
+
+.StarshipPagePanel2 h1{  
+  flex: 1;
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+  position: relative;
+  z-index: 2;
+}
+
+
+.StarshipPagePanel3{
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+}
+
+.StarshipPagePanel3 h1{
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+}
+
+
+
 
 .StarshipCardContainer{
   max-height: 100%;
@@ -1003,7 +1312,6 @@ a{
 }
 
 
-
 .VehiclesPage {
   background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
@@ -1026,6 +1334,118 @@ a{
   align-items: center;
   color: #ffbe00
 }
+
+
+.VehiclePageContainer {
+  width: 80%;
+  height: 80%;
+  /* margin: 10px; */
+  display: flex;
+  flex-direction: column;
+  color: #ffbe00;
+  align-items: center;
+}
+
+
+.VehiclePageMain{
+  flex: 1;
+  width: 70%;
+  max-width: 70%;
+  height: 50%;
+  max-height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, .10);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid white;
+}
+
+
+.VehicleMainPanelContainer div{
+  padding-top: 10px;
+}
+
+
+
+
+.VehiclePageMain h3 {
+  font-size: 30px;
+
+}
+
+.VehiclePageImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.VehiclePageLower{
+  flex: 1;
+  max-width: 100%;
+  width: 100%;
+  max-height: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .10);
+}
+
+.VehiclePagePanel1{
+  text-transform: capitalize;
+  margin-left: 20px;
+  border: 1px;
+}
+
+.VehicleMainPanelContainer{
+  height: 88%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.VehiclePagePanel2 {
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+  position: relative;
+}
+
+.VehiclePagePanel2 h1{  
+  flex: 1;
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+  position: relative;
+  z-index: 2;
+}
+
+
+.VehiclePagePanel3{
+  height: 100%;
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;  
+}
+
+.VehiclePagePanel3 h1{
+  height: 12%;
+  margin: 0;
+  padding: 0px 8px;
+  text-transform: capitalize;
+}
+
 
 .VehicleCardContainer{
   max-height: 100%;
@@ -1063,7 +1483,6 @@ a{
   bottom: 3px;
   padding: 6px 10px;
 }
-
 
 
 .SeeMoreButton {

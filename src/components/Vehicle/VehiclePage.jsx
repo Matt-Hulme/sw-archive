@@ -122,6 +122,21 @@ export default function VehiclePage() {
         <div className="VehiclePageMain">
           <img className="VehiclePageImage" src={vehicleImage.image} alt="Vehicle"/>
           <div className ="VehiclePagePanel1">
+            <h1>{selectedVehicle.name}</h1>
+              {vehicleData && (
+                <div className="VehicleMainPanelContainer">
+                  <div>Model: {vehicleData.model}</div>
+                  <div>Manufacturer: {vehicleData.manufacturer}</div>
+                  <div>Cost: {vehicleData.cost}</div>
+                  <div>Length: {vehicleData.length}</div>
+                  <div>Speed: {vehicleData.speed}</div>
+                  <div>Crew: {vehicleData.crew}</div>
+                  <div>Passengers: {vehicleData.passengers}</div>
+                  <div>Cargo Capacity: {vehicleData.cargoCapacity}</div>
+                  <div>Consumables: {vehicleData.consumables}</div>
+                  <div>Class: {vehicleData.class}</div>
+                </div>
+              )}
           </div>
         </div>
         <div className="VehiclePageLower">

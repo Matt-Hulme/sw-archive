@@ -129,6 +129,23 @@ export default function StarshipPage() {
         <div className="StarshipPageMain">
           <img className="StarshipPageImage" src={starshipImage.image} alt="Starship"/>
           <div className ="StarshipPagePanel1">
+            <h1>{selectedStarship.name}</h1>
+            {starshipData && (
+              <div className="StarshipMainPanelContainer">
+                <div>Model: {starshipData.model}</div>
+                <div>Manufacturer: {starshipData.manufacturer}</div>
+                <div>Cost: {starshipData.cost}</div>
+                <div>Length: {starshipData.length}</div>
+                <div>Speed: {starshipData.speed}</div>
+                <div>Crew: {starshipData.crew}</div>
+                <div>Passengers: {starshipData.passengers}</div>
+                <div>Cargo Capacity: {starshipData.cargoCapacity}</div>
+                <div>Consumables: {starshipData.consumables}</div>
+                <div>Hyperdrive: {starshipData.hyperdrive}</div>
+                <div>MGLT: {starshipData.MGLT}</div>
+                <div>Class: {starshipData.class}</div>
+              </div>
+            )}
           </div>
         </div>
         <div className="StarshipPageLower">

@@ -634,9 +634,28 @@ a{
   padding: 6px 10px;
 }
 
+.FilmsPageContainer{
+  overflow-y: scroll;
+}
+
 .SpeciePageContainer{
   overflow-y: scroll;
 }
+
+.PlanetPageContainer{
+  overflow-y: scroll;
+}
+
+.StarshipPageContainer{
+  overflow-y: scroll;
+}
+
+.VehiclePageContainer{
+  overflow-y: scroll;
+}
+
+
+
 
 
 .StarshipsPage {

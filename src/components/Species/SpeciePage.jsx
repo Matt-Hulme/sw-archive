@@ -142,6 +142,30 @@ export default function SpeciePage() {
         <div className="SpeciePageMain">
           <img className="SpeciePageImage" src={specieImage.image} alt="Specie"/>
           <div className ="SpeciePagePanel1">
+            <h1>{selectedSpecies.name}</h1>
+            {specieData && (
+              <div className="SpecieMainPanelContainer">
+                <div>Classification: {specieData.classification}</div>
+                <div>Designation: {specieData.designation}</div>
+                <div>Height: {specieData.height}</div>
+                <div>Skin Colors: {specieData.skin_colors}</div>
+                <div>Hair Colors: {specieData.hair_colors}</div>
+                <div>Eye Colors: {specieData.eye_colors}</div>
+                <div>Lifespan: {specieData.average_lifespan} </div>
+                <div>Language: {specieData.language}</div>
+                {specieData.homeworld.length !== 0 && (
+                  <div>
+                    Homeworld
+                    <Link
+                      to={{pathname: `/planets/${specieData.homeworld.id}`}}
+                      state={{ planetsData: specieData.homeworld}}
+                    >
+                      {specieData.homeworld.name}
+                    </Link>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
         <div className="SpeciePageLower">

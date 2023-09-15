@@ -595,6 +595,7 @@ a{
 }
 
 
+
 .SpeciesCardContainer{
   max-height: 100%;
   height: 85vh;
@@ -633,6 +634,9 @@ a{
   padding: 6px 10px;
 }
 
+.SpeciePageContainer{
+  overflow-y: scroll;
+}
 
 
 .StarshipsPage {

@@ -127,7 +127,20 @@ export default function PlanetPage() {
         <div className="PlanetPageMain">
           <img className="PlanetPageImage" src={planetImage.image} alt="Planet"/>
           <div className ="PlanetPagePanel1">
-          </div>
+            <h1>{selectedPlanet.name}</h1>
+            {planetData && (
+              <div className="FilmMainPanelContainer">
+                <div>Rotation: {planetData.rotation_period}</div>
+                <div>Orbital: {planetData.orbital_period}</div>
+                <div>Diameter: {planetData.diameter}</div>
+                <div>Climate: {planetData.climate}</div>
+                <div>Gravity: {planetData.gravity}</div>
+                <div>Terrain: {planetData.terrain}</div>
+                <div>Surface Water: {planetData.surfaceWater}</div>
+                <div>Population: {planetData.population}</div>
+                </div>
+            )}
+            </div>
         </div>
         <div className="PlanetPageLower">
           <div className="PlanetPagePanel2">

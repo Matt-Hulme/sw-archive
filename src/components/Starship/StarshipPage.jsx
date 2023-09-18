@@ -131,7 +131,7 @@ export default function StarshipPage() {
           <div className ="StarshipPagePanel1">
             <h1>{selectedStarship.name}</h1>
             {starshipData && (
-              <div className="StarshipMainPanelContainer">
+              <div className="StarshipPageMainPanelContainer">
                 <div>Model: {starshipData.model}</div>
                 <div>Manufacturer: {starshipData.manufacturer}</div>
                 <div>Cost: {starshipData.cost}</div>

@@ -144,7 +144,7 @@ export default function SpeciePage() {
           <div className ="SpeciePagePanel1">
             <h1>{selectedSpecies.name}</h1>
             {specieData && (
-              <div className="SpecieMainPanelContainer">
+              <div className="SpeciePageMainPanelContainer">
                 <div>Classification: {specieData.classification}</div>
                 <div>Designation: {specieData.designation}</div>
                 <div>Height: {specieData.height}</div>

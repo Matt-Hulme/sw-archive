@@ -129,7 +129,7 @@ export default function PlanetPage() {
           <div className ="PlanetPagePanel1">
             <h1>{selectedPlanet.name}</h1>
             {planetData && (
-              <div className="PlanetMainPanelContainer">
+              <div className="PlanetPageMainPanelContainer">
                 <div>Rotation: {planetData.rotation_period}</div>
                 <div>Orbital: {planetData.orbital_period}</div>
                 <div>Diameter: {planetData.diameter}</div>

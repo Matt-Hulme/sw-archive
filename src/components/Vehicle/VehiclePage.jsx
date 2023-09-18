@@ -124,7 +124,7 @@ export default function VehiclePage() {
           <div className ="VehiclePagePanel1">
             <h1>{selectedVehicle.name}</h1>
               {vehicleData && (
-                <div className="VehicleMainPanelContainer">
+                <div className="VehiclePageMainPanelContainer">
                   <div>Model: {vehicleData.model}</div>
                   <div>Manufacturer: {vehicleData.manufacturer}</div>
                   <div>Cost: {vehicleData.cost}</div>

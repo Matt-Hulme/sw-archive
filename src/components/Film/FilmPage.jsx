@@ -12,20 +12,23 @@ export default function FilmPage() {
   const { filmId } = useParams();
   const location = useLocation();
 
+  console.log('Location State', location.state.filmsData)
   const filmsData = location.state?.filmsData || [];
   console.log('filmsData:', filmsData);
 
   let selectedFilm = null;
 
+
   if (filmsData.length > 1) {
     selectedFilm = filmsData.find((film) => film.id == parseInt(filmId, 10));
   } else {
-    selectedFilm = filmsData;
+    selectedFilm = filmsData[0];
   }
 
   console.log('selectedFilm:', selectedFilm)
+  console.log('selected Film ID:', selectedFilm.id)
 
-  selectedFilm.UrlId = null
+  selectedFilm.UrlId = null;
   switch (selectedFilm.id) {
     case 1:
       selectedFilm.UrlId = 4;
@@ -49,7 +52,7 @@ export default function FilmPage() {
       break;
   }
 
-  console.log('Film URL Id:', selectedFilm.UrlId)
+console.log('Film URL Id:', selectedFilm.UrlId)
 
   useEffect(() => {
     async function fetchFilmData() {
@@ -215,7 +218,7 @@ export default function FilmPage() {
           <div className ="FilmPagePanel1">
             <h1>{selectedFilm.name}</h1>
             {filmData && (
-              <div className="FilmMainPanelContainer">
+              <div className="FilmPageMainPanelContainer">
                 <div>Director: {filmData.director}</div>
                 <div>Producers: {filmData.producer}</div>
                 <div>Release Date: {filmData.releaseDate}</div>

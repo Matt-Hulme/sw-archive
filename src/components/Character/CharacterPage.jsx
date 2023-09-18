@@ -193,7 +193,7 @@ export default function CharacterPage() {
           <div className="CharacterPagePanel1">
             <h1>{selectedCharacter.name}</h1>
             {characterData && (
-              <div className="CharacterMainPanelContainer">
+              <div className="CharacterPageMainPanelContainer">
                 {characterData.species.length !== 0 && (
                   <div style={{ whiteSpace: 'nowrap' }}>
                     Species:&nbsp;

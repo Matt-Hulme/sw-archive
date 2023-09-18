@@ -615,10 +615,17 @@ a{
   border: 1px solid white;
 }
 
+.FilmPageMainPanelContainer {
+  height: 88%;
+  overflow-y: auto;
+}
 
-.FilmMainPanelContainer div{
+
+.FilmPageMainPanelContainer div{
   padding-top: 10px;
 }
+
+
 
 
 .FilmPageMain h3{
@@ -841,6 +848,12 @@ a{
   overflow-y: auto;
   overflow-x: hidden;
   border: 1px solid white;
+}
+
+.PlanetPageImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .PlanetMainPanelContainer div{

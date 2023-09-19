@@ -11,6 +11,7 @@ export default function CharacterPage() {
   const [characterData, setCharacterData] = useState(null);
   const { characterId } = useParams();
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   const charactersData = location.state?.charactersData || [];
   console.log('charactersData:', charactersData)
@@ -33,6 +34,11 @@ export default function CharacterPage() {
         const response = await fetch(characterUrl);
         const data = await response.json();
         console.log('characterData Initial Fetch:', data);
+
+        if (Object.keys(data).length === 0) {
+          setIsLoading(false); // Set loading to false
+          return; // Exit if no data
+        }
 
         const updatedCharacterData = {
           height: data.height,
@@ -161,6 +167,7 @@ export default function CharacterPage() {
 
         updatedCharacterData.vehicles = vehiclesData;
 
+        setIsLoading(false);
         setCharacterData(updatedCharacterData);
         
       } catch (error) {
@@ -173,6 +180,16 @@ export default function CharacterPage() {
       fetchCharacterData();
     }
   }, [characterId, characterData]);
+
+  if (isLoading) {
+    // Render loading placeholders or animation here
+    return <div>Loading...</div>;
+  }
+
+  if (isLoading) {
+    // Render loading placeholders or animation here
+    return <div>Loading...</div>;
+  }
 
 
   console.log('UPDATED CHARACTER DATA AFTER FETCH:', characterData);

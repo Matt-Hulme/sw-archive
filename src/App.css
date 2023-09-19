@@ -514,6 +514,9 @@ a{
   justify-content: center;
 } */
 
+.NoDataFound{
+  padding-top: 25%;
+}
 
 .CharacterCardContainer {
   max-height: 100%;
@@ -673,7 +676,6 @@ a{
 }
 
 .FilmPagePanel2 h1{  
-  flex: 1;
   height: 12%;
   margin: 0;
   padding: 0px 8px;
@@ -900,7 +902,6 @@ a{
 }
 
 .PlanetPagePanel2 h1{  
-  flex: 1;
   height: 12%;
   margin: 0;
   padding: 0px 8px;
@@ -1065,7 +1066,6 @@ a{
 }
 
 .SpeciePagePanel2 h1{  
-  flex: 1;
   height: 12%;
   margin: 0;
   padding: 0px 8px;
@@ -1257,7 +1257,6 @@ a{
 }
 
 .StarshipPagePanel2 h1{  
-  flex: 1;
   height: 12%;
   margin: 0;
   padding: 0px 8px;
@@ -1431,7 +1430,6 @@ a{
 }
 
 .VehiclePagePanel2 h1{  
-  flex: 1;
   height: 12%;
   margin: 0;
   padding: 0px 8px;

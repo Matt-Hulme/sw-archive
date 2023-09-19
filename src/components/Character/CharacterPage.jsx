@@ -16,7 +16,6 @@ export default function CharacterPage() {
   const charactersData = location.state?.charactersData || [];
   console.log('charactersData:', charactersData)
 
-
   let selectedCharacter = null;
   
   if (charactersData.length > 1) {
@@ -172,6 +171,7 @@ export default function CharacterPage() {
         
       } catch (error) {
         console.error('Error fetching character data:', error);
+        setIsLoading(false); // Set loading to false in case of error
       }
     }
 
@@ -182,19 +182,32 @@ export default function CharacterPage() {
   }, [characterId, characterData]);
 
   if (isLoading) {
-    // Render loading placeholders or animation here
-    return <div>Loading...</div>;
+    // Render loading text while data is being fetched
+    return (
+      <div className="CharacterPage">
+        <div className="CharacterPageContainer">
+          <div className="CharacterPageMain">
+            <div className="CharacterPagePanel1">
+              <h1>Loading Character...</h1>
+            </div>
+          </div>
+          <div className="CharacterPageLower">
+            <div className="CharacterPagePanel2">
+              <h1>Loading Films...</h1>
+            </div>
+            <div className="CharacterPagePanel3">
+              <h1>Loading Vehicles...</h1>
+            </div>
+            <div className="CharacterPagePanel4">
+              <h1>Loading Starships...</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
-
-  if (isLoading) {
-    // Render loading placeholders or animation here
-    return <div>Loading...</div>;
-  }
-
 
   console.log('UPDATED CHARACTER DATA AFTER FETCH:', characterData);
-
-
 
   if (!selectedCharacter) {
     return <div>Character not found.</div>;
@@ -259,6 +272,9 @@ export default function CharacterPage() {
                     </Link>
                   </div>
                 ))}
+                {characterData.films.length === 0 && (
+                  <div className="NoDataFound">No Films Data</div>
+                )}
               </div>
             )}
           </div>
@@ -266,17 +282,21 @@ export default function CharacterPage() {
             <h1>Vehicles</h1>
             {characterData && (
               <div className="VehicleList">
-                {characterData.vehicles.map((vehicle, index) => (
-                  <div className="VehicleListItem" key={index}>
-                    <Link
-                      to={{pathname: `/vehicles/${vehicle.id}`}}
-                      state={{vehiclesData: characterData.vehicles}}
-                    >
-                      {vehicle.image && <img src={vehicle.image} alt={vehicle.name} />}
-                      <div>{vehicle.name}</div>
-                    </Link>
-                  </div>
-                ))}
+                {characterData.vehicles.length === 0 ? (
+                  <div className="NoDataFound">No Vehicle Data</div>
+                ) : (
+                  characterData.vehicles.map((vehicle, index) => (
+                    <div className="VehicleListItem" key={index}>
+                      <Link
+                        to={{pathname: `/vehicles/${vehicle.id}`}}
+                        state={{vehiclesData: characterData.vehicles}}
+                      >
+                        {vehicle.image && <img src={vehicle.image} alt={vehicle.name} />}
+                        <div>{vehicle.name}</div>
+                      </Link>
+                    </div>
+                  ))
+                )}
               </div>
             )}
           </div>
@@ -295,6 +315,9 @@ export default function CharacterPage() {
                     </Link>
                   </div>
                 ))}
+                {characterData.starships.length === 0 && (
+                  <div className="NoDataFound">No Starships Data</div>
+                )}
               </div>
             )}
           </div>

@@ -49,6 +49,7 @@ export default function FilmPage() {
       selectedFilm.UrlId = 3;
       break;
     default:
+      console.log('default case')
       break;
   }
 

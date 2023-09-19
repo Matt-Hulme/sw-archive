@@ -79,7 +79,7 @@ export default function StarshipPage() {
           const filmResponse = await fetch(filmUrl);
           const filmData = await filmResponse.json();
 
-          const filmId = filmUrl.split('/').slice(-2, -1)[0];
+          const filmId = filmData.episode_id;
 
           const matchingFilmImage = FilmImageArray.find(
             (img) => img.id === parseInt(filmId, 10)

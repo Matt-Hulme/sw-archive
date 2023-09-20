@@ -11,6 +11,7 @@ export default function StarshipPage() {
   const [starshipData, setStarshipData] = useState(null);
   const { starshipId } = useParams(); 
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   const starshipsData = location.state?.starshipsData || [];
   console.log('starshipsData:', starshipsData);
@@ -34,6 +35,11 @@ export default function StarshipPage() {
         const response = await fetch(starshipUrl);
         const data = await response.json();
         console.log('starshipData Initial Fetch:', data);
+
+        if (Object.keys(data).length === 0) {
+          setIsLoading(false); // Set loading to false
+          return; // Exit if no data
+        }
 
         const updatedStarshipData = {
           model: data.model,
@@ -96,10 +102,12 @@ export default function StarshipPage() {
 
         updatedStarshipData.films = filmsData;
 
+        setIsLoading(false);
         setStarshipData(updatedStarshipData);
 
       } catch (error){
         console.error('Error fetching starship data:', error);
+        setIsLoading(false);
       }
     }
 
@@ -109,8 +117,28 @@ export default function StarshipPage() {
 
   }, [starshipId, starshipData]);
 
-
-
+  if (isLoading) {
+    return (
+      <div className="StarshipPage">
+        <div className="StarshipPageContainer">
+          <div className="StarshipPageMain">
+            <img className="StarshipPageImage" src={starshipImage.image} alt="Starship"/>
+            <div className ="StarshipPagePanel1">
+              <h1>Starship Loading...</h1>
+            </div>
+          </div>
+          <div className="StarshipPageLower">
+            <div className="StarshipPagePanel2">
+              <h1>Pilots Loading...</h1>
+            </div>
+            <div className="StarshipPagePanel3">
+              <h1>Films Loading...</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
 
   console.log('UPDATED STARSHIP DATA AFTER FETCH:', starshipData);
@@ -164,6 +192,9 @@ export default function StarshipPage() {
                     </Link>
                   </div>
                 ))}
+                {starshipData.characters.length === 0 && (
+                  <div className>No Pilots Data</div>
+                )}
               </div>
             )}
           </div>
@@ -182,6 +213,9 @@ export default function StarshipPage() {
                     </Link>
                   </div>
                 ))}
+                {starshipData.films.length === 0 && (
+                  <div className>No Film Data</div>
+                )}                
               </div>
             )}
           </div>

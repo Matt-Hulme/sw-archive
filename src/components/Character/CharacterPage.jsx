@@ -188,18 +188,18 @@ export default function CharacterPage() {
         <div className="CharacterPageContainer">
           <div className="CharacterPageMain">
             <div className="CharacterPagePanel1">
-              <h1>Loading Character...</h1>
+              <h1>Character Loading...</h1>
             </div>
           </div>
           <div className="CharacterPageLower">
             <div className="CharacterPagePanel2">
-              <h1>Loading Films...</h1>
+              <h1>Films Loading...</h1>
             </div>
             <div className="CharacterPagePanel3">
-              <h1>Loading Vehicles...</h1>
+              <h1>Vehicles Loading...</h1>
             </div>
             <div className="CharacterPagePanel4">
-              <h1>Loading Starships...</h1>
+              <h1>Starships Loading...</h1>
             </div>
           </div>
         </div>
@@ -282,20 +282,19 @@ export default function CharacterPage() {
             <h1>Vehicles</h1>
             {characterData && (
               <div className="VehicleList">
-                {characterData.vehicles.length === 0 ? (
+                {characterData.vehicles.map((vehicle, index) => (
+                  <div className="VehicleListItem" key={index}>
+                    <Link
+                      to={{pathname: `/vehicles/${vehicle.id}`}}
+                      state={{vehiclesData: characterData.vehicles}}
+                    >
+                      {vehicle.image && <img src={vehicle.image} alt={vehicle.name} />}
+                      <div>{vehicle.name}</div>
+                    </Link>
+                  </div>
+                ))}
+                {characterData.vehicles.length === 0 && (
                   <div className="NoDataFound">No Vehicle Data</div>
-                ) : (
-                  characterData.vehicles.map((vehicle, index) => (
-                    <div className="VehicleListItem" key={index}>
-                      <Link
-                        to={{pathname: `/vehicles/${vehicle.id}`}}
-                        state={{vehiclesData: characterData.vehicles}}
-                      >
-                        {vehicle.image && <img src={vehicle.image} alt={vehicle.name} />}
-                        <div>{vehicle.name}</div>
-                      </Link>
-                    </div>
-                  ))
                 )}
               </div>
             )}

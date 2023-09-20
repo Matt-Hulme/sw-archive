@@ -11,6 +11,7 @@ export default function FilmPage() {
   const [filmData, setFilmData] = useState(null);
   const { filmId } = useParams();
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   console.log('Location State', location.state.filmsData)
   const filmsData = location.state?.filmsData || [];
@@ -62,6 +63,11 @@ console.log('Film URL Id:', selectedFilm.UrlId)
         const response = await fetch(filmUrl);
         const data = await response.json();
         console.log('filmData Initial Fetch:', data);
+
+        if (Object.keys(data).length === 0) {
+          setIsLoading(false); // Set loading to false
+          return; // Exit if no data
+        }
 
         const updatedFilmData = {
           director: data.director,
@@ -189,10 +195,12 @@ console.log('Film URL Id:', selectedFilm.UrlId)
 
         updatedFilmData.species = speciesData;
 
+        setIsLoading(false);  
         setFilmData(updatedFilmData);
         
       } catch (error){
         console.error('Error fetching Film data:', error);
+        setIsLoading(false);
       }
     }
 
@@ -201,7 +209,36 @@ console.log('Film URL Id:', selectedFilm.UrlId)
     }
   }, [filmId, filmData]);
 
-
+  if (isLoading){
+    return(
+      <div className="FilmPage">
+        <div className="FilmPageContainer">
+          <div className="FilmPageMain">
+            <div className ="FilmPagePanel1">
+              <h1>Film Loading...</h1>
+            </div>
+          </div>
+          <div className="FilmPageLower">
+            <div className="FilmPagePanel2">
+              <h1>Characters Loading...</h1>
+            </div>
+            <div className="FilmPagePanel3">
+              <h1>Planets Loading...</h1>
+          </div>
+            <div className="FilmPagePanel4">
+              <h1>Species Loading...</h1>
+            </div>
+            <div className="FilmPagePanel5">
+              <h1>Vehicles Loading...</h1>
+            </div>
+            <div className="FilmPagePanel6">
+              <h1>Starships Loading...</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   
   console.log('UPDATED FILM DATA AFTER FETCH:', filmData);
 
@@ -244,6 +281,9 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                     </Link>
                   </div>
                 ))}
+                {filmData.characters.length === 0 && (
+                  <div className>No Characters Data</div>
+                )}
               </div>
             )}
           </div>
@@ -262,6 +302,9 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                     </Link>
                   </div>
                 ))}
+                {filmData.planets.length === 0 && (
+                  <div className>No Planets Data</div>
+                )}
               </div>
             )}
          </div>
@@ -280,6 +323,9 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                     </Link>
                   </div>
                 ))}
+                {filmData.species.length === 0 && (
+                  <div className>No Species Data</div>
+                )}
               </div>
             )}
           </div>
@@ -298,6 +344,9 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                     </Link>
                   </div>
                 ))}
+                {filmData.vehicles.length === 0 && (
+                  <div>No Vehicles Data</div>
+                )}              
               </div>
             )}
           </div>
@@ -316,6 +365,9 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                     </Link>
                   </div>
                 ))}
+                {filmData.starships.length === 0 && (
+                  <div>No Starships Data</div>
+                )}
               </div>
             )}
           </div>

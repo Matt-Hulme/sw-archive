@@ -11,6 +11,7 @@ export default function SpeciePage() {
   const [specieData, setSpecieData] = useState(null);
   const { speciesId } = useParams();
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   const speciesData = location.state?.speciesData || [];
   console.log('speciesData:', speciesData)
@@ -32,6 +33,11 @@ export default function SpeciePage() {
         const response = await fetch(specieUrl);
         const data = await response.json();
         console.log('specieData Initial Fetch:', data);
+
+        if (Object.keys(data).length === 0) {
+          setIsLoading(false); // Set loading to false
+          return; // Exit if no data
+        }
 
         const updatedSpecieData = {
           classification: data.classification,
@@ -115,10 +121,12 @@ export default function SpeciePage() {
 
         updatedSpecieData.films = filmsData;
 
+        setIsLoading(false);
         setSpecieData(updatedSpecieData);
         
       } catch (error){
         console.error('Error fetching Species Data:', error);
+        setIsLoading(false);
       }
     }
 
@@ -126,6 +134,28 @@ export default function SpeciePage() {
       fetchSpecieData();
     }
   }, [speciesId, specieData])
+
+  if (isLoading){
+    return(
+      <div className="SpeciePage">
+        <div className="SpeciePageContainer">
+          <div className="SpeciePageMain">
+            <div className="SpeciePagePanel1">
+              <h1>Species Loading...</h1>
+            </div>
+          </div>
+          <div className="SpeciePageLower">
+            <div className="SpeciePagePanel2">
+              <h1>Characters Loading...</h1>
+            </div>
+            <div className="SpeciePagePanel3">
+              <h1>Films Loading...</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   console.log('UPDATED SPECIE DATA AFTER FETCH:', specieData);
 
@@ -184,6 +214,9 @@ export default function SpeciePage() {
                     </Link>
                   </div>
                 ))}
+                {specieData.characters.length === 0 && (
+                  <div className>No Characters Data</div>
+                )}
               </div>
             )}
           </div>
@@ -202,6 +235,9 @@ export default function SpeciePage() {
                     </Link>
                   </div>
                 ))}
+                {specieData.films.length === 0 && (
+                  <div className>No Film Data</div>
+                )}
               </div>
             )}
           </div>

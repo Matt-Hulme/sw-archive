@@ -12,6 +12,7 @@ export default function PlanetPage() {
   const [planetData, setPlanetData] = useState(null);
   const { planetId } = useParams();
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   const planetsData = location.state?.planetsData || [];
   console.log('planetsData:', planetsData)
@@ -37,6 +38,11 @@ export default function PlanetPage() {
         const response = await fetch(planetUrl);
         const data = await response.json();
         console.log('planetData Initial Fetch:', data);
+
+        if (Object.keys(data).length === 0) {
+          setIsLoading(false); // Set loading to false
+          return; // Exit if no data
+        }
 
         const updatedPlanetData = {
           rotation: data.rotation_period,
@@ -96,10 +102,11 @@ export default function PlanetPage() {
 
         updatedPlanetData.films = filmsData;
 
-
+        setIsLoading(false);
         setPlanetData(updatedPlanetData)       
       } catch (error){
         console.error('Error fetching planet data:', error);
+        setIsLoading(false);
       }
     }
   
@@ -112,6 +119,28 @@ export default function PlanetPage() {
 
   console.log('UPDATED PLANET DATA AFTER FETCH:', planetData);
 
+  if (isLoading) {
+    return (
+      <div className="PlanetPage">
+      <div className="PlanetPageContainer">
+        <div className="PlanetPageMain">
+          <div className ="PlanetPagePanel1">
+            <h1>Planet Loading...</h1>
+          </div>
+        </div>
+        <div className="PlanetPageLower">
+          <div className="PlanetPagePanel2">
+            <h1>Characters Loading...</h1>
+          </div>
+          <div className="PlanetPagePanel3">
+            <h1>Films Loading...</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    );
+  }
 
 
   if (!selectedPlanet) {
@@ -158,6 +187,9 @@ export default function PlanetPage() {
                     </Link>
                   </div>
                 ))}
+                {planetData.characters.length === 0 && (
+                  <div>No Characters Data</div>
+                )}
               </div>
             )}
           </div>
@@ -176,6 +208,9 @@ export default function PlanetPage() {
                     </Link>
                   </div>
                 ))}
+                  {planetData.films.length === 0 && (
+                  <div className>No Film Data</div>
+                )}
               </div>
             )}
           </div>

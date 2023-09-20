@@ -204,17 +204,18 @@ a{
   border: 1px solid white;
 }
 
+.CharacterPageMainPanelContainer{
+  height: 88%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 .CharacterMainPanelContainer div{
   padding-top: 10px;
 }
 
-
-
-
-.CharacterPageMain h3 {
+.CharacterPageMainPanelContainer h3 {
   font-size: 30px;
-
 }
 
 .CharacterPageImage {
@@ -239,13 +240,6 @@ a{
   margin-left: 20px;
   border: 1px
 }
-
-.CharacterMainPanelContainer{
-  height: 88%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
 
 .CharacterPagePanel2 {
   height: 100%;
@@ -621,17 +615,14 @@ a{
 .FilmPageMainPanelContainer {
   height: 88%;
   overflow-y: auto;
+  overflow-x: hidden;
 }
-
 
 .FilmPageMainPanelContainer div{
   padding-top: 10px;
 }
 
-
-
-
-.FilmPageMain h3{
+.FilmPageMainPanelContainer h3{
   font-size: 30px;
 }
 
@@ -858,9 +849,6 @@ a{
   max-height: 100%;
 }
 
-.PlanetMainPanelContainer div{
-  padding-top: 10px;
-}
 
 .PlanetPageMain h3 {
   font-size: 30px;
@@ -1015,15 +1003,18 @@ a{
   border: 1px solid white;
 }
 
+.SpeciePageMainPanelContainer{
+  height: 88%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
-.SpecieMainPanelContainer div{
+.SpeciePageMainPanelContainer div{
   padding-top: 10px;
 }
 
 
-
-
-.SpeciePageMain h3 {
+.SpeciePageMainPanelContainer h3 {
   font-size: 30px;
 
 }
@@ -1202,13 +1193,17 @@ a{
   border: 1px solid white;
 }
 
-.StarshipMainPanelContainer div{
-  padding-top: 10px;
+.StarshipPageMainPanelContainer{
+  height: 88%;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.StarshipPageMain h3 {
+.StarshipPageMainPanelContainer div{
+  padding-top: 10px;
+}
+
+.StarshipPageMainPanelContainer h3 {
   font-size: 30px;
 }
 
@@ -1235,12 +1230,6 @@ a{
   margin-left: 20px;
   border: 1px;
 
-}
-
-.StarshipMainPanelContainer{
-  height: 88%;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 
@@ -1375,12 +1364,19 @@ a{
 }
 
 
-.VehicleMainPanelContainer div{
+.VehiclePageMainPanelContainer{
+  height: 88%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.VehiclePageMainPanelContainer div{
   padding-top: 10px;
 }
 
-
-
+.VehiclePageMainPanelContainer h3 {
+  font-size: 30px;
+}
 
 .VehiclePageMain h3 {
   font-size: 30px;
@@ -1410,11 +1406,6 @@ a{
   border: 1px;
 }
 
-.VehicleMainPanelContainer{
-  height: 88%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 
 
 .VehiclePagePanel2 {
@@ -1434,8 +1425,6 @@ a{
   margin: 0;
   padding: 0px 8px;
   text-transform: capitalize;
-  position: relative;
-  z-index: 2;
 }
 
 

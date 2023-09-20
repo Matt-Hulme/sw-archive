@@ -12,6 +12,7 @@ export default function VehiclePage() {
   const [vehicleData, setVehicleData] = useState(null);
   const { vehicleId } = useParams(); 
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   const vehiclesData = location.state?.vehiclesData || [];
   console.log('vehiclesData:', vehiclesData);
@@ -33,6 +34,11 @@ export default function VehiclePage() {
         const response = await fetch(vehicleUrl);
         const data = await response.json();
         console.log('vehicleData Initial Fetch:', data);
+
+        if (Object.keys(data).length === 0) {
+          setIsLoading(false); // Set loading to false
+          return; // Exit if no data
+        }
 
         const updatedVehicleData = {
           model: data.model,
@@ -92,10 +98,12 @@ export default function VehiclePage() {
 
         updatedVehicleData.films = filmsData;
 
+        setIsLoading(false);
         setVehicleData(updatedVehicleData);
 
       } catch (error){
         console.error('Error fetching vehicle data:', error);
+        setIsLoading(false);
       }
     }
 
@@ -104,6 +112,30 @@ export default function VehiclePage() {
     }
 
   }, [vehicleId, vehicleData]);
+
+  
+  if (isLoading){
+    return (
+      <div className="VehiclePage">
+        <div className="VehiclePageContainer">
+          <div className="VehiclePageMain">
+            <div className ="VehiclePagePanel1">
+              <h1>Vehicle Loading...</h1>
+            </div>
+          </div>
+          <div className="VehiclePageLower">
+            <div className="VehiclePagePanel2">
+              <h1>Pilots Loading...</h1>
+            </div>
+            <div className="StarshipPagePanel3">
+              <h1>Films Loading...</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+    
 
   
   console.log('UPDATED VEHICLE DATA AFTER FETCH:', vehicleData);
@@ -155,10 +187,13 @@ export default function VehiclePage() {
                     </Link>
                   </div>
                 ))}
+                {vehicleData.characters.length === 0 && (
+                  <div>No Pilots Data</div>
+                )}
               </div>
             )}
           </div>
-          <div className="StarshipPagePanel3">
+          <div className="VehiclePagePanel3">
             <h1>Films</h1>
             {vehicleData && (
               <div className="FilmList">
@@ -173,6 +208,9 @@ export default function VehiclePage() {
                     </Link>
                   </div>
                 ))}
+                {vehicleData.films.length === 0 && (
+                  <div>No Film Data</div>
+                )}
               </div>
             )}
           </div>

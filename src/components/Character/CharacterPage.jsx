@@ -273,7 +273,7 @@ export default function CharacterPage() {
                   </div>
                 ))}
                 {characterData.films.length === 0 && (
-                  <div className="NoDataFound">No Films Data</div>
+                  <div>No Films Data</div>
                 )}
               </div>
             )}
@@ -294,7 +294,7 @@ export default function CharacterPage() {
                   </div>
                 ))}
                 {characterData.vehicles.length === 0 && (
-                  <div className="NoDataFound">No Vehicle Data</div>
+                  <div>No Vehicle Data</div>
                 )}
               </div>
             )}
@@ -315,7 +315,7 @@ export default function CharacterPage() {
                   </div>
                 ))}
                 {characterData.starships.length === 0 && (
-                  <div className="NoDataFound">No Starships Data</div>
+                  <div>No Starships Data</div>
                 )}
               </div>
             )}

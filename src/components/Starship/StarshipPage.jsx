@@ -122,7 +122,6 @@ export default function StarshipPage() {
       <div className="StarshipPage">
         <div className="StarshipPageContainer">
           <div className="StarshipPageMain">
-            <img className="StarshipPageImage" src={starshipImage.image} alt="Starship"/>
             <div className ="StarshipPagePanel1">
               <h1>Starship Loading...</h1>
             </div>
@@ -193,7 +192,7 @@ export default function StarshipPage() {
                   </div>
                 ))}
                 {starshipData.characters.length === 0 && (
-                  <div className>No Pilots Data</div>
+                  <div>No Pilots Data</div>
                 )}
               </div>
             )}
@@ -214,7 +213,7 @@ export default function StarshipPage() {
                   </div>
                 ))}
                 {starshipData.films.length === 0 && (
-                  <div className>No Film Data</div>
+                  <div>No Film Data</div>
                 )}                
               </div>
             )}

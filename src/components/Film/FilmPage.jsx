@@ -282,7 +282,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.characters.length === 0 && (
-                  <div className>No Characters Data</div>
+                  <div>No Characters Data</div>
                 )}
               </div>
             )}
@@ -303,7 +303,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.planets.length === 0 && (
-                  <div className>No Planets Data</div>
+                  <div>No Planets Data</div>
                 )}
               </div>
             )}
@@ -324,7 +324,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.species.length === 0 && (
-                  <div className>No Species Data</div>
+                  <div>No Species Data</div>
                 )}
               </div>
             )}

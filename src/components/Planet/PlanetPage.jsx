@@ -209,7 +209,7 @@ export default function PlanetPage() {
                   </div>
                 ))}
                   {planetData.films.length === 0 && (
-                  <div className>No Film Data</div>
+                  <div>No Film Data</div>
                 )}
               </div>
             )}

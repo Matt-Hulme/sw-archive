@@ -215,7 +215,7 @@ export default function SpeciePage() {
                   </div>
                 ))}
                 {specieData.characters.length === 0 && (
-                  <div className>No Characters Data</div>
+                  <div>No Characters Data</div>
                 )}
               </div>
             )}
@@ -236,7 +236,7 @@ export default function SpeciePage() {
                   </div>
                 ))}
                 {specieData.films.length === 0 && (
-                  <div className>No Film Data</div>
+                  <div>No Film Data</div>
                 )}
               </div>
             )}

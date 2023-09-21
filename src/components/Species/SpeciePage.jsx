@@ -53,7 +53,7 @@ export default function SpeciePage() {
           films: data.films,       
         };
         
-        if (updatedSpecieData.homeworld.length !== 0){
+        if (updatedSpecieData?.homeworld?.length !== undefined && updatedSpecieData.homeworld.length !== 0){
           const homeworldResponse = await fetch(updatedSpecieData.homeworld);
           const homeworldData = await homeworldResponse.json();
           console.log('homeworldData Fetch Response:', homeworldData)
@@ -183,7 +183,7 @@ export default function SpeciePage() {
                 <div>Eye Colors: {specieData.eye_colors}</div>
                 <div>Lifespan: {specieData.average_lifespan} </div>
                 <div>Language: {specieData.language}</div>
-                {specieData.homeworld.length !== 0 && (
+                {specieData?.homeworld?.length !== undefined && specieData.homeworld.length !== 0 && (
                   <div>
                     Homeworld:
                     <Link

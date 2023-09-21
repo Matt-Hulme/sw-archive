@@ -196,15 +196,24 @@ a{
   height: 50%;
   max-height: 50%;
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgba(255, 255, 255, .10);
-  overflow-y: auto;
-  overflow-x: hidden;
   border: 1px solid white;
 }
 
+.CharacterPageImage {
+  /* position: absolute; */
+  align-self: flex-start;
+  object-fit: cover;
+  object-position: top;
+  width: 50%;
+  height: 100%;
+}
+
 .CharacterPageMainPanelContainer{
+  flex: 1;
   height: 88%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -218,11 +227,6 @@ a{
   font-size: 30px;
 }
 
-.CharacterPageImage {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
-}
 
 .CharacterPageLower{
   flex: 1;
@@ -236,9 +240,11 @@ a{
 }
 
 .CharacterPagePanel1{
+  height: 88%;
+  width: 50%;
   text-transform: capitalize;
   margin-left: 20px;
-  border: 1px
+  border: 1px;
 }
 
 .CharacterPagePanel2 {
@@ -604,12 +610,20 @@ a{
   height: 50%;
   max-height: 50%;
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgba(255, 255, 255, .10);
-  overflow-y: auto;
-  overflow-x: hidden;
   border: 1px solid white;
+}
+
+.FilmPageImage {
+  /* position: absolute; */
+  align-self: flex-start;
+  object-fit: cover;
+  object-position: top;
+  width: 50%;
+  height: 100%;
 }
 
 .FilmPageMainPanelContainer {
@@ -626,11 +640,6 @@ a{
   font-size: 30px;
 }
 
-.FilmPageImage {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
-}
 
 .FilmPageLower{
   flex: 1;
@@ -640,14 +649,15 @@ a{
   height: 50%;
   display: flex;
   justify-content: center;
-
   flex-wrap: wrap;
 }
 
 .FilmPagePanel1{
+  height: 88%;
+  width: 50%;
   text-transform: capitalize;
   margin-left: 20px;
-  border: 1px
+  border: 1px;
 }
 
 .FilmPagePanel2 {
@@ -817,6 +827,8 @@ a{
   color: #ffbe00;
 }
 
+
+
 .PlanetPageContainer {
   width: 80%;
   height: 80%;
@@ -835,29 +847,35 @@ a{
   height: 50%;
   max-height: 50%;
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgba(255, 255, 255, .10);
-  overflow-y: auto;
-  overflow-x: hidden;
   border: 1px solid white;
 }
 
 .PlanetPageImage {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
+  /* position: absolute; */
+  align-self: flex-start;
+  object-fit: cover;
+  width: 50%;
+  height: 100%;
 }
 
+.PlanetPageMainPanelContainer{
+  height: 88%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 .PlanetPageMain h3 {
   font-size: 30px;
 }
 
 .PlanetPageImage {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
+  object-fit: cover;
+  width: 50%;
+  height: 100%;
 }
 
 .PlanetPageLower{
@@ -872,9 +890,11 @@ a{
 }
 
 .PlanetPagePanel1{
+  height: 88%;
+  width: 50%;
   text-transform: capitalize;
   margin-left: 20px;
-  border: 1px
+  border: 1px;
 }
 
 .PlanetPagePanel2 {
@@ -995,12 +1015,20 @@ a{
   height: 50%;
   max-height: 50%;
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgba(255, 255, 255, .10);
-  overflow-y: auto;
-  overflow-x: hidden;
   border: 1px solid white;
+}
+
+.SpeciePageImage {
+  /* position: absolute; */
+  align-self: flex-start;
+  object-fit: cover;
+  object-position: top;
+  width: 50%;
+  height: 100%;
 }
 
 .SpeciePageMainPanelContainer{
@@ -1019,11 +1047,7 @@ a{
 
 }
 
-.SpeciePageImage {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
-}
+
 
 .SpeciePageLower{
   flex: 1;
@@ -1037,9 +1061,11 @@ a{
 }
 
 .SpeciePagePanel1{
+  height: 88%;
+  width: 50%;
   text-transform: capitalize;
   margin-left: 20px;
-  border: 1px
+  border: 1px;
 }
 
 
@@ -1182,15 +1208,26 @@ a{
 
 .StarshipPageMain{
   flex: 1;
-  width: 70%;
+  width: 100%;
   max-width: 70%;
   height: 50%;
   max-height: 50%;
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgba(255, 255, 255, .10);
   border: 1px solid white;
+  overflow-y: hidden;
+}
+
+.StarshipPageImage {
+  /* position: absolute; */
+  align-self: flex-start;
+  object-fit: cover;
+  object-position: top;
+  width: 50%;
+  height: 100%;
 }
 
 .StarshipPageMainPanelContainer{
@@ -1207,15 +1244,10 @@ a{
   font-size: 30px;
 }
 
-.StarshipPageImage {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
-}
+
 
 .StarshipPageLower{
   flex: 1;
-  max-width: 100%;
   width: 100%;
   max-height: 50%;
   height: 100%;
@@ -1226,6 +1258,7 @@ a{
 
 .StarshipPagePanel1{
   height: 88%;
+  width: 50%;
   text-transform: capitalize;
   margin-left: 20px;
   border: 1px;
@@ -1355,12 +1388,20 @@ a{
   height: 50%;
   max-height: 50%;
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgba(255, 255, 255, .10);
-  overflow-y: auto;
-  overflow-x: hidden;
   border: 1px solid white;
+}
+
+.VehiclePageImage {
+  /* position: absolute; */
+  align-self: flex-start;
+  object-fit: cover;
+  object-position: top;
+  width: 50%;
+  height: 100%;
 }
 
 
@@ -1383,11 +1424,7 @@ a{
 
 }
 
-.VehiclePageImage {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
-}
+
 
 .VehiclePageLower{
   flex: 1;
@@ -1401,6 +1438,8 @@ a{
 }
 
 .VehiclePagePanel1{
+  height: 88%;
+  width: 50%;
   text-transform: capitalize;
   margin-left: 20px;
   border: 1px;

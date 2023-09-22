@@ -320,7 +320,7 @@ a{
 .CharacterListItem {  
   margin-left: 10px;
   margin-right: 10px;
-  max-width: 200px;
+  max-width: 165px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
@@ -328,14 +328,21 @@ a{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
 }
 
 .CharacterListItem img {
   height: 150px;
-  width: 150px;
   object-fit: cover;
+  object-position: top;
+}
+
+
+.CharacterListItem div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -355,7 +362,7 @@ a{
 .FilmListItem {
   margin-left: 10px;
   margin-right: 10px;
-  max-width: 226px;
+  max-width: 225px;
   max-height: 100%;
   width: 50%;
   padding: 10px;
@@ -371,6 +378,7 @@ a{
   height: 150px;
   width: 150px;
   object-fit: cover;
+  object-position: top;
 }
 
 .PlanetList {
@@ -404,6 +412,7 @@ a{
   height: 150px;
   width: 150px;
   object-fit: cover;
+  object-position: top;
 }
 
 
@@ -437,6 +446,7 @@ a{
   height: 150px;
   width: 150px;
   object-fit: cover;
+  object-position: top;
 }
 
 .StarshipList {
@@ -471,6 +481,7 @@ a{
   height: 150px;
   width: 150px;
   object-fit: cover;
+  object-position: top;
 }
 
 .VehicleList {
@@ -504,6 +515,7 @@ a{
   height: 150px;
   width: 150px;
   object-fit: cover;
+  object-position: top;
 }
 
 /* .VehicleListItem div{

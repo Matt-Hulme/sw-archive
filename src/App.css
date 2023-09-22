@@ -204,7 +204,6 @@ a{
 }
 
 .CharacterPageImage {
-  /* position: absolute; */
   align-self: flex-start;
   object-fit: cover;
   object-position: top;

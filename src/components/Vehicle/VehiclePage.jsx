@@ -157,17 +157,16 @@ export default function VehiclePage() {
             <h1>{selectedVehicle.name}</h1>
               {vehicleData && (
                 <div className="VehiclePageMainPanelContainer">
-                  {(vehicleData.model !==null && vehicleData.model !== "unknown" && vehicleData.model !== "none") && (<div>Model: {vehicleData.model}</div>)}
-                  {(vehicleData.manufacturer !==null && vehicleData.manufacturer !=="unkown" && vehicleData.manufacturer !== "none") && (<div>Manufacturer: {vehicleData.manufacturer}</div>)}
-                  {(vehicleData.cost !== "0 " && vehicleData.cost !== "unknown" && vehicleData.cost !== "none") && (<div>Cost: {vehicleData.cost} credits</div>)}
-                  {(vehicleData.length !== "0" && vehicleData.length !== "unknown" && vehicleData.length !== "none") && (<div>Length: {vehicleData.length}</div>)}
-                  {(vehicleData.speed !== "0" && vehicleData.speed !=="unknown" && vehicleData.speed !== "none") && (<div>Speed: {vehicleData.speed}</div>)}
-                  {(vehicleData.crew !== "0" && vehicleData.crew !== "unknown" && vehicleData.crew !== "none") && (<div>Crew: {vehicleData.crew}</div>)}
-                  {(vehicleData.passengers !== "0" && vehicleData.passengers !== "unknown" && vehicleData.passengers !== "none") && (<div>Passengers: {vehicleData.passengers}</div>)}
-                  {(vehicleData.cargoCapacity !== "0" && vehicleData.cargoCapacity !== "unknown" && vehicleData.cargoCapacity !== "none") &&(<div>Cargo Capacity: {vehicleData.cargoCapacity}</div>)}
-                  {(vehicleData.consumables !== "0" && vehicleData.consumables !== "unknown" && vehicleData.consumables !== "none") && (<div>Consumables: {vehicleData.consumables}</div>)}
-                  {(vehicleData.class !== "null" && vehicleData.class !== "unknown" && vehicleData.class !== "none") && (<div>Class: {vehicleData.class}</div>)}
-
+                  {(vehicleData.model !== "0" && vehicleData.model !==null && vehicleData.model !=="null" && vehicleData.model !== "unknown" && vehicleData.model !== "none" && vehicleData.model !==undefined) && (<div>Model: {vehicleData.model}</div>)}
+                  {(vehicleData.manufacturer !=="0" && vehicleData.manufacturer !==null && vehicleData.manufacturer !=="null" && vehicleData.manufacturer !=="unkown" && vehicleData.manufacturer !== "none" && vehicleData.manufacturer !==undefined) && (<div>Manufacturer: {vehicleData.manufacturer}</div>)}
+                  {(vehicleData.cost !== "0 " && vehicleData.cost !==null && vehicleData.cost !=="null" && vehicleData.cost !== "unknown" && vehicleData.cost !== "none" && vehicleData.cost !==undefined) && (<div>Cost: {vehicleData.cost} credits</div>)}
+                  {(vehicleData.length !== "0" && vehicleData.length !==null && vehicleData.length !=="null" && vehicleData.length !== "unknown" && vehicleData.length !== "none" && vehicleData.length !==undefined) && (<div>Length: {vehicleData.length}</div>)}
+                  {(vehicleData.speed !== "0" && vehicleData.speed !==null && vehicleData.speed !=="null" && vehicleData.speed !=="unknown" && vehicleData.speed !== "none" && vehicleData.speed !==undefined) && (<div>Speed: {vehicleData.speed}</div>)}
+                  {(vehicleData.crew !== "0" && vehicleData.crew !==null && vehicleData.crew !=="null" && vehicleData.crew !== "unknown" && vehicleData.crew !== "none" && vehicleData.crew !==undefined) && (<div>Crew: {vehicleData.crew}</div>)}
+                  {(vehicleData.passengers !== "0" && vehicleData.passengers !==null && vehicleData.passengers !=="null" && vehicleData.passengers !== "unknown" && vehicleData.passengers !== "none" && vehicleData.passengers !==undefined) && (<div>Passengers: {vehicleData.passengers}</div>)}
+                  {(vehicleData.cargoCapacity !== "0" && vehicleData.cargoCapacity !==null && vehicleData.cargoCapcity !=="null" && vehicleData.cargoCapacity !== "unknown" && vehicleData.cargoCapacity !== "none" && vehicleData.cargoCapacity !==undefined) &&(<div>Cargo Capacity: {vehicleData.cargoCapacity}</div>)}
+                  {(vehicleData.consumables !== "0" && vehicleData.consumables !==null && vehicleData.consumables !=="null" &&vehicleData.consumables !== "unknown" && vehicleData.consumables !== "none" && vehicleData.consumables !==undefined) && (<div>Consumables: {vehicleData.consumables}</div>)}
+                  {(vehicleData.class !== "0" && vehicleData.class !== null && vehicleData.class !=="null" && vehicleData.class !== "unknown" && vehicleData.class !== "none" && vehicleData.class !==undefined) && (<div>Class: {vehicleData.class}</div>)}
                 </div>
               )}
           </div>

@@ -224,7 +224,7 @@ export default function CharacterPage() {
             <h1>{selectedCharacter.name}</h1>
             {characterData && (
               <div className="CharacterPageMainPanelContainer">
-                {characterData.species.length !== 0 && (
+                {(characterData.species !== "0" && characterData.species !==null && characterData.species !=="null" && characterData.species !=="unknown" && characterData.species !=="none" && characterData.species !==undefined) && (
                   <div style={{ whiteSpace: 'nowrap' }}>
                     Species:&nbsp;
                     <Link
@@ -235,13 +235,13 @@ export default function CharacterPage() {
                     </Link>
                   </div>
                 )}
-                <div>Height: {characterData.height}</div>
-                <div>Mass: {characterData.mass}</div>
-                <div>Hair Color: {characterData.hairColor}</div>
-                <div>Skin Color: {characterData.skinColor}</div>
-                <div>Birth Year: {characterData.birthYear}</div>
-                <div>Gender: {characterData.gender}</div>
-                {characterData.homeworld.length !== 0 && (
+                {(characterData.height !=="0" && characterData.height !==null && characterData.height !=="null" && characterData.height !=="unknown" && characterData.height !=="none" && characterData.height !==undefined) && (<div>Height: {characterData.height}</div>)}
+                {(characterData.mass !=="0" && characterData.mass !==null && characterData.mass !=="null" && characterData.mass !=="unknown" && characterData.mass !=="none" && characterData.mass !==undefined) && (<div>Mass: {characterData.mass}</div>)}
+                {(characterData.hairColor !=="0" && characterData.hairColor !==null && characterData.hairColor !=="null" && characterData.hairColor !=="unknown" && characterData.hairColor !=="none" && characterData.hairColor !==undefined) && (<div>Hair Color: {characterData.hairColor}</div>)}
+                {(characterData.skinColor !=="0" && characterData.skinColor !==null && characterData.skinColor !=="null" && characterData.skinColor !=="unknown" && characterData.skinColor !=="none" && characterData.skinColor !==undefined) && (<div>Skin Color: {characterData.skinColor}</div>)}
+                {(characterData.birthYear !=="0" && characterData.birthYear !==null && characterData.birthYear !=="null" && characterData.birthYear !=="none" && characterData.birthYear !==undefined) && (<div>Birth Year: {characterData.birthYear}</div>)}
+                {(characterData.gender !=="0" && characterData.gender !==null && characterData.gender !=="null" && characterData.gender !==undefined) && (<div>Gender: {characterData.gender}</div>)}
+                {(characterData.homeworld !== "0" && characterData.homeworld !==null && characterData.homeworld !=="null" && characterData.homeworld !=="unknown" && characterData.homeworld !== "none" && characterData.homeworld !==undefined) && (
                   <div style={{ whiteSpace: 'nowrap' }}>
                   Homeworld:&nbsp;
                   <Link

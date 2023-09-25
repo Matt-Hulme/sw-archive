@@ -159,14 +159,14 @@ export default function PlanetPage() {
             <h1>{selectedPlanet.name}</h1>
             {planetData && (
               <div className="PlanetPageMainPanelContainer">
-                <div>Rotation: {planetData.rotation_period}</div>
-                <div>Orbital: {planetData.orbital_period}</div>
-                <div>Diameter: {planetData.diameter}</div>
-                <div>Climate: {planetData.climate}</div>
-                <div>Gravity: {planetData.gravity}</div>
-                <div>Terrain: {planetData.terrain}</div>
-                <div>Surface Water: {planetData.surfaceWater}</div>
-                <div>Population: {planetData.population}</div>
+                {(planetData.rotation !=="0" && planetData.rotation !==null && planetData.rotation !=="null" && planetData.rotation !=="unknown" && planetData.rotation !=="none" && planetData.rotation !==undefined) && (<div>Rotation: {planetData.rotation}</div>)}
+                {(planetData.orbital !=="0" && planetData.orbital !==null && planetData.orbital !=="null" && planetData.orbital !=="unknown" && planetData.orbital !=="none" && planetData.orbital !==undefined) && (<div>Orbital: {planetData.orbital}</div>)}
+                {(planetData.diameter !=="0" && planetData.diameter !==null && planetData.diameter !=="null" && planetData.diameter !=="unknown" && planetData.diameter !=="none" && planetData.diameter !==undefined) && (<div>Diameter: {planetData.diameter}</div>)}
+                {(planetData.climate !=="0" && planetData.climate !==null && planetData.climate !=="null" && planetData.climate !=="unknown" && planetData.climate !=="none" && planetData.climate !==undefined) && (<div>Climate: {planetData.climate}</div>)}
+                {(planetData.gravity !==null && planetData.gravity !=="null" && planetData.gravity !=="unknown" && planetData.gravity !==undefined) && (<div>Gravity: {planetData.gravity}</div>)}
+                {(planetData.terrain !=="0" && planetData.terrain !==null && planetData.terrain !=="null" && planetData.terrain !=="unknown" && planetData.terrain !=="none" && planetData.terrain !==undefined) && (<div>Terrain: {planetData.terrain}</div>)}
+                {(planetData.surfaceWater !==null && planetData.surfaceWater !=="null" && planetData.surfaceWater !=="unknown" && planetData.surfaceWater !==undefined) && (<div>Surface Water: {planetData.surfaceWater}</div>)}
+                {(planetData.population !==null && planetData.population !=="null" && planetData.population !=="unknown" && planetData.population !==undefined) && (<div>Population: {planetData.population}</div>)}
                 </div>
             )}
             </div>

@@ -159,18 +159,18 @@ export default function StarshipPage() {
             <h1>{selectedStarship.name}</h1>
             {starshipData && (
               <div className="StarshipPageMainPanelContainer">
-                <div>Model: {starshipData.model}</div>
-                <div>Manufacturer: {starshipData.manufacturer}</div>
-                <div>Cost: {starshipData.cost}</div>
-                <div>Length: {starshipData.length}</div>
-                <div>Speed: {starshipData.speed}</div>
-                <div>Crew: {starshipData.crew}</div>
-                <div>Passengers: {starshipData.passengers}</div>
-                <div>Cargo Capacity: {starshipData.cargoCapacity}</div>
-                <div>Consumables: {starshipData.consumables}</div>
-                <div>Hyperdrive: {starshipData.hyperdrive}</div>
-                <div>MGLT: {starshipData.MGLT}</div>
-                <div>Class: {starshipData.class}</div>
+                {(starshipData.model !=="0" && starshipData.model !==null && starshipData.model !=="null" && starshipData.model !== "unknown" && starshipData.model !=="none" && starshipData.model !==undefined) && (<div>Model: {starshipData.model}</div>)}
+                {(starshipData.manufacturer !=="0" && starshipData.manufacturer !==null && starshipData.manufacturer !=="null" && starshipData.manufacturer !== "unknown" && starshipData.manufacturer !=="none" && starshipData.manufacturer !==undefined) && (<div>Manufacturer: {starshipData.manufacturer}</div>)}
+                {(starshipData.cost !=="0" && starshipData.cost !==null && starshipData.cost !=="null" && starshipData.cost !== "unknown" && starshipData.cost !=="none" && starshipData.cost !==undefined) && (<div>Cost: {starshipData.cost} credits</div>)}
+                {(starshipData.length !=="0" && starshipData.length !==null && starshipData.length !=="null" && starshipData.length !== "unknown" && starshipData.length !=="none" && starshipData.length !==undefined) && (<div>Length: {starshipData.length}</div>)}
+                {(starshipData.speed !=="0" && starshipData.speed !==null && starshipData.speed !=="null" && starshipData.speed !== "unknown" && starshipData.speed !=="none" && starshipData.speed !==undefined) && (<div>Speed: {starshipData.speed}</div>)}
+                {(starshipData.crew !=="0" && starshipData.crew !==null && starshipData.crew !=="null" && starshipData.crew !== "unknown" && starshipData.crew !=="none" && starshipData.crew !==undefined) && (<div>Crew: {starshipData.crew}</div>)}
+                {(starshipData.passengers !=="0" && starshipData.passengers !==null && starshipData.passengers !=="null" && starshipData.passengers !== "unknown" && starshipData.passengers !=="none" && starshipData.passengers !==undefined) && (<div>Passengers: {starshipData.passengers}</div>)}
+                {(starshipData.cargoCapacity !=="0" && starshipData.cargoCapacity !==null && starshipData.passengers !=="null" && starshipData.cargoCapacity !== "unknown" && starshipData.cargoCapacity !=="none" && starshipData.cargoCapacity !==undefined) && (<div>Cargo Capacity: {starshipData.cargoCapacity}</div>)}
+                {(starshipData.consumables !=="0" && starshipData.consumables !==null && starshipData.passengers !=="null" && starshipData.consumables !== "unknown" && starshipData.consumables !=="none" && starshipData.consumables !==undefined) && (<div>Consumables: {starshipData.consumables}</div>)}
+                {(starshipData.hyperdrive !=="0" && starshipData.hyperdrive !==null && starshipData.passengers !=="null" && starshipData.hyperdrive !== "unknown" && starshipData.hyperdrive !=="none" && starshipData.hyperdrive !==undefined) && (<div>Hyperdrive: {starshipData.hyperdrive}</div>)}
+                {(starshipData.MGLT !=="0" && starshipData.MGLT !==null && starshipData.passengers !=="null" && starshipData.MGLT !== "unknown" && starshipData.MGLT !=="none" && starshipData.MGLT !==undefined) && (<div>MGLT: {starshipData.MGLT}</div>)}
+                {(starshipData.class !=="0" && starshipData.class !==null && starshipData.class !=="null" && starshipData.class !== "unknown" && starshipData.class !=="none" && starshipData.class !==undefined) && (<div>Class: {starshipData.class}</div>)}
               </div>
             )}
           </div>

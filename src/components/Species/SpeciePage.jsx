@@ -175,14 +175,14 @@ export default function SpeciePage() {
             <h1>{selectedSpecies.name}</h1>
             {specieData && (
               <div className="SpeciePageMainPanelContainer">
-                <div>Classification: {specieData.classification}</div>
-                <div>Designation: {specieData.designation}</div>
-                <div>Height: {specieData.height}</div>
-                <div>Skin Colors: {specieData.skin_colors}</div>
-                <div>Hair Colors: {specieData.hair_colors}</div>
-                <div>Eye Colors: {specieData.eye_colors}</div>
-                <div>Lifespan: {specieData.average_lifespan} </div>
-                <div>Language: {specieData.language}</div>
+                {(specieData.classification !=="0" && specieData.classification !==null && specieData.classification !=="null" && specieData.classification !=="unknown" && specieData.classification !=="none" && specieData.classificationclassification !==undefined) && (<div>Classification: {specieData.classificationclassification}</div>)}
+                {(specieData.designation !=="0" && specieData.designation !==null && specieData.designation !=="null" && specieData.designation !=="unknown" && specieData.designation !=="none" && specieData.designation !==undefined) && (<div>Designation: {specieData.designation}</div>)}
+                {(specieData.height !=="0" && specieData.height !==null && specieData.height !=="null" && specieData.height !=="unknown" && specieData.height !=="none" && specieData.height !==undefined) && (<div>Height: {specieData.height}</div>)}
+                {(specieData.skinColor !=="0" && specieData.skinColor !==null && specieData.skinColor !=="null" && specieData.skinColor !=="unknown" && specieData.skinColor !=="none" && specieData.skinColor !==undefined) && (<div>Skin Colors: {specieData.skinColor}</div>)}
+                {(specieData.hairColor !=="0" && specieData.hairColor !==null && specieData.hairColor !=="null" && specieData.hairColor !=="unknown" && specieData.hairColor !=="none" && specieData.hairColor !==undefined) && (<div>Hair Colors: {specieData.hairColor}</div>)}
+                {(specieData.eyeColor !=="0" && specieData.eyeColor !==null && specieData.eyeColor !=="null" && specieData.eyeColor !=="unknown" && specieData.eyeColor !=="none" && specieData.eyeColor !==undefined) && (<div>Eye Colors: {specieData.eyeColor}</div>)}
+                {(specieData.lifespan !=="0" && specieData.lifespan !==null && specieData.lifespan !=="null" && specieData.lifespan !=="unknown" && specieData.lifespan !=="none" && specieData.lifespan !==undefined) && (<div>Lifespan: {specieData.lifespan} </div>)}
+                {(specieData.language !=="0" && specieData.language !==null && specieData.language !=="null" && specieData.language !=="unknown" && specieData.language !==undefined) && (<div>Language: {specieData.language}</div>)}
                 {specieData?.homeworld?.length !== undefined && specieData.homeworld.length !== 0 && (
                   <div>
                     Homeworld:

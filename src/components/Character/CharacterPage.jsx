@@ -54,7 +54,7 @@ export default function CharacterPage() {
         };
 
         // Fetch data for species
-        if (updatedCharacterData.species.length !== 0) {
+        if (updatedCharacterData?.species.length !== 0) {
           const speciesResponse = await fetch(updatedCharacterData.species[0]);
           const speciesData = await speciesResponse.json();
           const speciesId = speciesData.url.split('/').slice(-2, -1)[0];
@@ -72,7 +72,7 @@ export default function CharacterPage() {
         }
 
         // Fetch data for homeworld
-        if (updatedCharacterData.homeworld.length !== 0) {
+        if (updatedCharacterData?.homeworld.length !== 0) {
           const homeworldResponse = await fetch(updatedCharacterData.homeworld);
           const homeworldData = await homeworldResponse.json();
           console.log('HOMEWORLD DATA:', homeworldData);

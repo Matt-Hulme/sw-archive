@@ -52,8 +52,10 @@ export default function SpeciePage() {
           characters: data.people,
           films: data.films,       
         };
+
+        console.log('updatedSpecieData:', updatedSpecieData)
         
-        if (updatedSpecieData?.homeworld?.length !== undefined && updatedSpecieData.homeworld.length !== 0){
+        if (updatedSpecieData?.homeworld !==null){
           const homeworldResponse = await fetch(updatedSpecieData.homeworld);
           const homeworldData = await homeworldResponse.json();
           console.log('homeworldData Fetch Response:', homeworldData)
@@ -232,7 +234,7 @@ export default function SpeciePage() {
                     >
                       {film.image && <img src={film.image} alt={film.name} />}
                       <div>{film.name}</div>
-                    </Link>
+                    </Link>``
                   </div>
                 ))}
                 {specieData.films.length === 0 && (

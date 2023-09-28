@@ -42,7 +42,7 @@ export default function VehiclePage() {
   useEffect(() =>{
 
     if (cachedVehicleData) {
-      setPlanetData(cachedVehicleData);
+      setVehicleData(cachedVehicleData);
       setIsLoading(false);
       return;
     }

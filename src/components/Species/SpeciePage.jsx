@@ -41,7 +41,7 @@ export default function SpeciePage() {
   useEffect(() => {
 
     if (cachedSpecieData) {
-      setCharacterData(cachedSpecieData);
+      setPlanetData(cachedSpecieData);
       setIsLoading(false);
       return;
     }

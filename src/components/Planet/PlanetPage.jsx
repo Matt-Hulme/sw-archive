@@ -46,7 +46,7 @@ export default function PlanetPage() {
   useEffect(() => {
 
     if (cachedPlanetData) {
-      setCharacterData(cachedPlanetData);
+      setPlanetData(cachedPlanetData);
       setIsLoading(false);
       return;
     }

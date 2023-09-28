@@ -43,7 +43,7 @@ export default function StarshipPage() {
   useEffect(() => {
 
     if (cachedStarshipData) {
-      setPlanetData(cachedStarshipData);
+      setStarshipData(cachedStarshipData);
       setIsLoading(false);
       return;
     }

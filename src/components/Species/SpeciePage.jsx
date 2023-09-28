@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import SpeciesImageArray from './SpeciesImageArray';
 import CharacterImageArray from '../Character/CharacterImageArray';
@@ -25,8 +25,28 @@ export default function SpeciePage() {
   }
 
   console.log("selectedSpecies", selectedSpecies)
+
+  const cacheKey = `specieData_${speciesId}`;
+
+  const cachedSpecieData = useMemo(() => {
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      return JSON.parse(cachedData);
+    }
+
+    return null;
+  }, [cacheKey]);
  
   useEffect(() => {
+
+    if (cachedSpecieData) {
+      setCharacterData(cachedSpecieData);
+      setIsLoading(false);
+      return;
+    }
+
+
     async function fetchSpecieData(){
       const specieUrl = `https://swapi.dev/api/species/${speciesId}`;
       try {
@@ -122,6 +142,8 @@ export default function SpeciePage() {
         const filmsData = await Promise.all(filmPromises);
 
         updatedSpecieData.films = filmsData;
+
+        localStorage.setItem(cacheKey, JSON.stringify(updatedSpecieData));
 
         setIsLoading(false);
         setSpecieData(updatedSpecieData);

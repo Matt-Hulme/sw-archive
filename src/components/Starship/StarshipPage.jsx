@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import StarshipImageArray from './StarshipImageArray';
 import CharacterImageArray from '../Character/CharacterImageArray';
@@ -28,7 +28,26 @@ export default function StarshipPage() {
 
   console.log('selectedStarship:', selectedStarship);
 
+  const cacheKey = `starshipData_${starshipId}`;
+
+  const cachedStarshipData = useMemo(() => {
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      return JSON.parse(cachedData);
+    }
+
+    return null;
+  }, [cacheKey]);
+
   useEffect(() => {
+
+    if (cachedStarshipData) {
+      setCharacterData(cachedStarshipData);
+      setIsLoading(false);
+      return;
+    }
+
     async function fetchStarshipData(){
       const starshipUrl = `https://swapi.dev/api/starships/${starshipId}`;
       try{
@@ -101,6 +120,8 @@ export default function StarshipPage() {
         const filmsData = await Promise.all(filmsPromises);
 
         updatedStarshipData.films = filmsData;
+
+        localStorage.setItem(cacheKey, JSON.stringify(updatedStarshipData));
 
         setIsLoading(false);
         setStarshipData(updatedStarshipData);

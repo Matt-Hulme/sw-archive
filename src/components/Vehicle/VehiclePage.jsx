@@ -26,8 +26,27 @@ export default function VehiclePage() {
   }
 
   console.log('selectedVehicle:', selectedVehicle);
+
+  const cacheKey = `vehicleData_${vehicleId}`;
+
+  const cachedVehicleData = useMemo(() => {
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      return JSON.parse(cachedData);
+    }
+
+    return null;
+  }, [cacheKey]);
  
   useEffect(() =>{
+
+    if (cachedVehicleData) {
+      setCharacterData(cachedVehicleData);
+      setIsLoading(false);
+      return;
+    }
+
     async function fetchVehicleData() {
       const vehicleUrl = `https://swapi.dev/api/vehicles/${vehicleId}`;
       try{
@@ -97,6 +116,8 @@ export default function VehiclePage() {
         const filmsData = await Promise.all(filmsPromises);
 
         updatedVehicleData.films = filmsData;
+
+        localStorage.setItem(cacheKey, JSON.stringify(updatedVehicleData));
 
         setIsLoading(false);
         setVehicleData(updatedVehicleData);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import FilmImageArray from './FilmImageArray'
 import CharacterImageArray from '../Character/CharacterImageArray';
@@ -29,6 +29,18 @@ export default function FilmPage() {
   console.log('selectedFilm:', selectedFilm)
   console.log('selected Film ID:', selectedFilm.id)
 
+  const cacheKey = `filmData_${selectedFilm.id}`
+
+  const cachedFilmData = useMemo(() => {
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      return JSON.parse(cachedData);
+    }
+
+    return null;
+  }, [cacheKey]);
+
   selectedFilm.UrlId = null;
   switch (selectedFilm.id) {
     case 1:
@@ -57,6 +69,12 @@ export default function FilmPage() {
 console.log('Film URL Id:', selectedFilm.UrlId)
 
   useEffect(() => {
+    if (cachedFilmData) {
+      setFilmData(cachedFilmData);
+      setIsLoading(false);
+      return;
+    }
+
     async function fetchFilmData() {
       const filmUrl = `https://swapi.dev/api/films/${selectedFilm.UrlId}`;
       try{
@@ -194,6 +212,8 @@ console.log('Film URL Id:', selectedFilm.UrlId)
         const speciesData = await Promise.all(speciesPromises);
 
         updatedFilmData.species = speciesData;
+
+        localStorage.setItem(cacheKey, JSON.stringify(updatedFilmData));
 
         setIsLoading(false);  
         setFilmData(updatedFilmData);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import CharacterImageArray from './CharacterImageArray';
 import SpeciesImageArray from '../Species/SpeciesImageArray';
@@ -14,19 +14,40 @@ export default function CharacterPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const charactersData = location.state?.charactersData || [];
-  console.log('charactersData:', charactersData)
+  console.log('charactersData:', charactersData);
 
   let selectedCharacter = null;
-  
+
   if (charactersData.length > 1) {
     selectedCharacter = charactersData.find((character) => character.id == parseInt(characterId, 10));
   } else {
     selectedCharacter = charactersData;
   }
-  
+
   console.log('selectedCharacter:', selectedCharacter);
 
+  // Create a unique cache key for the character data based on characterId
+  const cacheKey = `characterData_${characterId}`;
+
+  // Use useMemo to retrieve character data from cache or fetch it
+  const cachedCharacterData = useMemo(() => {
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      return JSON.parse(cachedData);
+    }
+
+    return null;
+  }, [cacheKey]);
+
   useEffect(() => {
+    // If cached data exists, set it and exit early
+    if (cachedCharacterData) {
+      setCharacterData(cachedCharacterData);
+      setIsLoading(false);
+      return;
+    }
+
     async function fetchCharacterData() {
       const characterUrl = `https://swapi.dev/api/people/${characterId}`;
       try {
@@ -66,7 +87,7 @@ export default function CharacterPage() {
             updatedCharacterData.species = {
               name: speciesData.name,
               image: matchingSpeciesImage.image,
-              id: speciesId
+              id: speciesId,
             };
           }
         }
@@ -142,7 +163,7 @@ export default function CharacterPage() {
         updatedCharacterData.starships = starshipsData;
 
         // Fetch data for vehicles (similar to starships)
-        const vehiclePromises = updatedCharacterData.vehicles.map(async(vehicleUrl) => {
+        const vehiclePromises = updatedCharacterData.vehicles.map(async (vehicleUrl) => {
           const vehicleResponse = await fetch(vehicleUrl);
           const vehicleData = await vehicleResponse.json();
 
@@ -166,12 +187,14 @@ export default function CharacterPage() {
 
         updatedCharacterData.vehicles = vehiclesData;
 
+        // Save character data to local storage for caching
+        localStorage.setItem(cacheKey, JSON.stringify(updatedCharacterData));
+
         setIsLoading(false);
         setCharacterData(updatedCharacterData);
-        
       } catch (error) {
         console.error('Error fetching character data:', error);
-        setIsLoading(false); // Set loading to false in case of error
+        setIsLoading(false); // Set loading to false in case of an error
       }
     }
 
@@ -179,7 +202,7 @@ export default function CharacterPage() {
     if (!characterData) {
       fetchCharacterData();
     }
-  }, [characterId, characterData]);
+  }, [characterId, characterData, cacheKey, cachedCharacterData]);
 
   if (isLoading) {
     // Render loading text while data is being fetched
@@ -224,33 +247,33 @@ export default function CharacterPage() {
             <h1>{selectedCharacter.name}</h1>
             {characterData && (
               <div className="CharacterPageMainPanelContainer">
-                {(characterData.species !== "0" && characterData.species !==null && characterData.species !=="null" && characterData.species !=="unknown" && characterData.species !=="none" && characterData.species !==undefined) && (
+                {(characterData.species !== "0" && characterData.species !== null && characterData.species !== "null" && characterData.species !== "unknown" && characterData.species !== "none" && characterData.species !== undefined && characterData.species?.length > 0) && (
                   <div style={{ whiteSpace: 'nowrap' }}>
                     Species:&nbsp;
                     <Link
-                      to={{pathname: `/species/${characterData.species.id}`}}
+                      to={{ pathname: `/species/${characterData.species.id}` }}
                       state={{ speciesData: characterData.species }}
                     >
                       {characterData.species.name}
                     </Link>
                   </div>
                 )}
-                {(characterData.height !=="0" && characterData.height !==null && characterData.height !=="null" && characterData.height !=="unknown" && characterData.height !=="none" && characterData.height !==undefined) && (<div>Height: {characterData.height}</div>)}
-                {(characterData.mass !=="0" && characterData.mass !==null && characterData.mass !=="null" && characterData.mass !=="unknown" && characterData.mass !=="none" && characterData.mass !==undefined) && (<div>Mass: {characterData.mass}</div>)}
-                {(characterData.hairColor !=="0" && characterData.hairColor !==null && characterData.hairColor !=="null" && characterData.hairColor !=="unknown" && characterData.hairColor !=="none" && characterData.hairColor !==undefined) && (<div>Hair Color: {characterData.hairColor}</div>)}
-                {(characterData.skinColor !=="0" && characterData.skinColor !==null && characterData.skinColor !=="null" && characterData.skinColor !=="unknown" && characterData.skinColor !=="none" && characterData.skinColor !==undefined) && (<div>Skin Color: {characterData.skinColor}</div>)}
-                {(characterData.birthYear !=="0" && characterData.birthYear !==null && characterData.birthYear !=="null" && characterData.birthYear !=="none" && characterData.birthYear !==undefined) && (<div>Birth Year: {characterData.birthYear}</div>)}
-                {(characterData.gender !=="0" && characterData.gender !==null && characterData.gender !=="null" && characterData.gender !==undefined) && (<div>Gender: {characterData.gender}</div>)}
-                {(characterData.homeworld !== "0" && characterData.homeworld !==null && characterData.homeworld !=="null" && characterData.homeworld !=="unknown" && characterData.homeworld !== "none" && characterData.homeworld !==undefined) && (
+                {(characterData.height !== "0" && characterData.height !== null && characterData.height !== "null" && characterData.height !== "unknown" && characterData.height !== "none" && characterData.height !== undefined) && (<div>Height: {characterData.height}</div>)}
+                {(characterData.mass !== "0" && characterData.mass !== null && characterData.mass !== "null" && characterData.mass !== "unknown" && characterData.mass !== "none" && characterData.mass !== undefined) && (<div>Mass: {characterData.mass}</div>)}
+                {(characterData.hairColor !== "0" && characterData.hairColor !== null && characterData.hairColor !== "null" && characterData.hairColor !== "unknown" && characterData.hairColor !== "none" && characterData.hairColor !== undefined) && (<div>Hair Color: {characterData.hairColor}</div>)}
+                {(characterData.skinColor !== "0" && characterData.skinColor !== null && characterData.skinColor !== "null" && characterData.skinColor !== "unknown" && characterData.skinColor !== "none" && characterData.skinColor !== undefined) && (<div>Skin Color: {characterData.skinColor}</div>)}
+                {(characterData.birthYear !== "0" && characterData.birthYear !== null && characterData.birthYear !== "null" && characterData.birthYear !== "none" && characterData.birthYear !== undefined) && (<div>Birth Year: {characterData.birthYear}</div>)}
+                {(characterData.gender !== "0" && characterData.gender !== null && characterData.gender !== "null" && characterData.gender !== undefined) && (<div>Gender: {characterData.gender}</div>)}
+                {(characterData.homeworld !== "0" && characterData.homeworld !== null && characterData.homeworld !== "null" && characterData.homeworld !== "unknown" && characterData.homeworld !== "none" && characterData.homeworld !== undefined && characterData?.homeworld.length > 0) && (
                   <div style={{ whiteSpace: 'nowrap' }}>
-                  Homeworld:&nbsp;
-                  <Link
-                    to={{pathname: `/planets/${characterData.homeworld.id}`}}
-                    state={{ planetsData: characterData.homeworld }}
-                  >
-                    {characterData.homeworld.name}
-                  </Link>
-                </div>
+                    Homeworld:&nbsp;
+                    <Link
+                      to={{ pathname: `/planets/${characterData.homeworld.id}` }}
+                      state={{ planetsData: characterData.homeworld }}
+                    >
+                      {characterData.homeworld.name}
+                    </Link>
+                  </div>
                 )}
               </div>
             )}
@@ -264,8 +287,8 @@ export default function CharacterPage() {
                 {characterData.films.map((film) => (
                   <div className="FilmListItem" key={film.id}>
                     <Link
-                      to={{pathname: `/films/${film.id}`}}
-                      state={{ filmsData: characterData.films}}
+                      to={{ pathname: `/films/${film.id}` }}
+                      state={{ filmsData: characterData.films }}
                     >
                       {film.image && <img src={film.image} alt={film.name} />}
                       <div>{film.name}</div>
@@ -285,8 +308,8 @@ export default function CharacterPage() {
                 {characterData.vehicles.map((vehicle, index) => (
                   <div className="VehicleListItem" key={index}>
                     <Link
-                      to={{pathname: `/vehicles/${vehicle.id}`}}
-                      state={{vehiclesData: characterData.vehicles}}
+                      to={{ pathname: `/vehicles/${vehicle.id}` }}
+                      state={{ vehiclesData: characterData.vehicles }}
                     >
                       {vehicle.image && <img src={vehicle.image} alt={vehicle.name} />}
                       <div>{vehicle.name}</div>
@@ -306,8 +329,8 @@ export default function CharacterPage() {
                 {characterData.starships.map((starship, index) => (
                   <div className="StarshipListItem" key={index}>
                     <Link
-                      to={{pathname: `/starships/${starship.id}`}}
-                      state={{starshipsData: characterData.starships}}
+                      to={{ pathname: `/starships/${starship.id}` }}
+                      state={{ starshipsData: characterData.starships }}
                     >
                       {starship.image && <img src={starship.image} alt={starship.name} />}
                       <div>{starship.name}</div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import CharacterImageArray from '../Character/CharacterImageArray';
 import SpeciesImageArray from '../Species/SpeciesImageArray';
@@ -30,8 +30,27 @@ export default function PlanetPage() {
 
   console.log('selectedPlanet:', selectedPlanet)
 
+  const cacheKey = `planetData_${planetId}`;
+
+  const cachedPlanetData = useMemo(() => {
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      return JSON.parse(cachedData);
+    }
+
+    return null;
+  }, [cacheKey]);
+
 
   useEffect(() => {
+
+    if (cachedPlanetData) {
+      setCharacterData(cachedPlanetData);
+      setIsLoading(false);
+      return;
+    }
+
     async function fetchPlanetData() {
       const planetUrl = `https://swapi.dev/api/planets/${planetId}`;
       try{
@@ -101,6 +120,8 @@ export default function PlanetPage() {
         const filmsData = await Promise.all(filmPromises);
 
         updatedPlanetData.films = filmsData;
+
+        localStorage.setItem(cacheKey, JSON.stringify(updatedPlanetData));
 
         setIsLoading(false);
         setPlanetData(updatedPlanetData)       

@@ -7,7 +7,7 @@ export default function PlanetCardContainer() {
   const [planetsData, setPlanetsData] = useState([]);
   const [nextPlanetsUrl, setNextPlanetsUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
-  const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [buttonText, setButtonText] = useState("See More");
 
   const navigate = useNavigate();
@@ -17,17 +17,20 @@ export default function PlanetCardContainer() {
     if (cachedPlanetsData) {
       const parsedData = JSON.parse(cachedPlanetsData);
       setPlanetsData(parsedData);
+      setIsDataLoaded(true);
       console.log('CACHE VALUE DATA:', parsedData)
 
       const cachedVisiblePlanetCount = localStorage.getItem('visiblePlanetCount');
       if (cachedVisiblePlanetCount) {
         setVisiblePlanetCount(parseInt(cachedVisiblePlanetCount, 10));
+
       }
 
       const cachedNextPlanetsUrl = localStorage.getItem('nextPlanetsUrl');
       if (cachedNextPlanetsUrl) {
         setNextPlanetsUrl(cachedNextPlanetsUrl);
         console.log('CACHE VALUE URL:', nextPlanetsUrl);
+
       }
     } else {
       handleFetchMore('https://swapi.dev/api/planets/');
@@ -38,7 +41,7 @@ export default function PlanetCardContainer() {
       setFetchCount(0); 
     }
   
-  }, [navigate, visiblePlanetCount]);
+  }, [navigate, visiblePlanetCount, isDataLoaded]);
   
   
 
@@ -92,6 +95,22 @@ export default function PlanetCardContainer() {
       initialUrl=null;
     }
   };
+
+  if (!isDataLoaded) {
+    return (
+      <>
+        <div className="PlanetsPageLoading">
+          <h1>Loading...</h1>
+        </div>
+        {isDataLoaded && visiblePlanetCount > 0 && visiblePlanetCount < 60 && (
+          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
+            {buttonText}
+          </button>
+        )}
+      </>
+
+    );
+  }
 
   return (
     <>

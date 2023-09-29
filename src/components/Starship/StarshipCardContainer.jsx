@@ -7,7 +7,7 @@ export default function StarshipCardContainer() {
   const [starshipsData, setStarshipsData] = useState([]);
   const [nextStarshipsUrl, setNextStarshipsUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
-  const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [buttonText, setButtonText] = useState("See More");
   
   const navigate = useNavigate();
@@ -17,12 +17,14 @@ export default function StarshipCardContainer() {
     if (cachedStarshipsData) {
       const parsedData = JSON.parse(cachedStarshipsData);
       setStarshipsData(parsedData);
+      setIsDataLoaded(true);
       console.log('starshipData Cache:', starshipsData)
 
       const cachedVisibleStarshipCount = localStorage.getItem('visibleStarshipCount');
 
       if (cachedVisibleStarshipCount) {
         setVisibleStarshipCount(parseInt(cachedVisibleStarshipCount, 10));
+
       }
 
       const cachedNextStarshipsUrl = localStorage.getItem('nextStarshipsUrl');
@@ -39,7 +41,7 @@ export default function StarshipCardContainer() {
       setFetchCount(0); 
     }
   
-  }, [navigate, visibleStarshipCount. starshipsData]);
+  }, [navigate, visibleStarshipCount. starshipsData, isDataLoaded]);
   
 
   const fetchStarships = async (url) => {
@@ -94,6 +96,22 @@ export default function StarshipCardContainer() {
       initialUrl=null;
     }
   };  
+
+
+  if (!isDataLoaded){
+    return (
+      <>
+        <div className="StarshipsPageLoading">
+          <h1>Loading...</h1>
+        </div>
+        {isDataLoaded && visibleStarshipCount > 0 && visibleStarshipCount < 36 && (
+          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
+            {buttonText}
+          </button>
+        )}
+      </>
+    );
+  }
 
   return (
     <>

@@ -7,7 +7,7 @@ export default function VehicleCardContainer() {
   const [vehiclesData, setVehiclesData] = useState([]);
   const [nextVehiclesUrl, setNextVehiclesUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
-  const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [buttonText, setButtonText] = useState("See More");
   
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ export default function VehicleCardContainer() {
     if (cachedVehiclesData) {
       const parsedData = JSON.parse(cachedVehiclesData);
       setVehiclesData(parsedData);
+      setIsDataLoaded(true);
 
       const cachedVisibleVehicleCount = localStorage.getItem('visibleVehicleCount');
       if (cachedVisibleVehicleCount) {
@@ -36,7 +37,7 @@ export default function VehicleCardContainer() {
       setFetchCount(0); 
     }
   
-  }, [navigate, visibleVehicleCount. vehiclesData]);
+  }, [navigate, visibleVehicleCount. vehiclesData, isDataLoaded]);
   
 
   const fetchVehicles = async (url) => {
@@ -89,7 +90,23 @@ export default function VehicleCardContainer() {
       setFetchCount(1);
       initialUrl=null;
     }
-  };  
+  };
+  
+  
+  if (!isDataLoaded) {
+    return (
+      <>
+        <div className="VehiclesPageLoading">
+          <h1>Loading...</h1>
+        </div>
+        {isDataLoaded && visibleVehicleCount > 0 && visibleVehicleCount < 39 && (
+          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
+            {buttonText}
+          </button>
+        )}
+      </>
+    );
+  }
 
   return (
     <>

@@ -167,6 +167,13 @@ a{
   align-items: center;
 }
 
+.CharactersPageLoading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffbe00;
+}
+
 .CharacterPage {
   background-image: url(assets/Images/Star-Background.jpg);
   background-size: cover;
@@ -579,6 +586,13 @@ a{
   align-items: center;
 }
 
+.FilmsPageLoading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffbe00;
+}
+
 .FilmPage {
   background-image: url(assets/Images/Star-Background.jpg);
   background-size: cover;
@@ -827,6 +841,14 @@ a{
   align-items: center;
 }
 
+.PlanetsPageLoading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffbe00;
+}
+
+
 .PlanetPage {
   background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
@@ -990,6 +1012,13 @@ a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.SpeciesPageLoading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffbe00;
 }
 
 .SpeciePage {
@@ -1192,6 +1221,13 @@ a{
   align-items: center;
 }
 
+.StarshipsPageLoading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffbe00;
+}
+
 .StarshipPage{
   background-image: url(assets/Images/Star-Background.jpg);
   background-size: cover;
@@ -1365,6 +1401,13 @@ a{
   justify-content: center;
   align-items: center;
   overflow: auto;
+}
+
+.VehiclesPageLoading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffbe00;
 }
 
 .VehiclePage {

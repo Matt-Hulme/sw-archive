@@ -7,7 +7,7 @@ export default function SpeciesCardContainer() {
   const [speciesData, setSpeciesData] = useState([]);
   const [nextSpeciesUrl, setNextSpeciesUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
-  const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [buttonText, setButtonText] = useState("See More");
 
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ export default function SpeciesCardContainer() {
     if (cachedSpeciesData) {
       const parsedData = JSON.parse(cachedSpeciesData);
       setSpeciesData(parsedData);
+      setIsDataLoaded(true);
       console.log('speciesData:', speciesData)
 
       const cachedVisibleSpeciesCount = localStorage.getItem('visibleSpeciesCount');
@@ -29,6 +30,7 @@ export default function SpeciesCardContainer() {
       const cachedNextSpeciesUrl = localStorage.getItem('nextSpeciesUrl');
       if (cachedNextSpeciesUrl) {
         setNextSpeciesUrl(cachedNextSpeciesUrl);
+
       }
     } else {
       handleFetchMore('https://swapi.dev/api/species/');
@@ -39,7 +41,7 @@ export default function SpeciesCardContainer() {
       setFetchCount(0); 
     }
   
-  }, [navigate, visibleSpeciesCount]);
+  }, [navigate, visibleSpeciesCount, isDataLoaded]);
   
 
   const fetchSpecies = async (url) => {
@@ -93,6 +95,21 @@ export default function SpeciesCardContainer() {
       initialUrl=null;
     }
   };
+
+  if (!isDataLoaded){
+    return (
+      <>
+        <div className="SpeciesPageLoading">
+          <h1>Loading...</h1>
+        </div>
+        {isDataLoaded && visibleSpeciesCount > 0 && visibleSpeciesCount < 37 && (
+          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
+            {buttonText}
+          </button>
+        )}
+      </>
+    );
+  }
 
   return (
     <>

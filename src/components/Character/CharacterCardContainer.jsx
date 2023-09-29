@@ -7,7 +7,7 @@ export default function CharacterCardContainer() {
   const [charactersData, setCharactersData] = useState([]);
   const [nextCharactersUrl, setNextCharactersUrl] = useState(null);
   const [fetchCount, setFetchCount] = useState(0);
-  const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [buttonText, setButtonText] = useState("See More");
 
 
@@ -18,6 +18,7 @@ export default function CharacterCardContainer() {
     if (cachedCharactersData) {
       const parsedData = JSON.parse(cachedCharactersData);
       setCharactersData(parsedData);
+      setIsDataLoaded(true);
 
       const cachedVisibleCharacterCount = localStorage.getItem('visibleCharacterCount');
       if (cachedVisibleCharacterCount) {
@@ -27,6 +28,7 @@ export default function CharacterCardContainer() {
       const cachedNextCharactersUrl = localStorage.getItem('nextCharactersUrl');
       if (cachedNextCharactersUrl) {
         setNextCharactersUrl(cachedNextCharactersUrl);
+
       }
     } else {
       handleFetchMore('https://swapi.dev/api/people/');
@@ -37,7 +39,7 @@ export default function CharacterCardContainer() {
       setFetchCount(0); 
     }
   
-  }, [navigate, visibleCharacterCount]);
+  }, [navigate, visibleCharacterCount, isDataLoaded]);
   
 
   const fetchCharacters = async (url) => {
@@ -90,26 +92,45 @@ export default function CharacterCardContainer() {
     }
   };
 
-  return (
-    <>
-      <div className="CharacterCardContainer">
-        {charactersData
-          .slice(0, visibleCharacterCount)
-          .map((character, index) => (
-            <Link
-            key={index}
-            to={`/characters/${character.id}`}
-            state={{ charactersData }}
-            >
-            <CharacterCard key={index} character={character} />
-          </Link>
-          ))}
-      </div>
-      {isDataLoaded && visibleCharacterCount > 0 && visibleCharacterCount < 82 && (
-        <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
-          {buttonText}
-        </button>
-      )}
-    </>
-  );
+
+  if (!isDataLoaded) {
+    return (
+      <>
+        <div className="CharactersPageLoading">
+          <h1>Loading...</h1>
+        </div>
+        {isDataLoaded && visibleCharacterCount > 0 && visibleCharacterCount < 82 && (
+          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
+            {buttonText}
+          </button>
+        )}
+      </>
+    );
+
+  }
+
+  else {
+      return (
+        <>
+          <div className="CharacterCardContainer">
+            {charactersData
+              .slice(0, visibleCharacterCount)
+              .map((character, index) => (
+                <Link
+                key={index}
+                to={`/characters/${character.id}`}
+                state={{ charactersData }}
+                >
+                <CharacterCard key={index} character={character} />
+              </Link>
+              ))}
+          </div>
+          {isDataLoaded && visibleCharacterCount > 0 && visibleCharacterCount < 82 && (
+            <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
+              {buttonText}
+            </button>
+          )}
+        </>
+    );
+  }
 }

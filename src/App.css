@@ -1665,27 +1665,22 @@ a{
   display: flex;
   align-items: center;
   white-space: nowrap;
-  filter: brightness(0.4)
 }
-
-.NavBar li:hover{
-  display: flex;
-  font-size: 20px;
-  align-items: center;
-  white-space: nowrap;
-  filter: brightness(1);
-}
-
-
 
 .NavBar a{
   text-decoration: none;
   color: #ffbe00;
+  filter: brightness(0.4);
+  transition: filter 0.5s ease;
+}
+
+.NavBar:hover a{
+  filter: brightness(0.4);
 }
 
 .NavBar a:hover{
+  filter: brightness(1.0);
   text-decoration: none;
-  filter: brightness(1);
   color: #ffbe00;
   border-bottom: 2px solid #ffbe00;
 }
@@ -1695,9 +1690,18 @@ a{
   text-decoration: none;
 }
 
-#NavBarHomeLink {
+#NavBarHomeLink a {
   filter: brightness(1);  
 }
+
+.NavBarLinkActive a{
+  filter: brightness(1);
+  text-decoration: none;
+  color: #ffbe00;
+  border-bottom: 2px solid #ffbe00;
+}
+
+
 
 
 

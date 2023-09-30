@@ -1,12 +1,15 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import SW_Logo from '../../assets/Images/HomePageImages/SW_Logo.png'
 
+
 const Layout = () => {
+    const location = useLocation();
+
     return (
         <>
             <nav className="NavBar">
                 <ul>
-                    <li id="NavBarCharactersLink">
+                    <li id="NavBarCharactersLink" className={location.pathname === '/characters' ? 'NavBarLinkActive' : ''}>
                         <Link to="characters">Characters</Link>
                     </li>
                     <li id="NavBarFilmsLink">

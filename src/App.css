@@ -5,7 +5,7 @@
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "arial black", sans-serif;
+  font-family: 'Space Mono', monospace;
   
 }
 
@@ -28,6 +28,7 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
 }
 
 .HomePageContainer a{
@@ -43,6 +44,18 @@ a{
 .HomePageContainer a:hover {
   filter: brightness(1.0);
   outline: 2px solid #ffbe00;
+}
+
+.HomePageContainer p{
+  border-radius: 40px;
+  padding: 0 10px;
+  content: "";
+  background-color: #39302e;
+}
+
+.HomePageContainer a:hover p {
+  background-color:#ffbe00;
+  color: #39302e;
 
 }
 
@@ -75,7 +88,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: yellow;
+  color: #ffbe00;;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
@@ -100,7 +113,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: yellow;
+  color: #ffbe00;;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
@@ -116,7 +129,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: yellow;
+  color: #ffbe00;;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
@@ -131,7 +144,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: yellow;
+  color: #ffbe00;;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
@@ -146,7 +159,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: yellow;
+  color: #ffbe00;;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
@@ -162,7 +175,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: yellow;
+  color: #ffbe00;;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
@@ -178,7 +191,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: yellow;
+  color: #ffbe00;;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
@@ -623,8 +636,12 @@ a{
   left: 10px;
   justify-content: center;
   padding: 6px 10px;
-  border-radius: 50px;
+  border-radius: 50px; 
+}
 
+.CharacterCardContainer .CharacterCard:hover .CharacterCardName{
+  background-color: #ffbe00;
+  color: #39302e;
 }
 
 

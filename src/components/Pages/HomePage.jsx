@@ -6,22 +6,22 @@ export default function HomePage() {
     <div className="HomePage">
       <div className="HomePageContainer">
         <Link to={`/characters`} className="HomePageCharacters">
-          Characters
+          <p>Characters</p>
         </Link>
         <Link to={`/films`} className="HomePageFilms">
-          Films
+          <p>Films</p>
         </Link>
         <Link to={`/planets`} className="HomePagePlanets">
-          Planets
+          <p>Planets</p>
         </Link>
         <Link to={`/species`}className="HomePageSpecies">
-          Species
+          <p>Species</p>
         </Link>
         <Link to={`/vehicles`} className="HomePageVehicles">
-          Vehicles
+          <p>Vehicles</p>
         </Link>
         <Link to={`/starships`} className="HomePageStarships">
-          Starships
+          <p>Starships</p>
         </Link>
       </div>
     </div>

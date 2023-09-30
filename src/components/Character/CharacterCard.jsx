@@ -6,7 +6,7 @@ export default function CharacterCard({ character }) {
 
   return (
     <div className="CharacterCard" style={{ backgroundImage: `url(${characterImage ? characterImage.image : '/src/assets/images/Image-Not-Found-2.jpg'})` }}>
-      <h3>{character.name}</h3>
+      <h3 className="CharacterCardName">{character.name}</h3>
     </div>
   );
 }

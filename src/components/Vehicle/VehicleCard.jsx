@@ -8,7 +8,7 @@ export default function VehicleCard ({ vehicle }) {
 
     return (
         <div className="VehicleCard" style={{ backgroundImage: `url(${vehicleImage ? vehicleImage.image : '/src/assets/images/Image-Not-Found-2.jpg'})` }}>
-        <h3>{vehicle.name}</h3>
+        <h3 className="VehicleCardName">{vehicle.name}</h3>
     </div>
     );
 }

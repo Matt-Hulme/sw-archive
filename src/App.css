@@ -6,12 +6,21 @@
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Space Mono', monospace;
+  font-weight: bold;
   
 }
 
 ::-webkit-scrollbar{
-  background-color: transparent;
+  background-color: rgba(240, 240, 240, .05);
+  width: 20px;
+  border-radius: 20px;
 }
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 190, 0, .55);
+  border-radius: 20px;
+}
+
 
 a{
   text-decoration:none;
@@ -30,6 +39,21 @@ a{
   align-items: center;
   font-weight: bold;
 }
+
+.HomePageContainer {
+  position: absolute;
+  top: 125px;
+  width: 90vw;
+  height: 78vh;
+  color: white;
+  display: grid;
+  column-gap: 2px;
+  row-gap: 2px;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+
+}
+
+
 
 .HomePageContainer a{
   filter: brightness(1.0);
@@ -56,13 +80,7 @@ a{
 .HomePageContainer a:hover p {
   background-color:#ffbe00;
   color: #39302e;
-
 }
-
-
-
-
-
 
 /* .HomePageCharacters:hover + #NavBarCharactersLink {
   filter: brightness(1.0);
@@ -70,16 +88,7 @@ a{
 } */
 
 
-.HomePageContainer {
-  width: 90vw;
-  height: 78vh;
-  color: white;
-  display: grid;
-  column-gap: 2px;
-  row-gap: 2px;
-  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 
-}
 
 .HomePageContainer a li {
   padding: 2px;
@@ -92,6 +101,11 @@ a{
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
+}
+
+.HomePageContainer p{
+  font-size: 23px;
+  font-weight: bold;
 }
 
 .HomePageContainer li:last-child {
@@ -213,7 +227,70 @@ a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
+
+
+.CharacterCardContainer {
+  padding: 2px;
+  position:absolute;
+  bottom: 10vh;
+  max-height: 100%;
+  height: 77vh;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-auto-rows: 360px; 
+  gap: 10px;
+  overflow-y: scroll;
+
+}
+
+.CharacterCard {
+  border-radius: 20px;
+  background-position: top;
+  padding: 100px;
+  display: flex;
+  position:relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #ffbe00;
+  background-size: cover;
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
+}
+
+.CharacterCardContainer:hover .CharacterCard{
+  filter:brightness(0.4);
+}
+
+.CharacterCardContainer .CharacterCard:hover {
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+}
+
+.CharacterCardName {
+  background-color:  #39302e;
+  font-size: 22px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 50px; 
+}
+
+.CharacterCardContainer .CharacterCard:hover .CharacterCardName{
+  background-color: #ffbe00;
+  color: #39302e;
+}
+
 
 .CharactersPageLoading{
   display: flex;
@@ -231,25 +308,33 @@ a{
   justify-content: center;
   align-items: center;
   color: #ffbe00;
+
 }
 
 .CharacterPageContainer {
-  width: 80%;
-  height: 85%;
+  padding: 2px;
+  position:absolute;
+  bottom: 10vh;
+  max-height: 100%;
+  height: 77vh;
+  width: 100vw;
   /* margin: 10px; */
   display: flex;
   flex-direction: column;
   color: #ffbe00;
   align-items: center;
+  overflow-y: scroll;
+
 }
 
 
 .CharacterPageMain{
-  flex: 1;
-  width: 70%;
+  height: 50%;
+  /* flex: 1; */
+  /* width: 70%;
   max-width: 70%;
   height: 50%;
-  max-height: 50%;
+  max-height: 50%; */
   display: flex;
   position: relative;
   justify-content: flex-start;
@@ -264,11 +349,12 @@ a{
   object-position: top;
   width: 50%;
   height: 100%;
+  border-radius: 300px;
 }
 
 .CharacterPageMainPanelContainer{
   flex: 1;
-  height: 88%;
+  /* height: 88%; */
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -285,10 +371,10 @@ a{
 .CharacterPageLower{
   flex: 1;
   max-width: 100%;
-  width: 100%;
-  max-height: 50%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: rgba(255, 255, 255, .10);
 }
@@ -303,10 +389,9 @@ a{
 
 .CharacterPagePanel2 {
   height: 100%;
-  flex: 1;
+  /* flex: 1; */
   border: 1px solid white;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   text-align: center;
   align-items: center;  
@@ -585,65 +670,6 @@ a{
   padding-top: 25%;
 }
 
-.CharacterCardContainer {
-  padding: 2px;
-  position:absolute;
-  bottom: 10vh;
-  max-height: 100%;
-  height: 77vh;
-  width: 80vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 400px; 
-  gap: 10px;
-  overflow-y: auto;  
-}
-
-.CharacterCard {
-  border-radius: 20px;
-  background-position: top;
-  padding: 100px;
-  display: flex;
-  position:relative;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  color: #ffbe00;
-  background-size: cover;
-  filter: brightness(1.0);
-  transition: filter 0.5s ease;
-}
-
-.CharacterCardContainer:hover .CharacterCard{
-  filter:brightness(0.4);
-}
-
-.CharacterCardContainer .CharacterCard:hover {
-  filter: brightness(1.0);
-  outline: 2px solid #ffbe00;
-}
-
-.CharacterCardName {
-  background-color:  #39302e;
-  font-size: 22px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  justify-content: center;
-  padding: 6px 10px;
-  border-radius: 50px; 
-}
-
-.CharacterCardContainer .CharacterCard:hover .CharacterCardName{
-  background-color: #ffbe00;
-  color: #39302e;
-}
-
 
 .FilmsPage{
   background-image: url(assets/Images/Star-Background.jpg);
@@ -676,15 +702,50 @@ a{
 }
 
 .FilmCardContainer {
+  padding: 2px;
+  position: absolute;
+  top: 125px;
+  height: 78vh;
   width: 90vw;
   max-height: 100%;
-  height: 90vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  column-gap: 2px;
   overflow-y: auto;
   color: #ffbe00;
   font-size: 10px
+}
+
+.FilmCard{
+  height: 100%;
+  border-radius: 20px;
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
+}
+
+
+.FilmCardContainer:hover .FilmCard{
+  filter:brightness(0.4);
+}
+
+.FilmCardContainer .FilmCard:hover {
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+}
+
+
+.FilmCardName {
+  background-color:  #39302e;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 50px; 
+}
+
+.FilmCardContainer .FilmCard:hover .FilmCardName{
+  background-color: #ffbe00;
+  color: #39302e;
 }
 
 .FilmPageContainer{
@@ -695,7 +756,6 @@ a{
   flex-direction: column;
   color: #ffbe00;
   align-items: center;
-
 }
 
 .FilmPageMain{
@@ -731,9 +791,7 @@ a{
   padding-top: 10px;
 }
 
-.FilmPageMainPanelContainer h3{
-  font-size: 30px;
-}
+
 
 
 .FilmPageLower{
@@ -885,15 +943,6 @@ a{
   background-size: cover;
 }
 
-.FilmCard h3 {
-  display: flex;
-  background-color: rgba(0, 0, 0, .55);
-  font-size: 18px;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 12px;
-}
 
 .FilmCard img{
   max-width: 100%;
@@ -1038,18 +1087,24 @@ a{
 }
 
 .PlanetCardContainer{
-  height: 85vh;
+  padding: 2px;
+  position:absolute;
+  bottom: 10vh;
+  max-height: 100%;
+  height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 400px; 
+  grid-auto-rows: 360px; 
   gap: 10px;
-  overflow-y: auto;      
+  overflow-y: auto;        
 }
 
 
 .PlanetCard{
-  background-position: center;
+  border-radius: 20px;
+  background-position: top;
+  padding: 100px;
   display: flex;
   position:relative;
   align-items: center;
@@ -1062,15 +1117,34 @@ a{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
 }
 
-.PlanetCard h3{
-  background-color: rgba(0, 0, 0, .75);
+.PlanetCardContainer:hover .PlanetCard{
+  filter:brightness(0.4);
+}
+
+
+.PlanetCardContainer .PlanetCard:hover {
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+}
+
+.PlanetCardName {
+  background-color:  #39302e;
   font-size: 22px;
   position: absolute;
+  top: 10px;
+  left: 10px;
   justify-content: center;
-  bottom: 15px;
   padding: 6px 10px;
+  border-radius: 50px; 
+}
+
+.PlanetCardContainer .PlanetCard:hover .PlanetCardName{
+  background-color: #ffbe00;
+  color: #39302e;
 }
 
 .SpeciesPage {
@@ -1082,6 +1156,73 @@ a{
   justify-content: center;
   align-items: center;
 }
+
+
+.SpeciesCardContainer{
+  padding: 2px;
+  position:absolute;
+  bottom: 10vh;
+  max-height: 100%;
+  height: 77vh;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-auto-rows: 360px;  
+  gap: 10px;
+  overflow-y: auto;   
+}
+
+.SpeciesCard{
+  border-radius: 20px;
+  background-position: top;
+  padding: 100px;
+  display: flex;
+  position:relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #ffbe00;
+  background-size: cover;
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
+}
+
+
+.SpeciesCardContainer:hover .SpeciesCard{
+  filter:brightness(0.4);
+}
+
+.SpeciesCardContainer .SpeciesCard:hover {
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+}
+
+
+.SpeciesCardName{
+  background-color:  #39302e;
+  font-size: 22px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 50px; 
+}
+
+.SpeciesCardContainer .SpeciesCard:hover .SpeciesCardName{
+  background-color: #ffbe00;
+  color: #39302e;
+}
+
+
+
+
+
 
 .SpeciesPageLoading{
   display: flex;
@@ -1218,18 +1359,35 @@ a{
   text-transform: capitalize;
 }
 
-.SpeciesCardContainer{
+
+.StarshipsPage {
+  background-image: url(assets/Images/Star-Background.jpg);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.StarshipCardContainer{
+  padding: 2px;
+  position:absolute;
+  bottom: 10vh;
   max-height: 100%;
-  height: 85vh;
+  height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 400px; 
+  grid-auto-rows: 360px; 
   gap: 10px;
-  overflow-y: auto;     
+  overflow-y: auto;  
 }
 
-.SpeciesCard{
+.StarshipCard{
+  border-radius: 20px;
   background-position: top;
   padding: 100px;
   display: flex;
@@ -1244,51 +1402,37 @@ a{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
 }
 
 
-.SpeciesCard h3{
-  background-color: rgba(0, 0, 0, .75);
+.StarshipCardContainer:hover .StarshipCard{
+  filter:brightness(0.4);
+}
+
+.StarshipCardContainer .StarshipCard:hover {
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+}
+
+.StarshipCardName{
+  background-color:  #39302e;
   font-size: 22px;
   position: absolute;
+  top: 10px;
+  left: 10px;
   justify-content: center;
-  bottom: 10px;
   padding: 6px 10px;
+  border-radius: 50px; 
 }
 
-/* .FilmPageContainer{
-  overflow-y: scroll;
-} */
-
-/* .SpeciePageContainer{
-  overflow-y: scroll;
+.StarshipCardContainer .StarshipCard:hover .StarshipCardName{
+  background-color: #ffbe00;
+  color: #39302e;
 }
 
-.PlanetPageContainer{
-  overflow-y: scroll;
-}
 
-.StarshipPageContainer{
-  overflow-y: scroll;
-}
-
-.VehiclePageContainer{
-  overflow-y: scroll;
-} */
-
-
-
-
-
-.StarshipsPage {
-  background-image: url(assets/Images/Star-Background.jpg);
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .StarshipsPageLoading{
   display: flex;
@@ -1319,6 +1463,9 @@ a{
   color: #ffbe00;
   align-items: center;
 }
+
+
+
 
 
 .StarshipPageMain{
@@ -1424,19 +1571,37 @@ a{
 
 
 
-.StarshipCardContainer{
+.VehiclesPage {
+  background-image: url(assets/Images/Star-Background.jpg);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+
+
+.VehicleCardContainer{
+  padding: 2px;
+  position:absolute;
+  bottom: 10vh;
   max-height: 100%;
-  height: 85vh;
+  height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 400px; 
+  grid-auto-rows: 360px; 
   gap: 10px;
-  overflow-y: auto;   
+  overflow-y: auto;      
 }
 
-.StarshipCard{
-  background-position: center;
+.VehicleCard{
+  border-radius: 20px;
+  background-position: top;
+  padding: 100px;
   display: flex;
   position:relative;
   align-items: center;
@@ -1449,28 +1614,35 @@ a{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
 }
 
-.StarshipCard h3{
-  background-color: rgba(0, 0, 0, .75);
+.VehicleCardContainer:hover .VehicleCard{
+  filter:brightness(0.4);
+}
+
+.VehicleCardContainer .VehicleCard:hover {
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+}
+
+.VehicleCardName{
+  background-color:  #39302e;
   font-size: 22px;
   position: absolute;
+  top: 10px;
+  left: 10px;
   justify-content: center;
-  bottom: 3px;
   padding: 6px 10px;
+  border-radius: 50px; 
 }
 
-
-.VehiclesPage {
-  background-image: url(assets/Images/Star-Background.jpg);
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
+.VehicleCardContainer .VehicleCard:hover .VehicleCardName{
+  background-color: #ffbe00;
+  color: #39302e;
 }
+
 
 .VehiclesPageLoading{
   display: flex;
@@ -1608,57 +1780,20 @@ a{
 }
 
 
-.VehicleCardContainer{
-  max-height: 100%;
-  height: 85vh;
-  width: 80vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 400px; 
-  gap: 10px;
-  overflow-y: auto;     
-}
-
-.VehicleCard{
-  background-position: top;
-  padding: 100px;
-  display: flex;
-  position:relative;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  color: #ffbe00;
-  background-size: cover;
-}
-
-.VehicleCard h3{
-  background-color: rgba(0, 0, 0, .75);
-  font-size: 22px;
-  position: absolute;
-  justify-content: center;
-  bottom: 3px;
-  padding: 6px 10px;
-}
-
-
 .SeeMoreButton {
   position: absolute;
   bottom: 1vh;
   border-radius: 22px;
   width: 7vw;
   height: 7vh;
-  font-size: 20px;
+  font-size: 23px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   min-width: 100px;
   min-height: 55px;
+  
 }
 
 .SeeMoreButton:active {
@@ -1673,12 +1808,12 @@ a{
   width: 100vw;
   height: 15vh;
   margin-bottom: 1px;
-  color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #ffbe00;
+  font-weight: bold;
   z-index: 999;
 }
 
@@ -1696,7 +1831,7 @@ a{
 }
 
 .NavBar li{
-  font-size: 20px;
+  font-size: 25px;
   margin: 0 30px;
   display: flex;
   align-items: center;
@@ -1707,7 +1842,7 @@ a{
   text-decoration: none;
   color: #ffbe00;
   filter: brightness(0.4);
-  transition: filter 0.5s ease;
+  transition: filter 0.3s ease;
 }
 
 .NavBar:hover a{
@@ -1743,15 +1878,15 @@ a{
 
 
 
-
+/* 
 .HomePageContainer,
-.CharacterCardContainer,
+.VehicleCardContainer,
 .FilmCardContainer,
 .PlanetCardContainer,
 .SpeciesCardContainer,
 .StarshipCardContainer,
 .VehicleCardContainer {
   margin-top: 3vh; 
-}
+} */
 
 

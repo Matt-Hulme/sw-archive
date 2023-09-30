@@ -7,7 +7,7 @@ export default function SpeciesCard ({ specie }) {
 
     return (
         <div className="SpeciesCard" style={{ backgroundImage: `url(${speciesImage ? speciesImage.image : '/src/assets/images/Image-Not-Found-2.jpg'})` }}>
-        <h3>{specie.name}</h3>
+        <h3 className="SpeciesCardName">{specie.name}</h3>
       </div>
     );
 }

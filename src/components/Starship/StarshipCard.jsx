@@ -6,7 +6,7 @@ export default function StarshipCard({ starship, index }) {
 
     return (
         <div className="StarshipCard" style={{ backgroundImage: `url(${starshipImage ? starshipImage.image : '/src/assets/images/Image-Not-Found-2.jpg'})` }}>
-            <h3>{starship.name}</h3>
+            <h3 className="StarshipCardName">{starship.name}</h3>
         </div>
     );
 }

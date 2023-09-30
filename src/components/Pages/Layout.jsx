@@ -12,10 +12,10 @@ const Layout = () => {
                     <li id="NavBarCharactersLink" className={location.pathname === '/characters' ? 'NavBarLinkActive' : ''}>
                         <Link to="characters">Characters</Link>
                     </li>
-                    <li id="NavBarFilmsLink">
+                    <li id="NavBarFilmsLink" className={location.pathname === '/films' ? 'NavBarLinkActive' : ''}>
                         <Link to="films">Films</Link>
                     </li>
-                    <li id="NavBarPlanetsLink">
+                    <li id="NavBarPlanetsLink" className={location.pathname === '/planets' ? 'NavBarLinkActive' : ''}>
                         <Link to="planets">Planets</Link>
                     </li>
                     <li id="NavBarHomeLink">
@@ -23,13 +23,13 @@ const Layout = () => {
                             <img className="HomePageSWLogo" src={SW_Logo}></img>
                         </Link>
                     </li>
-                    <li id="NavBarSpeciesLink">
+                    <li id="NavBarSpeciesLink" className={location.pathname === '/species' ? 'NavBarLinkActive' : ''}>
                         <Link to="species">Species</Link>
                     </li>
-                    <li id="NavBarStarshipsLink">
+                    <li id="NavBarStarshipsLink" className={location.pathname === '/starships' ? 'NavBarLinkActive' : ''}>
                         <Link to="starships">Starships</Link>
                     </li>
-                    <li id="NavBarVehiclesLink">
+                    <li id="NavBarVehiclesLink" className={location.pathname === '/vehicles' ? 'NavBarLinkActive' : ''}>
                         <Link to="vehicles">Vehicles</Link>
                     </li>
 

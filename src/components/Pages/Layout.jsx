@@ -6,27 +6,27 @@ const Layout = () => {
         <>
             <nav className="NavBar">
                 <ul>
-                    <li>
+                    <li id="NavBarCharactersLink">
                         <Link to="characters">Characters</Link>
                     </li>
-                    <li>
+                    <li id="NavBarFilmsLink">
                         <Link to="films">Films</Link>
                     </li>
-                    <li>
+                    <li id="NavBarPlanetsLink">
                         <Link to="planets">Planets</Link>
                     </li>
-                    <li>
+                    <li id="NavBarHomeLink">
                         <Link to="/">
                             <img className="HomePageSWLogo" src={SW_Logo}></img>
                         </Link>
                     </li>
-                    <li>
+                    <li id="NavBarSpeciesLink">
                         <Link to="species">Species</Link>
                     </li>
-                    <li>
+                    <li id="NavBarStarshipsLink">
                         <Link to="starships">Starships</Link>
                     </li>
-                    <li>
+                    <li id="NavBarVehiclesLink">
                         <Link to="vehicles">Vehicles</Link>
                     </li>
 

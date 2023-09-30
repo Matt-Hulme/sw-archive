@@ -26,23 +26,40 @@ a{
   align-items: center;
 }
 
-.HomePage a{
-  filter: brightness(0.4)
+.HomePageContainer a{
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
 }
 
-.HomePage a:hover{
+.HomePageContainer:hover a{
+  filter: brightness(0.4);
+}
+
+
+.HomePageContainer a:hover {
   filter: brightness(1.0);
   outline: 2px solid #ffbe00;
 
 }
 
 
+
+
+
+
+/* .HomePageCharacters:hover + #NavBarCharactersLink {
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+} */
+
+
 .HomePageContainer {
   width: 90vw;
-  height: 85vh;
+  height: 78vh;
   color: white;
   display: grid;
   column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 
 }
@@ -101,7 +118,7 @@ a{
   text-overflow:ellipsis
 }
 .HomePagePlanets{
-  background-image: url(assets/Images/HomePageImages/Tatooine.jpeg);
+  background-image: url(assets/Images/HomePageImages/Planet32.webp);
   background-position:center;
   background-size: cover;
   padding: 2px;
@@ -161,6 +178,12 @@ a{
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis
+}
+
+.HomePageSWLogo{
+  height: 175px;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 
 
@@ -1610,10 +1633,12 @@ a{
 .NavBar {
   position: absolute;
   top: 0;
-  width: 100%;
+  max-width: 100vw;
+  width: 100vw;
   height: 15vh;
   margin-bottom: 1px;
   color: white;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -1622,9 +1647,8 @@ a{
 }
 
 .NavBar ul{
-  left: 25%;
+  max-width: 100vw;
   height: 100%;
-  max-width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1636,16 +1660,34 @@ a{
 }
 
 .NavBar li{
-  padding: 0px 10px ;
-  display: flex;
   font-size: 20px;
-  margin: 0 15px;
+  margin: 0 30px;
+  display: flex;
   align-items: center;
   white-space: nowrap;
+  filter: brightness(0.4)
 }
+
+.NavBar li:hover{
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  white-space: nowrap;
+  filter: brightness(1);
+}
+
+
 
 .NavBar a{
   text-decoration: none;
+  color: #ffbe00;
+}
+
+.NavBar a:hover{
+  text-decoration: none;
+  filter: brightness(1);
+  color: #ffbe00;
+  border-bottom: 2px solid #ffbe00;
 }
 
 .NavBar a:visited {
@@ -1653,16 +1695,13 @@ a{
   text-decoration: none;
 }
 
-.NavBar a:hover {
-  color: white;
-  text-decoration: none;
+#NavBarHomeLink {
+  filter: brightness(1);  
 }
 
-.HomePageSWLogo{
-  height: 175px;
-  padding-left: 2vw;
-  padding-right: 2vw;
-}
+
+
+
 
 
 .HomePageContainer,

@@ -27,21 +27,23 @@ a{
 }
 
 .HomePage a{
-  filter: none;
-  -webkit-filter: grayscale(100%);
+  filter: brightness(0.4)
 }
 
 .HomePage a:hover{
-  filter: none;
-  -webkit-filter: grayscale(0%);
+  filter: brightness(1.0);
+  outline: 2px solid #ffbe00;
+
 }
+
 
 .HomePageContainer {
   width: 90vw;
   height: 85vh;
   color: white;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  column-gap: 2px;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 
 }
 
@@ -60,6 +62,11 @@ a{
 
 .HomePageContainer li:last-child {
   border-right: none;
+}
+
+.HomePageContainer a{
+  border-radius: 20px;
+
 }
 
 .HomePageCharacters{
@@ -157,6 +164,7 @@ a{
 }
 
 
+
 .CharactersPage {
   background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
@@ -187,7 +195,7 @@ a{
 
 .CharacterPageContainer {
   width: 80%;
-  height: 80%;
+  height: 85%;
   /* margin: 10px; */
   display: flex;
   flex-direction: column;
@@ -538,8 +546,10 @@ a{
 }
 
 .CharacterCardContainer {
+  position:absolute;
+  bottom: 10vh;
   max-height: 100%;
-  height: 85vh;
+  height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -1578,6 +1588,8 @@ a{
 
 
 .SeeMoreButton {
+  position: absolute;
+  bottom: 1vh;
   border-radius: 22px;
   width: 7vw;
   height: 7vh;
@@ -1599,9 +1611,8 @@ a{
   position: absolute;
   top: 0;
   width: 100%;
-  height: 3vh;
+  height: 15vh;
   margin-bottom: 1px;
-  background-color: rgba(0, 0, 0, .9);
   color: white;
   flex-direction: row;
   justify-content: center;
@@ -1611,8 +1622,8 @@ a{
 }
 
 .NavBar ul{
-  left: 50%;
-  position: inline block;
+  left: 25%;
+  height: 100%;
   max-width: 100%;
   list-style: none;
   margin: 0;
@@ -1625,7 +1636,7 @@ a{
 }
 
 .NavBar li{
-  padding: 0 10px;
+  padding: 0px 10px ;
   display: flex;
   font-size: 20px;
   margin: 0 15px;
@@ -1646,6 +1657,13 @@ a{
   color: white;
   text-decoration: none;
 }
+
+.HomePageSWLogo{
+  height: 175px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
 
 .HomePageContainer,
 .CharacterCardContainer,

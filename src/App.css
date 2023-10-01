@@ -298,8 +298,44 @@ a:visited{
   justify-content: center;
   align-items: center;
   color: #ffbe00;
-
 }
+
+.CharacterPageLower a {
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
+}
+
+.CharacterPagePanel2:hover .InterpageLink, .CharacterPagePanel3:hover .InterpageLink, .CharacterPagePanel4:hover .InterpageLink{
+  filter: brightness(0.4);
+}
+
+
+.CharacterPagePanel2 .InterpageLink:hover, .CharacterPagePanel3 .InterpageLink:hover, .CharacterPagePanel4 .InterpageLink:hover{
+  filter:brightness(1.0);
+  border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+/* .CharacterPageLower a:hover {
+  filter: brightness(1.0);
+}
+
+.CharacterPageLower a:not(:hover){
+  filter: brightness(0.4);
+}
+
+/* .CharacterPage a {
+  filter: brightness(1.0);
+} */
+
+
+
 
 .CharacterPageContainer {
   padding: 2px;
@@ -314,13 +350,10 @@ a:visited{
   color: #ffbe00;
   align-items: center;
   overflow-y: scroll;
-  filter: brightness(1.0);
-  transition: filter 0.5s ease;
 }
 
-.CharacterPageLower a:hover + .CharacterPageMain{
-  filter:brightness(0.4);
-}
+
+
 
 
 .CharacterPageMain{
@@ -605,6 +638,7 @@ a:visited{
 }
 
 .FilmListItem {
+  border-radius: 5px;
   max-height: 100%;
   margin-right: 10px;
   text-align: center;

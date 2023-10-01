@@ -253,6 +253,7 @@ export default function CharacterPage() {
                       <div style={{ whiteSpace: 'nowrap' }}>
                         <div className="Panel1Row1A">Species&nbsp;</div>
                         <Link
+                          className="InterpageLink"
                           to={{ pathname: `/species/${characterData.species.id}` }}
                           state={{ speciesData: characterData.species }}
                         >
@@ -265,7 +266,8 @@ export default function CharacterPage() {
                     {(characterData.homeworld !== "0" && characterData.homeworld !== null && characterData.homeworld !== "null" && characterData.homeworld !== "unknown" && characterData.homeworld !== "none" && characterData.homeworld !== undefined && characterData.homeworld?.length !==0) && (
                       <div style={{ whiteSpace: 'nowrap' }}>
                         <div className="Panel1Row1A">Homeworld&nbsp;</div>
-                        <Link 
+                        <Link
+                          className="InterpageLink" 
                           to={{ pathname: `/planets/${characterData.homeworld.id}` }}
                           state={{ planetsData: characterData.homeworld }}
                         >
@@ -297,6 +299,7 @@ export default function CharacterPage() {
                 {characterData.films.map((film) => (
                   <div className="FilmListItem" key={film.id}>
                     <Link
+                      className="InterpageLink"
                       to={{ pathname: `/films/${film.id}` }}
                       state={{ filmsData: characterData.films }}
                     >
@@ -318,6 +321,7 @@ export default function CharacterPage() {
                 {characterData.vehicles.map((vehicle, index) => (
                   <div className="VehicleListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to={{ pathname: `/vehicles/${vehicle.id}` }}
                       state={{ vehiclesData: characterData.vehicles }}
                     >
@@ -339,6 +343,7 @@ export default function CharacterPage() {
                 {characterData.starships.map((starship, index) => (
                   <div className="StarshipListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to={{ pathname: `/starships/${starship.id}` }}
                       state={{ starshipsData: characterData.starships }}
                     >

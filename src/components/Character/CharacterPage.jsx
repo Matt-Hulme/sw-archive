@@ -244,44 +244,54 @@ export default function CharacterPage() {
         <div className="CharacterPageMain">
           <img className="CharacterPageImage" src={characterImage.image} alt="Character" />
           <div className="CharacterPagePanel1">
-            <h1>{selectedCharacter.name}</h1>
+            <h1 className="IndividualPageMainHeader">{selectedCharacter.name}</h1>
             {characterData && (
               <div className="CharacterPageMainPanelContainer">
-                {(characterData.species !== "0" && characterData.species !== null && characterData.species !== "null" && characterData.species !== "unknown" && characterData.species !== "none" && characterData.species !== undefined && characterData.species?.length > 0) && (
-                  <div style={{ whiteSpace: 'nowrap' }}>
-                    Species:&nbsp;
-                    <Link
-                      to={{ pathname: `/species/${characterData.species.id}` }}
-                      state={{ speciesData: characterData.species }}
-                    >
-                      {characterData.species.name}
-                    </Link>
+                <div className="IndividualPagePanel1Row1">
+                  <div>
+                    {(characterData.species !== "0" && characterData.species !== null && characterData.species !== "null" && characterData.species !== "unknown" && characterData.species !== "none" && characterData.species !== undefined && characterData.species?.length !== 0) && (
+                      <div style={{ whiteSpace: 'nowrap' }}>
+                        <div className="Panel1Row1A">Species&nbsp;</div>
+                        <Link
+                          to={{ pathname: `/species/${characterData.species.id}` }}
+                          state={{ speciesData: characterData.species }}
+                        >
+                          <div className = "Panel1Row1B">{characterData.species.name}</div>
+                        </Link>
+                      </div>
+                    )}
                   </div>
-                )}
-                {(characterData.height !== "0" && characterData.height !== null && characterData.height !== "null" && characterData.height !== "unknown" && characterData.height !== "none" && characterData.height !== undefined) && (<div>Height: {characterData.height}</div>)}
-                {(characterData.mass !== "0" && characterData.mass !== null && characterData.mass !== "null" && characterData.mass !== "unknown" && characterData.mass !== "none" && characterData.mass !== undefined) && (<div>Mass: {characterData.mass}</div>)}
-                {(characterData.hairColor !== "0" && characterData.hairColor !== null && characterData.hairColor !== "null" && characterData.hairColor !== "unknown" && characterData.hairColor !== "none" && characterData.hairColor !== undefined) && (<div>Hair Color: {characterData.hairColor}</div>)}
-                {(characterData.skinColor !== "0" && characterData.skinColor !== null && characterData.skinColor !== "null" && characterData.skinColor !== "unknown" && characterData.skinColor !== "none" && characterData.skinColor !== undefined) && (<div>Skin Color: {characterData.skinColor}</div>)}
-                {(characterData.birthYear !== "0" && characterData.birthYear !== null && characterData.birthYear !== "null" && characterData.birthYear !== "none" && characterData.birthYear !== undefined) && (<div>Birth Year: {characterData.birthYear}</div>)}
-                {(characterData.gender !== "0" && characterData.gender !== null && characterData.gender !== "null" && characterData.gender !== undefined) && (<div>Gender: {characterData.gender}</div>)}
-                {(characterData.homeworld !== "0" && characterData.homeworld !== null && characterData.homeworld !== "null" && characterData.homeworld !== "unknown" && characterData.homeworld !== "none" && characterData.homeworld !== undefined && characterData?.homeworld.length > 0) && (
-                  <div style={{ whiteSpace: 'nowrap' }}>
-                    Homeworld:&nbsp;
-                    <Link
-                      to={{ pathname: `/planets/${characterData.homeworld.id}` }}
-                      state={{ planetsData: characterData.homeworld }}
-                    >
-                      {characterData.homeworld.name}
-                    </Link>
+                  <div>
+                    {(characterData.homeworld !== "0" && characterData.homeworld !== null && characterData.homeworld !== "null" && characterData.homeworld !== "unknown" && characterData.homeworld !== "none" && characterData.homeworld !== undefined && characterData.homeworld?.length !==0) && (
+                      <div style={{ whiteSpace: 'nowrap' }}>
+                        <div className="Panel1Row1A">Homeworld&nbsp;</div>
+                        <Link 
+                          to={{ pathname: `/planets/${characterData.homeworld.id}` }}
+                          state={{ planetsData: characterData.homeworld }}
+                        >
+                          <div className="Panel1Row1B">{characterData.homeworld.name}</div>
+                        </Link>
+                      </div>
+                    )}
                   </div>
-                )}
+                  <div>
+                    {(characterData.birthYear !== "0" && characterData.birthYear !== null && characterData.birthYear !== "null" && characterData.birthYear !== "none" && characterData.birthYear !== undefined) && (<div className="Panel1Row1A">Birth Year<div className="Panel1Row1B">{characterData.birthYear}</div></div>)}
+                  </div>
+                  {(characterData.gender !== "0" && characterData.gender !== null && characterData.gender !== "null" && characterData.gender !== undefined) && (<div className="Panel1Row1A">Gender<div className="Panel1Row1B">{characterData.gender}</div></div>)}
+                </div>
+                <div className="IndividualPagePanel1Row2">
+                  {(characterData.height !== "0" && characterData.height !== null && characterData.height !== "null" && characterData.height !== "unknown" && characterData.height !== "none" && characterData.height !== undefined) && (<div className="Panel1Row2A">Height<div className="Panel1Row2B">{characterData.height}</div></div>)}
+                  {(characterData.mass !== "0" && characterData.mass !== null && characterData.mass !== "null" && characterData.mass !== "unknown" && characterData.mass !== "none" && characterData.mass !== undefined) && (<div className="Panel1Row2A">Mass<div className="Panel1Row2B">{characterData.mass}</div></div>)}
+                  {(characterData.hairColor !== "0" && characterData.hairColor !== null && characterData.hairColor !== "null" && characterData.hairColor !== "unknown" && characterData.hairColor !== "none" && characterData.hairColor !== undefined) && (<div className="Panel1Row2A">Hair Color<div className="Panel1Row2B">{characterData.hairColor}</div></div>)}
+                  {(characterData.skinColor !== "0" && characterData.skinColor !== null && characterData.skinColor !== "null" && characterData.skinColor !== "unknown" && characterData.skinColor !== "none" && characterData.skinColor !== undefined) && (<div className="Panel1Row2A">Skin Color<div className="Panel1Row2B">{characterData.skinColor}</div></div>)}
+                </div>
               </div>
             )}
           </div>
         </div>
         <div className="CharacterPageLower">
           <div className="CharacterPagePanel2">
-            <h1>Films</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Films</h1>
             {characterData && (
               <div className="FilmList">
                 {characterData.films.map((film) => (
@@ -296,13 +306,13 @@ export default function CharacterPage() {
                   </div>
                 ))}
                 {characterData.films.length === 0 && (
-                  <div>No Films Data</div>
+                  <div className="IndividualPageNoDataFound">No Films Data</div>
                 )}
               </div>
             )}
           </div>
           <div className="CharacterPagePanel3">
-            <h1>Vehicles</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Vehicles</h1>
             {characterData && (
               <div className="VehicleList">
                 {characterData.vehicles.map((vehicle, index) => (
@@ -317,13 +327,13 @@ export default function CharacterPage() {
                   </div>
                 ))}
                 {characterData.vehicles.length === 0 && (
-                  <div>No Vehicle Data</div>
+                  <div className="IndividualPageNoDataFound">No Vehicle Data</div>
                 )}
               </div>
             )}
           </div>
           <div className="CharacterPagePanel4">
-            <h1>Starships</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Starships</h1>
             {characterData && (
               <div className="StarshipList">
                 {characterData.starships.map((starship, index) => (
@@ -338,7 +348,7 @@ export default function CharacterPage() {
                   </div>
                 ))}
                 {characterData.starships.length === 0 && (
-                  <div>No Starships Data</div>
+                  <div className="IndividualPageNoDataFound">No Starships Data</div>
                 )}
               </div>
             )}

@@ -274,25 +274,30 @@ console.log('Film URL Id:', selectedFilm.UrlId)
         <div className="FilmPageMain">
           <img className="FilmPageImage" src={filmImage.image} alt="Film"/>
           <div className ="FilmPagePanel1">
-            <h1>{selectedFilm.name}</h1>
+            <h1 className="IndividualPageMainHeader">{selectedFilm.name}</h1>
             {filmData && (
               <div className="FilmPageMainPanelContainer">
-                <div>Director: {filmData.director}</div>
-                <div>Producers: {filmData.producer}</div>
-                <div>Release Date: {filmData.releaseDate}</div>
-                <div>Opening Crawl: {filmData.openingCrawl}</div>
+                <div className="IndividualPagePanel1Row1" id="FilmPagePanel1Row1">
+                  <div className="Panel1Row1A">director<div className="Panel1Row1B">{filmData.director}</div></div>
+                  <div className="Panel1Row1A">producers<div className="Panel1Row1B">{filmData.producer}</div></div>
+                  <div className='Panel1Row1A'>release date <div className="Panel1Row1B">{filmData.releaseDate}</div></div>
+                </div>
+                <div className="IndividualPagePanel1Row2" id="FilmPagePanel1Row2">
+                  <div className='Panel1Row2A'>opening crawl <div className='Panel1Row2B'>{filmData.openingCrawl}</div></div>
+                </div>
               </div>
             )}
           </div>
         </div>
         <div className="FilmPageLower">
           <div className="FilmPagePanel2">
-            <h1>Characters</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Characters</h1>
             {filmData && (
               <div className="CharacterList">
                 {filmData.characters.map((character, index) => (
                   <div className="CharacterListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to ={{pathname: `/characters/${character.id}`}}
                       state ={{charactersData: filmData.characters}}
                     >
@@ -308,12 +313,13 @@ console.log('Film URL Id:', selectedFilm.UrlId)
             )}
           </div>
           <div className="FilmPagePanel3">
-            <h1>Planets</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Planets</h1>
             {filmData && (
               <div className="PlanetList">
                 {filmData.planets.map ((planet, index) => (
                   <div className="PlanetListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to ={{pathname: `/planets/${planet.id}`}}
                       state={{planetsData: filmData.planets}}
                     >
@@ -329,12 +335,13 @@ console.log('Film URL Id:', selectedFilm.UrlId)
             )}
          </div>
           <div className="FilmPagePanel4">
-            <h1>Species</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Species</h1>
             {filmData && (
               <div className="SpeciesList">
                 {filmData.species.map((species, index) => (
                   <div className="SpeciesListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to={{pathname: `/species/${species.id}`}}
                       state={{speciesData: filmData.species}}
                     >
@@ -350,12 +357,13 @@ console.log('Film URL Id:', selectedFilm.UrlId)
             )}
           </div>
           <div className="FilmPagePanel5">
-            <h1>Vehicles</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Vehicles</h1>
             {filmData && (
               <div className="VehicleList">
                 {filmData.vehicles.map((vehicle, index) => (
                   <div className="VehicleListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to={{pathname: `/vehicles/${vehicle.id}`}}
                       state={{vehiclesData: filmData.vehicles}}
                     >
@@ -371,12 +379,13 @@ console.log('Film URL Id:', selectedFilm.UrlId)
             )}
           </div>
           <div className="FilmPagePanel6">
-            <h1>Starships</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Starships</h1>
             {filmData && (
               <div className="StarshipList">
                 {filmData.starships.map((starship, index) => (
                   <div className="StarshipListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to={{pathname: `/starships/${starship.id}`}}
                       state={{starshipsData: filmData.starships}}
                     >

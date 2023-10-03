@@ -210,21 +210,22 @@ export default function SpeciePage() {
                   {(specieData.eyeColor !=="0" && specieData.eyeColor !==null && specieData.eyeColor !=="null" && specieData.eyeColor !=="unknown" && specieData.eyeColor !=="none" && specieData.eyeColor !==undefined) && (<div className="Panel1Row2A">Eye Colors<div className="Panel1Row2B">{specieData.eyeColor}</div></div>)}
                   {(specieData.lifespan !=="0" && specieData.lifespan !==null && specieData.lifespan !=="null" && specieData.lifespan !=="unknown" && specieData.lifespan !=="none" && specieData.lifespan !==undefined) && (<div className="Panel1Row2A">Lifespan<div className="Panel1Row2B">{specieData.lifespan}</div></div>)}
                   {(specieData.language !=="0" && specieData.language !==null && specieData.language !=="null" && specieData.language !=="unknown" && specieData.language !==undefined) && (<div className="Panel1Row2A">Language<div className="Panel1Row2B">{specieData.language}</div></div>)}
+                  <div>
+                    {specieData.homeworld && (
+                      <div>
+                        <div className="Panel1Row2A">Homeworld</div>
+                        <Link
+                          className="InterpageLink"   
+                          to={{pathname: `/planets/${specieData.homeworld.id}`}}
+                          state={{ planetsData: specieData.homeworld}}
+                        >
+                          <div className="Panel1Row2B">{specieData.homeworld.name}</div>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  {(specieData?.homeworld?.length !== undefined && specieData.homeworld.length !== 0) && (
-                    <div>
-                      <div className="Panel1Row2A">Homeworld</div>
-                      <Link
-                        className="InterpageLink"   
-                        to={{pathname: `/planets/${specieData.homeworld.id}`}}
-                        state={{ planetsData: specieData.homeworld}}
-                      >
-                        <div className="Panel1Row2B">{specieData.homeworld.name}</div>
-                      </Link>
-                    </div>
-                  )}
-                </div>
+                
               </div>
             )}
           </div>

@@ -424,12 +424,20 @@ a:visited{
   padding-right: 15px;
 }
 
+.IndividualPagePanel1Row1 a div{
+  color: white;
+}
+
+.IndividualPagePanel1Row1 a div:hover{
+  color: #39302e;
+}
+
 .IndividualPagePanel1Row2 a div{
   color: white;
 }
 
 .IndividualPagePanel1Row2 a div:hover{
-  color: #39302e;
+  color: #ffbe00;
 }
 
 .Panel1Row2A {
@@ -446,6 +454,11 @@ a:visited{
 .Panel1Row2B {
   text-transform: capitalize;
   font-size: 30px;
+  color: #ffbe00;
+  font-weight: lighter;
+}
+
+.Panel1Row2B a:hover{
   color: #ffbe00;
   font-weight: lighter;
 }

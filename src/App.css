@@ -1448,72 +1448,67 @@ a:visited{
   justify-content: center;
   align-items: center;
   color: #ffbe00;
+  overflow-y: auto
+}
 
+.SpeciePageLower a {
+  filter: brightness(1.0);
+  transition: filter 0.5s ease;
+}
+
+.SpeciePagePanel2:hover .InterpageLink, .SpeciePagePanel3:hover .InterpageLink{
+  filter: brightness(0.4);
+}
+
+
+.SpeciePagePanel2 .InterpageLink:hover, .SpeciePagePanel3 .InterpageLink:hover{
+  filter:brightness(1.0);
+  border-radius: 15px;
 }
 
 
 
 .SpeciePageContainer {
-  width: 80%;
-  height: 80%;
-  /* margin: 10px; */
+  padding: 2px;
+  position:absolute;
+  bottom: 7vh;
+  max-height: 80vh;
+  height: 80vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   color: #ffbe00;
   align-items: center;
+  overflow-y: scroll;
 }
 
 
 .SpeciePageMain{
-  flex: 1;
-  width: 70%;
-  max-width: 70%;
-  height: 50%;
-  max-height: 50%;
+  width: 80vw;
+  max-height: 60vh;
   display: flex;
-  position: relative;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: rgba(255, 255, 255, .10);
-  border: 1px solid white;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .SpeciePageImage {
-  /* position: absolute; */
-  align-self: flex-start;
+  height: 85%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
   object-fit: cover;
   object-position: top;
-  width: 50%;
-  height: 100%;
+  border-radius: 300px;
 }
-
-.SpeciePageMainPanelContainer{
-  height: 88%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.SpeciePageMainPanelContainer div{
-  padding-top: 10px;
-}
-
-
-.SpeciePageMainPanelContainer h3 {
-  font-size: 30px;
-
-}
-
 
 
 .SpeciePageLower{
-  flex: 1;
-  max-width: 100%;
-  width: 100%;
-  max-height: 50%;
-  height: 100%;
+  width: 80vw;
+  padding-right: 5px;
   display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   justify-content: center;
-  background-color: rgba(255, 255, 255, .10);
 }
 
 .SpeciePagePanel1{
@@ -1527,44 +1522,33 @@ a:visited{
 
 
 .SpeciePagePanel2 {
-  height: 100%;
-  flex: 1;
-  border: 1px solid white;
+  min-height: 200px;
+  max-height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: nowrap;
   text-align: center;
   align-items: center;  
   position: relative;
+  margin-bottom: 30px;
 }
 
-.SpeciePagePanel2 h1{  
-  height: 12%;
-  margin: 0;
-  padding: 0px 8px;
-  text-transform: capitalize;
-  position: relative;
-  z-index: 2;
-}
 
 
 .SpeciePagePanel3{
-  height: 100%;
-  flex: 1;
-  border: 1px solid white;
+  min-height: 200px;
+  max-height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: nowrap;
   text-align: center;
   align-items: center;  
+  position: relative;
+  margin-bottom: 30px;
 }
 
-.SpeciePagePanel3 h1{
-  height: 12%;
-  margin: 0;
-  padding: 0px 8px;
-  text-transform: capitalize;
-}
 
 
 .StarshipsPage {

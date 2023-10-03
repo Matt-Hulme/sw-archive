@@ -177,29 +177,34 @@ export default function PlanetPage() {
         <div className="PlanetPageMain">
           <img className="PlanetPageImage" src={planetImage.image} alt="Planet"/>
           <div className ="PlanetPagePanel1">
-            <h1>{selectedPlanet.name}</h1>
+            <h1 className="IndividualPageMainHeader">{selectedPlanet.name}</h1>
             {planetData && (
               <div className="PlanetPageMainPanelContainer">
-                {(planetData.rotation !=="0" && planetData.rotation !==null && planetData.rotation !=="null" && planetData.rotation !=="unknown" && planetData.rotation !=="none" && planetData.rotation !==undefined) && (<div>Rotation: {planetData.rotation}</div>)}
-                {(planetData.orbital !=="0" && planetData.orbital !==null && planetData.orbital !=="null" && planetData.orbital !=="unknown" && planetData.orbital !=="none" && planetData.orbital !==undefined) && (<div>Orbital: {planetData.orbital}</div>)}
-                {(planetData.diameter !=="0" && planetData.diameter !==null && planetData.diameter !=="null" && planetData.diameter !=="unknown" && planetData.diameter !=="none" && planetData.diameter !==undefined) && (<div>Diameter: {planetData.diameter}</div>)}
-                {(planetData.climate !=="0" && planetData.climate !==null && planetData.climate !=="null" && planetData.climate !=="unknown" && planetData.climate !=="none" && planetData.climate !==undefined) && (<div>Climate: {planetData.climate}</div>)}
-                {(planetData.gravity !==null && planetData.gravity !=="null" && planetData.gravity !=="unknown" && planetData.gravity !==undefined) && (<div>Gravity: {planetData.gravity}</div>)}
-                {(planetData.terrain !=="0" && planetData.terrain !==null && planetData.terrain !=="null" && planetData.terrain !=="unknown" && planetData.terrain !=="none" && planetData.terrain !==undefined) && (<div>Terrain: {planetData.terrain}</div>)}
-                {(planetData.surfaceWater !==null && planetData.surfaceWater !=="null" && planetData.surfaceWater !=="unknown" && planetData.surfaceWater !==undefined) && (<div>Surface Water: {planetData.surfaceWater}</div>)}
-                {(planetData.population !==null && planetData.population !=="null" && planetData.population !=="unknown" && planetData.population !==undefined) && (<div>Population: {planetData.population}</div>)}
+                <div className="IndividualPagePanel1Row1" id="PlanetPagePanel1Row1">
+                  {(planetData.rotation !=="0" && planetData.rotation !==null && planetData.rotation !=="null" && planetData.rotation !=="unknown" && planetData.rotation !=="none" && planetData.rotation !==undefined) && (<div className="Panel1Row1A">Rotation<div className="Panel1Row1B">{planetData.rotation}</div></div>)}
+                  {(planetData.orbital !=="0" && planetData.orbital !==null && planetData.orbital !=="null" && planetData.orbital !=="unknown" && planetData.orbital !=="none" && planetData.orbital !==undefined) && (<div className="Panel1Row1A">Orbital<div className="Panel1Row1B">{planetData.orbital}</div></div>)}
+                  {(planetData.diameter !=="0" && planetData.diameter !==null && planetData.diameter !=="null" && planetData.diameter !=="unknown" && planetData.diameter !=="none" && planetData.diameter !==undefined) && (<div className="Panel1Row1A">Diameter<div className="Panel1Row1B">{planetData.diameter}</div></div>)}
+                  {(planetData.climate !=="0" && planetData.climate !==null && planetData.climate !=="null" && planetData.climate !=="unknown" && planetData.climate !=="none" && planetData.climate !==undefined) && (<div className="Panel1Row1A">Climate<div className="Panel1Row1B">{planetData.climate}</div></div>)}
+                  {(planetData.gravity !==null && planetData.gravity !=="null" && planetData.gravity !=="unknown" && planetData.gravity !==undefined) && (<div className="Panel1Row1A">Gravity<div className="Panel1Row1B">{planetData.gravity}</div></div>)}
                 </div>
+                <div className="IndividualPagePanel1Row2" id="PlanetPagePanel1Row2A">
+                  {(planetData.terrain !=="0" && planetData.terrain !==null && planetData.terrain !=="null" && planetData.terrain !=="unknown" && planetData.terrain !=="none" && planetData.terrain !==undefined) && (<div className="Panel1Row2A">Terrain<div className="Panel1Row2B">{planetData.terrain}</div></div>)}
+                  {(planetData.surfaceWater !==null && planetData.surfaceWater !=="null" && planetData.surfaceWater !=="unknown" && planetData.surfaceWater !==undefined) && (<div className="Panel1Row2A">Surface Water <div className="Panel1Row2B">{planetData.surfaceWater}</div></div>)}
+                  {(planetData.population !==null && planetData.population !=="null" && planetData.population !=="unknown" && planetData.population !==undefined) && (<div className="Panel1Row2A">Population<div className="Panel1Row2B">{planetData.population}</div></div>)}
+                </div>
+              </div>
             )}
             </div>
         </div>
         <div className="PlanetPageLower">
           <div className="PlanetPagePanel2">
-            <h1>Characters</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Characters</h1>
             {planetData && (
               <div className="CharacterList">
                 {planetData.characters.map((character, index) => (
                   <div className="CharacterListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to ={{pathname: `/characters/${character.id}`}}
                       state ={{charactersData: planetData.characters}}
                     >
@@ -209,18 +214,19 @@ export default function PlanetPage() {
                   </div>
                 ))}
                 {planetData.characters.length === 0 && (
-                  <div>No Characters Data</div>
+                  <div className="IndividualPageNoDataFound">No Characters Data</div>
                 )}
               </div>
             )}
           </div>
           <div className="PlanetPagePanel3">
-            <h1>Films</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Films</h1>
             {planetData && (
               <div className="FilmList">
                 {planetData.films.map((film) => (
                   <div className="FilmListItem" key={film.id}>
                     <Link
+                      className="InterpageLink"
                       to={{pathname: `/films/${film.id}`}}
                       state={{ filmsData: planetData.films}}
                     >
@@ -230,7 +236,7 @@ export default function PlanetPage() {
                   </div>
                 ))}
                   {planetData.films.length === 0 && (
-                  <div>No Film Data</div>
+                  <div className="IndividualPageNoDataFound">No Film Data</div>
                 )}
               </div>
             )}

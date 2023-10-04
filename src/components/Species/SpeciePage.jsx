@@ -203,27 +203,27 @@ export default function SpeciePage() {
                   {(specieData.classification !=="0" && specieData.classification !==null && specieData.classification !=="null" && specieData.classification !=="unknown" && specieData.classification !=="none" && specieData.classificationclassification !==undefined) && (<div className="Panel1Row1A">Classification<div className="Panel1Row1B">{specieData.classificationclassification}</div></div>)}
                   {(specieData.designation !=="0" && specieData.designation !==null && specieData.designation !=="null" && specieData.designation !=="unknown" && specieData.designation !=="none" && specieData.designation !==undefined) && (<div className="Panel1Row1A">Designation<div className="Panel1Row1B">{specieData.designation}</div></div>)}
                   {(specieData.height !=="0" && specieData.height !==null && specieData.height !=="null" && specieData.height !=="unknown" && specieData.height !=="none" && specieData.height !==undefined) && (<div className="Panel1Row1A">Height<div className="Panel1Row1B">{specieData.height}</div></div>)}
-                  {(specieData.skinColor !=="0" && specieData.skinColor !==null && specieData.skinColor !=="null" && specieData.skinColor !=="unknown" && specieData.skinColor !=="none" && specieData.skinColor !==undefined) && (<div className="Panel1Row1A">Skin Colors<div className="Panel1Row1B">{specieData.skinColor}</div></div>)}
-                  {(specieData.hairColor !=="0" && specieData.hairColor !==null && specieData.hairColor !=="null" && specieData.hairColor !=="unknown" && specieData.hairColor !=="none" && specieData.hairColor !==undefined) && (<div className="Panel1Row1A">Hair Colors<div className="Panel1Row1B">{specieData.hairColor}</div></div>)}
-                </div>
-                <div className="IndividualPagePanel1Row2" id="SpeciePagePanel1Row2">
-                  {(specieData.eyeColor !=="0" && specieData.eyeColor !==null && specieData.eyeColor !=="null" && specieData.eyeColor !=="unknown" && specieData.eyeColor !=="none" && specieData.eyeColor !==undefined) && (<div className="Panel1Row2A">Eye Colors<div className="Panel1Row2B">{specieData.eyeColor}</div></div>)}
-                  {(specieData.lifespan !=="0" && specieData.lifespan !==null && specieData.lifespan !=="null" && specieData.lifespan !=="unknown" && specieData.lifespan !=="none" && specieData.lifespan !==undefined) && (<div className="Panel1Row2A">Lifespan<div className="Panel1Row2B">{specieData.lifespan}</div></div>)}
-                  {(specieData.language !=="0" && specieData.language !==null && specieData.language !=="null" && specieData.language !=="unknown" && specieData.language !==undefined) && (<div className="Panel1Row2A">Language<div className="Panel1Row2B">{specieData.language}</div></div>)}
+                  {(specieData.lifespan !=="0" && specieData.lifespan !==null && specieData.lifespan !=="null" && specieData.lifespan !=="unknown" && specieData.lifespan !=="none" && specieData.lifespan !==undefined) && (<div className="Panel1Row1A">Lifespan<div className="Panel1Row1B">{specieData.lifespan}</div></div>)}
+                  {(specieData.language !=="0" && specieData.language !==null && specieData.language !=="null" && specieData.language !=="unknown" && specieData.language !==undefined) && (<div className="Panel1Row1A">Language<div className="Panel1Row1B">{specieData.language}</div></div>)}
                   <div>
                     {specieData.homeworld && (
                       <div>
-                        <div className="Panel1Row2A">Homeworld</div>
+                        <div className="Panel1Row1A">Homeworld</div>
                         <Link
                           className="InterpageLink"   
                           to={{pathname: `/planets/${specieData.homeworld.id}`}}
                           state={{ planetsData: specieData.homeworld}}
                         >
-                          <div className="Panel1Row2B">{specieData.homeworld.name}</div>
+                          <div className="Panel1Row1B">{specieData.homeworld.name}</div>
                         </Link>
                       </div>
                     )}
                   </div>
+                </div>
+                <div className="IndividualPagePanel1Row2" id="SpeciePagePanel1Row2">
+                  {(specieData.skinColor !=="0" && specieData.skinColor !==null && specieData.skinColor !=="null" && specieData.skinColor !=="unknown" && specieData.skinColor !=="none" && specieData.skinColor !==undefined) && (<div className="Panel1Row2A">Skin Colors<div className="Panel1Row2B">{specieData.skinColor}</div></div>)}
+                  {(specieData.hairColor !=="0" && specieData.hairColor !==null && specieData.hairColor !=="null" && specieData.hairColor !=="unknown" && specieData.hairColor !=="none" && specieData.hairColor !==undefined) && (<div className="Panel1Row2A">Hair Colors<div className="Panel1Row2B">{specieData.hairColor}</div></div>)}
+                  {(specieData.eyeColor !=="0" && specieData.eyeColor !==null && specieData.eyeColor !=="null" && specieData.eyeColor !=="unknown" && specieData.eyeColor !=="none" && specieData.eyeColor !==undefined) && (<div className="Panel1Row2A">Eye Colors<div className="Panel1Row2B">{specieData.eyeColor}</div></div>)}
                 </div>
                 
               </div>

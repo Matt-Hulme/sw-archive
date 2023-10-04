@@ -175,31 +175,36 @@ export default function VehiclePage() {
         <div className="VehiclePageMain">
           <img className="VehiclePageImage" src={vehicleImage.image} alt="Vehicle"/>
           <div className ="VehiclePagePanel1">
-            <h1>{selectedVehicle.name}</h1>
+            <h1 className="IndividualPageMainHeader">{selectedVehicle.name}</h1>
               {vehicleData && (
                 <div className="VehiclePageMainPanelContainer">
-                  {(vehicleData.model !== "0" && vehicleData.model !==null && vehicleData.model !=="null" && vehicleData.model !== "unknown" && vehicleData.model !== "none" && vehicleData.model !==undefined) && (<div>Model: {vehicleData.model}</div>)}
-                  {(vehicleData.manufacturer !=="0" && vehicleData.manufacturer !==null && vehicleData.manufacturer !=="null" && vehicleData.manufacturer !=="unkown" && vehicleData.manufacturer !== "none" && vehicleData.manufacturer !==undefined) && (<div>Manufacturer: {vehicleData.manufacturer}</div>)}
-                  {(vehicleData.cost !== "0 " && vehicleData.cost !==null && vehicleData.cost !=="null" && vehicleData.cost !== "unknown" && vehicleData.cost !== "none" && vehicleData.cost !==undefined) && (<div>Cost: {vehicleData.cost} credits</div>)}
-                  {(vehicleData.length !== "0" && vehicleData.length !==null && vehicleData.length !=="null" && vehicleData.length !== "unknown" && vehicleData.length !== "none" && vehicleData.length !==undefined) && (<div>Length: {vehicleData.length}</div>)}
-                  {(vehicleData.speed !== "0" && vehicleData.speed !==null && vehicleData.speed !=="null" && vehicleData.speed !=="unknown" && vehicleData.speed !== "none" && vehicleData.speed !==undefined) && (<div>Speed: {vehicleData.speed}</div>)}
-                  {(vehicleData.crew !== "0" && vehicleData.crew !==null && vehicleData.crew !=="null" && vehicleData.crew !== "unknown" && vehicleData.crew !== "none" && vehicleData.crew !==undefined) && (<div>Crew: {vehicleData.crew}</div>)}
-                  {(vehicleData.passengers !== "0" && vehicleData.passengers !==null && vehicleData.passengers !=="null" && vehicleData.passengers !== "unknown" && vehicleData.passengers !== "none" && vehicleData.passengers !==undefined) && (<div>Passengers: {vehicleData.passengers}</div>)}
-                  {(vehicleData.cargoCapacity !== "0" && vehicleData.cargoCapacity !==null && vehicleData.cargoCapcity !=="null" && vehicleData.cargoCapacity !== "unknown" && vehicleData.cargoCapacity !== "none" && vehicleData.cargoCapacity !==undefined) &&(<div>Cargo Capacity: {vehicleData.cargoCapacity}</div>)}
-                  {(vehicleData.consumables !== "0" && vehicleData.consumables !==null && vehicleData.consumables !=="null" &&vehicleData.consumables !== "unknown" && vehicleData.consumables !== "none" && vehicleData.consumables !==undefined) && (<div>Consumables: {vehicleData.consumables}</div>)}
-                  {(vehicleData.class !== "0" && vehicleData.class !== null && vehicleData.class !=="null" && vehicleData.class !== "unknown" && vehicleData.class !== "none" && vehicleData.class !==undefined) && (<div>Class: {vehicleData.class}</div>)}
+                  <div className="IndividualPagePanel1Row1" id="VehiclePagePanel1Row1">
+                    {(vehicleData.class !== "0" && vehicleData.class !== null && vehicleData.class !=="null" && vehicleData.class !== "unknown" && vehicleData.class !== "none" && vehicleData.class !==undefined) && (<div className="Panel1Row1A">Class<div className="Panel1Row1B">{vehicleData.class}</div></div>)}
+                    {(vehicleData.model !== "0" && vehicleData.model !==null && vehicleData.model !=="null" && vehicleData.model !== "unknown" && vehicleData.model !== "none" && vehicleData.model !==undefined) && (<div className="Panel1Row1A">Model<div className="Panel1Row1B">{vehicleData.model}</div></div>)}
+                    {(vehicleData.manufacturer !=="0" && vehicleData.manufacturer !==null && vehicleData.manufacturer !=="null" && vehicleData.manufacturer !=="unkown" && vehicleData.manufacturer !== "none" && vehicleData.manufacturer !==undefined) && (<div className="Panel1Row1A">Manufacturer<div className="Panel1Row1B">{vehicleData.manufacturer}</div></div>)}
+                    {(vehicleData.cost !== "0 " && vehicleData.cost !==null && vehicleData.cost !=="null" && vehicleData.cost !== "unknown" && vehicleData.cost !== "none" && vehicleData.cost !==undefined) && (<div className="Panel1Row1A">Cost<div className="Panel1Row1B">{vehicleData.cost}</div></div>)}
+                  </div>
+                  <div className="IndividualPagePanel1Row2" id="VehiclePagePanel1Row2">
+                    {(vehicleData.length !== "0" && vehicleData.length !==null && vehicleData.length !=="null" && vehicleData.length !== "unknown" && vehicleData.length !== "none" && vehicleData.length !==undefined) && (<div className="Panel1Row2A">Length<div className="Panel1Row2B">{vehicleData.length}</div></div>)}
+                    {(vehicleData.speed !== "0" && vehicleData.speed !==null && vehicleData.speed !=="null" && vehicleData.speed !=="unknown" && vehicleData.speed !== "none" && vehicleData.speed !==undefined) && (<div className="Panel1Row2A">Speed<div className="Panel1Row2B">{vehicleData.speed}</div></div>)}
+                    {(vehicleData.crew !== "0" && vehicleData.crew !==null && vehicleData.crew !=="null" && vehicleData.crew !== "unknown" && vehicleData.crew !== "none" && vehicleData.crew !==undefined) && (<div className="Panel1Row2A">Crew<div className="Panel1Row2B">{vehicleData.crew}</div></div>)}
+                    {(vehicleData.passengers !== "0" && vehicleData.passengers !==null && vehicleData.passengers !=="null" && vehicleData.passengers !== "unknown" && vehicleData.passengers !== "none" && vehicleData.passengers !==undefined) && (<div className="Panel1Row2A">Passengers<div className="Panel1Row2B">{vehicleData.passengers}</div></div>)}
+                    {(vehicleData.cargoCapacity !== "0" && vehicleData.cargoCapacity !==null && vehicleData.cargoCapcity !=="null" && vehicleData.cargoCapacity !== "unknown" && vehicleData.cargoCapacity !== "none" && vehicleData.cargoCapacity !==undefined) &&(<div className="Panel1Row2A">Cargo Capacity<div className="Panel1Row2B">{vehicleData.cargoCapacity}</div></div>)}
+                    {(vehicleData.consumables !== "0" && vehicleData.consumables !==null && vehicleData.consumables !=="null" &&vehicleData.consumables !== "unknown" && vehicleData.consumables !== "none" && vehicleData.consumables !==undefined) && (<div className="Panel1Row2A">Consumables<div className="Panel1Row2B">{vehicleData.consumables}</div></div>)}
+                  </div >
                 </div>
               )}
           </div>
         </div>
         <div className="VehiclePageLower">
           <div className="VehiclePagePanel2">
-            <h1>Pilots</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Pilots</h1>
             {vehicleData && (
               <div className="CharacterList">
                 {vehicleData.characters.map((character, index) => (
                   <div className="CharacterListItem" key={index}>
                     <Link
+                      className="InterpageLink"
                       to ={{pathname: `/characters/${character.id}`}}
                       state ={{charactersData: vehicleData.characters}}
                     >
@@ -209,18 +214,19 @@ export default function VehiclePage() {
                   </div>
                 ))}
                 {vehicleData.characters.length === 0 && (
-                  <div>No Pilots Data</div>
+                  <div className="IndividualPageNoDataFound">No Pilots Data</div>
                 )}
               </div>
             )}
           </div>
           <div className="VehiclePagePanel3">
-            <h1>Films</h1>
+            <h1 className="IndividualPageLowerPanelHeader">Films</h1>
             {vehicleData && (
               <div className="FilmList">
                 {vehicleData.films.map((film) => (
                   <div className="FilmListItem" key={film.id}>
                     <Link
+                      className="InterpageLink"
                       to={{pathname: `/films/${film.id}`}}
                       state={{ filmsData: vehicleData.films}}
                     >
@@ -230,7 +236,7 @@ export default function VehiclePage() {
                   </div>
                 ))}
                 {vehicleData.films.length === 0 && (
-                  <div>No Film Data</div>
+                  <div className="IndividualPageNoDataFound">No Film Data</div>
                 )}
               </div>
             )}

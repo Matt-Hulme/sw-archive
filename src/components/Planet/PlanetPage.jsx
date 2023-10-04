@@ -187,7 +187,7 @@ export default function PlanetPage() {
                   {(planetData.climate !=="0" && planetData.climate !==null && planetData.climate !=="null" && planetData.climate !=="unknown" && planetData.climate !=="none" && planetData.climate !==undefined) && (<div className="Panel1Row1A">Climate<div className="Panel1Row1B">{planetData.climate}</div></div>)}
                   {(planetData.gravity !==null && planetData.gravity !=="null" && planetData.gravity !=="unknown" && planetData.gravity !==undefined) && (<div className="Panel1Row1A">Gravity<div className="Panel1Row1B">{planetData.gravity}</div></div>)}
                 </div>
-                <div className="IndividualPagePanel1Row2" id="PlanetPagePanel1Row2A">
+                <div className="IndividualPagePanel1Row2" id="PlanetPagePanel1Row2">
                   {(planetData.terrain !=="0" && planetData.terrain !==null && planetData.terrain !=="null" && planetData.terrain !=="unknown" && planetData.terrain !=="none" && planetData.terrain !==undefined) && (<div className="Panel1Row2A">Terrain<div className="Panel1Row2B">{planetData.terrain}</div></div>)}
                   {(planetData.surfaceWater !==null && planetData.surfaceWater !=="null" && planetData.surfaceWater !=="unknown" && planetData.surfaceWater !==undefined) && (<div className="Panel1Row2A">Surface Water <div className="Panel1Row2B">{planetData.surfaceWater}</div></div>)}
                   {(planetData.population !==null && planetData.population !=="null" && planetData.population !=="unknown" && planetData.population !==undefined) && (<div className="Panel1Row2A">Population<div className="Panel1Row2B">{planetData.population}</div></div>)}

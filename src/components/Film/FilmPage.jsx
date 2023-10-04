@@ -282,7 +282,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   <div className="Panel1Row1A">producers<div className="Panel1Row1B">{filmData.producer}</div></div>
                   <div className='Panel1Row1A'>release date <div className="Panel1Row1B">{filmData.releaseDate}</div></div>
                 </div>
-                <div className="IndividualPagePanel1Row2" id="FilmPagePanel1Row2">
+                <div id="FilmPagePanel1Row2">
                   <div className='Panel1Row2A'>opening crawl <div className='Panel1Row2B'>{filmData.openingCrawl}</div></div>
                 </div>
               </div>

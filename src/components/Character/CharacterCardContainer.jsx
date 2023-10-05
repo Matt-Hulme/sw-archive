@@ -67,6 +67,7 @@ export default function CharacterCardContainer() {
   };
 
   const handleSeeMoreAndFetchMore = () => {
+    setIsDataLoaded(false);
     handleSeeMore();
     handleFetchMore();
   };
@@ -96,17 +97,11 @@ export default function CharacterCardContainer() {
   if (!isDataLoaded) {
     return (
       <>
-        <div className="CharactersPageLoading">
-          <h1>Loading...</h1>
+        <div className="LoadingPanel">
+            <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        {isDataLoaded && visibleCharacterCount > 0 && visibleCharacterCount < 82 && (
-          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
-            {buttonText}
-          </button>
-        )}
       </>
     );
-
   }
 
   else {
@@ -129,6 +124,11 @@ export default function CharacterCardContainer() {
             <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
               {buttonText}
             </button>
+          )}
+          {!isDataLoaded && visibleCharacterCount > 0 && visibleCharacterCount < 82 && (
+          <div className="LoadingPanel">
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
           )}
         </>
     );

@@ -208,24 +208,9 @@ export default function CharacterPage() {
     // Render loading text while data is being fetched
     return (
       <div className="CharacterPage">
-        <div className="CharacterPageContainer">
-          <div className="CharacterPageMain">
-            <div className="CharacterPagePanel1">
-              <h1>Character Loading...</h1>
-            </div>
-          </div>
-          <div className="CharacterPageLower">
-            <div className="CharacterPagePanel2">
-              <h1>Films Loading...</h1>
-            </div>
-            <div className="CharacterPagePanel3">
-              <h1>Vehicles Loading...</h1>
-            </div>
-            <div className="CharacterPagePanel4">
-              <h1>Starships Loading...</h1>
-            </div>
-          </div>
-        </div>
+          <div className="LoadingPanel">
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>  
       </div>
     );
   }

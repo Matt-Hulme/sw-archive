@@ -96,17 +96,12 @@ export default function SpeciesCardContainer() {
     }
   };
 
-  if (!isDataLoaded){
+  if (!isDataLoaded) {
     return (
       <>
-        <div className="SpeciesPageLoading">
-          <h1>Loading...</h1>
+        <div className="LoadingPanel">
+            <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        {isDataLoaded && visibleSpeciesCount > 0 && visibleSpeciesCount < 37 && (
-          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
-            {buttonText}
-          </button>
-        )}
       </>
     );
   }

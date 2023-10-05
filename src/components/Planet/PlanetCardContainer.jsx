@@ -99,16 +99,10 @@ export default function PlanetCardContainer() {
   if (!isDataLoaded) {
     return (
       <>
-        <div className="PlanetsPageLoading">
-          <h1>Loading...</h1>
+        <div className="LoadingPanel">
+            <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        {isDataLoaded && visiblePlanetCount > 0 && visiblePlanetCount < 60 && (
-          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
-            {buttonText}
-          </button>
-        )}
       </>
-
     );
   }
 

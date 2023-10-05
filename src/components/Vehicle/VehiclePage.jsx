@@ -135,24 +135,13 @@ export default function VehiclePage() {
   }, [vehicleId, vehicleData]);
 
   
-  if (isLoading){
+  if (isLoading) {
+    // Render loading text while data is being fetched
     return (
-      <div className="VehiclePage">
-        <div className="VehiclePageContainer">
-          <div className="VehiclePageMain">
-            <div className ="VehiclePagePanel1">
-              <h1>Vehicle Loading...</h1>
-            </div>
-          </div>
-          <div className="VehiclePageLower">
-            <div className="VehiclePagePanel2">
-              <h1>Pilots Loading...</h1>
-            </div>
-            <div className="StarshipPagePanel3">
-              <h1>Films Loading...</h1>
-            </div>
-          </div>
-        </div>
+      <div className="CharacterPage">
+          <div className="LoadingPanel">
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>  
       </div>
     );
   }

@@ -96,17 +96,13 @@ export default function VehicleCardContainer() {
   if (!isDataLoaded) {
     return (
       <>
-        <div className="VehiclesPageLoading">
-          <h1>Loading...</h1>
+        <div className="LoadingPanel">
+            <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        {isDataLoaded && visibleVehicleCount > 0 && visibleVehicleCount < 39 && (
-          <button className="SeeMoreButton" onClick={handleSeeMoreAndFetchMore}>
-            {buttonText}
-          </button>
-        )}
       </>
     );
   }
+
 
   return (
     <>

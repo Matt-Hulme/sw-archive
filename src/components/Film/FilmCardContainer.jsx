@@ -54,12 +54,13 @@ export default function FilmCardContainer() {
   }
   
   if (isLoading) {
+    // Render loading text while data is being fetched
     return (
-      <>
-        <div className="FilmsPageLoading">
-          <h1>Loading...</h1>
-        </div>
-      </>
+      <div className="FilmPage">
+          <div className="LoadingPanel">
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>  
+      </div>
     );
   }
 

@@ -141,25 +141,13 @@ export default function PlanetPage() {
   console.log('UPDATED PLANET DATA AFTER FETCH:', planetData);
 
   if (isLoading) {
+    // Render loading text while data is being fetched
     return (
       <div className="PlanetPage">
-      <div className="PlanetPageContainer">
-        <div className="PlanetPageMain">
-          <div className ="PlanetPagePanel1">
-            <h1>Planet Loading...</h1>
-          </div>
-        </div>
-        <div className="PlanetPageLower">
-          <div className="PlanetPagePanel2">
-            <h1>Characters Loading...</h1>
-          </div>
-          <div className="PlanetPagePanel3">
-            <h1>Films Loading...</h1>
-          </div>
-        </div>
+          <div className="LoadingPanel">
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>  
       </div>
-    </div>
-
     );
   }
 

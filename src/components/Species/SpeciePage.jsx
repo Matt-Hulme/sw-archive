@@ -159,24 +159,13 @@ export default function SpeciePage() {
     }
   }, [speciesId, specieData])
 
-  if (isLoading){
-    return(
+  if (isLoading) {
+    // Render loading text while data is being fetched
+    return (
       <div className="SpeciePage">
-        <div className="SpeciePageContainer">
-          <div className="SpeciePageMain">
-            <div className="SpeciePagePanel1">
-              <h1>Species Loading...</h1>
-            </div>
-          </div>
-          <div className="SpeciePageLower">
-            <div className="SpeciePagePanel2">
-              <h1>Characters Loading...</h1>
-            </div>
-            <div className="SpeciePagePanel3">
-              <h1>Films Loading...</h1>
-            </div>
-          </div>
-        </div>
+          <div className="LoadingPanel">
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>  
       </div>
     );
   }

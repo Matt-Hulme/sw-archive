@@ -229,33 +229,13 @@ console.log('Film URL Id:', selectedFilm.UrlId)
     }
   }, [filmId, filmData]);
 
-  if (isLoading){
-    return(
+  if (isLoading) {
+    // Render loading text while data is being fetched
+    return (
       <div className="FilmPage">
-        <div className="FilmPageContainer">
-          <div className="FilmPageMain">
-            <div className ="FilmPagePanel1">
-              <h1>Film Loading...</h1>
-            </div>
-          </div>
-          <div className="FilmPageLower">
-            <div className="FilmPagePanel2">
-              <h1>Characters Loading...</h1>
-            </div>
-            <div className="FilmPagePanel3">
-              <h1>Planets Loading...</h1>
-          </div>
-            <div className="FilmPagePanel4">
-              <h1>Species Loading...</h1>
-            </div>
-            <div className="FilmPagePanel5">
-              <h1>Vehicles Loading...</h1>
-            </div>
-            <div className="FilmPagePanel6">
-              <h1>Starships Loading...</h1>
-            </div>
-          </div>
-        </div>
+          <div className="LoadingPanel">
+              <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>  
       </div>
     );
   }
@@ -307,7 +287,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.characters.length === 0 && (
-                  <div>No Characters Data</div>
+                  <div className="IndividualPageNoDataFound">No Characters Data</div>
                 )}
               </div>
             )}
@@ -329,7 +309,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.planets.length === 0 && (
-                  <div>No Planets Data</div>
+                  <div className="IndividualPageNoDataFound">No Planets Data</div>
                 )}
               </div>
             )}
@@ -351,7 +331,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.species.length === 0 && (
-                  <div>No Species Data</div>
+                  <div className="IndividualPageNoDataFound">No Species Data</div>
                 )}
               </div>
             )}
@@ -373,7 +353,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.vehicles.length === 0 && (
-                  <div>No Vehicles Data</div>
+                  <div className="IndividualPageNoDataFound">No Vehicles Data</div>
                 )}              
               </div>
             )}
@@ -395,7 +375,7 @@ console.log('Film URL Id:', selectedFilm.UrlId)
                   </div>
                 ))}
                 {filmData.starships.length === 0 && (
-                  <div>No Starships Data</div>
+                  <div className="IndividualPageNoDataFound">No Starships Data</div>
                 )}
               </div>
             )}

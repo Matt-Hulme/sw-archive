@@ -1,46 +1,42 @@
-#root{
+#root {
   display: flex;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   font-weight: bold;
-  
 }
 
-::-webkit-scrollbar{
-  background-color: rgba(240, 240, 240, .05);
+::-webkit-scrollbar {
+  background-color: rgba(240, 240, 240, 0.05);
   width: 20px;
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 190, 0, .70);
+  background-color: rgba(255, 190, 0, 0.7);
   border-radius: 20px;
 }
 
-
-a{    
-  text-decoration:none !important;
+a {
+  text-decoration: none !important;
   display: inline-block;
   width: 100% !important;
 }
 
-a:after{
+a:after {
   text-decoration: none !important;
 }
 
-a:visited{
+a:visited {
   text-decoration: none !important;
 }
-
-
 
 .HomePage {
   background-image: url(assets/Images/Star-Background.jpg);
@@ -62,28 +58,23 @@ a:visited{
   column-gap: 2px;
   row-gap: 2px;
   grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-
 }
 
-
-
-.HomePageContainer a{
-  filter: brightness(1.0);
+.HomePageContainer a {
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.HomePageContainer:hover a{
+.HomePageContainer:hover a {
   filter: brightness(0.4);
 }
 
-
 .HomePageContainer a:hover {
-  filter: brightness(1.0);
+  filter: brightness(1);
   outline: 2px solid #ffbe00;
 }
 
-
-.HomePageContainer p{
+.HomePageContainer p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,23 +87,21 @@ a:visited{
 }
 
 .HomePageContainer a:hover p {
-  background-color:#ffbe00;
+  background-color: #ffbe00;
   color: #39302e;
 }
-
 
 .HomePageContainer li:last-child {
   border-right: none;
 }
 
-.HomePageContainer a{
+.HomePageContainer a {
   border-radius: 20px;
-
 }
 
-.HomePageCharacters{
+.HomePageCharacters {
   background-image: url(assets/Images/HomePageImages/Luke.jpg);
-  background-position:center;
+  background-position: center;
   background-size: cover;
   padding: 2px;
   font-size: 35px;
@@ -120,16 +109,14 @@ a:visited{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: #ffbe00;;
+  color: #ffbe00;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis
-  
-  
+  text-overflow: ellipsis;
 }
-.HomePageFilms{
+.HomePageFilms {
   background-image: url(assets/Images/HomePageImages/V.jpg);
-  background-position:center;
+  background-position: center;
   background-size: cover;
   padding: 2px;
   font-size: 35px;
@@ -137,14 +124,14 @@ a:visited{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: #ffbe00;;
+  color: #ffbe00;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis
+  text-overflow: ellipsis;
 }
-.HomePagePlanets{
+.HomePagePlanets {
   background-image: url(assets/Images/HomePageImages/Planet32.webp);
-  background-position:center;
+  background-position: center;
   background-size: cover;
   padding: 2px;
   font-size: 35px;
@@ -152,14 +139,14 @@ a:visited{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: #ffbe00;;
+  color: #ffbe00;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis
+  text-overflow: ellipsis;
 }
-.HomePageSpecies{
+.HomePageSpecies {
   background-image: url(assets/Images/HomePageImages/Wookie.jpg);
-  background-position:center;
+  background-position: center;
   background-size: cover;
   padding: 2px;
   font-size: 35px;
@@ -167,14 +154,14 @@ a:visited{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: #ffbe00;;
+  color: #ffbe00;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis
+  text-overflow: ellipsis;
 }
-.HomePageStarships{
+.HomePageStarships {
   background-image: url(assets/Images/HomePageImages/MilleniumFalcon.jpeg);
-  background-position:center;
+  background-position: center;
   background-position-x: 28%;
   background-size: cover;
   padding: 2px;
@@ -183,14 +170,14 @@ a:visited{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: #ffbe00;;
+  color: #ffbe00;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis
+  text-overflow: ellipsis;
 }
-.HomePageVehicles{
+.HomePageVehicles {
   background-image: url(assets/Images/HomePageImages/ATAT.jpg);
-  background-position:center;
+  background-position: center;
   background-position-x: 9%;
   background-size: cover;
   padding: 2px;
@@ -199,19 +186,17 @@ a:visited{
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: #ffbe00;;
+  color: #ffbe00;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis
+  text-overflow: ellipsis;
 }
 
-.HomePageSWLogo{
+.HomePageSWLogo {
   height: 175px;
   padding-left: 2vw;
   padding-right: 2vw;
 }
-
-
 
 .CharactersPage {
   background-image: url(assets/Images/Star-Background.jpg);
@@ -221,23 +206,20 @@ a:visited{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
-
 
 .CharacterCardContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 10vh;
   max-height: 100%;
   height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 360px; 
+  grid-auto-rows: 360px;
   gap: 10px;
   overflow-y: scroll;
-
 }
 
 .CharacterCard {
@@ -245,7 +227,7 @@ a:visited{
   background-position: top;
   padding: 100px;
   display: flex;
-  position:relative;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -256,37 +238,36 @@ a:visited{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.CharacterCardContainer:hover .CharacterCard{
-  filter:brightness(0.4);
+.CharacterCardContainer:hover .CharacterCard {
+  filter: brightness(0.4);
 }
 
 .CharacterCardContainer .CharacterCard:hover {
-  filter: brightness(1.0);
+  filter: brightness(1);
   outline: 2px solid #ffbe00;
 }
 
 .CharacterCardName {
-  background-color:  #39302e;
+  background-color: #39302e;
   font-size: 22px;
   position: absolute;
   top: 10px;
   left: 10px;
   justify-content: center;
   padding: 6px 10px;
-  border-radius: 50px; 
+  border-radius: 50px;
 }
 
-.CharacterCardContainer .CharacterCard:hover .CharacterCardName{
+.CharacterCardContainer .CharacterCard:hover .CharacterCardName {
   background-color: #ffbe00;
   color: #39302e;
 }
 
-
-.CharactersPageLoading{
+.CharactersPageLoading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -304,13 +285,9 @@ a:visited{
   color: #ffbe00;
 }
 
-
-
-
-
 .CharacterPageContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 7vh;
   max-height: 80vh;
   height: 80vh;
@@ -322,17 +299,13 @@ a:visited{
   overflow-y: scroll;
 }
 
-
-
-.CharacterPageMain{
+.CharacterPageMain {
   width: 80vw;
   max-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  
 }
-
 
 .IndividualPageMainHeader {
   font-size: 80px;
@@ -341,9 +314,9 @@ a:visited{
   font-weight: lighter;
 }
 
-.IndividualPagePanel1Row1{
+.IndividualPagePanel1Row1 {
   width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -355,42 +328,41 @@ a:visited{
   padding: 0px 5px 5px 30px;
   margin-bottom: 10px;
 }
-  
-.IndividualPagePanel1Row2{
+
+.IndividualPagePanel1Row2 {
   width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
   left: -40px;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   border-radius: 35px;
   padding: 0px 5px 5px 30px;
   margin-bottom: 10px;
 }
 
-
-.IndividualPagePanel1Row2 div{
+.IndividualPagePanel1Row2 div {
   display: flex;
   flex-direction: column;
   padding-right: 15px;
 }
 
-.IndividualPagePanel1Row1 a div{
+.IndividualPagePanel1Row1 a div {
   color: white;
 }
 
-.IndividualPagePanel1Row1 a div:hover{
+.IndividualPagePanel1Row1 a div:hover {
   color: #39302e;
 }
 
-.IndividualPagePanel1Row2 a div{
+.IndividualPagePanel1Row2 a div {
   color: white;
 }
 
-.IndividualPagePanel1Row2 a div:hover{
+.IndividualPagePanel1Row2 a div:hover {
   color: #ffbe00;
 }
 
@@ -404,15 +376,16 @@ a:visited{
   font-weight: lighter;
 }
 
-.Panel1Row1A a:hover{
+.Panel1Row1A a:hover {
   border-bottom: 1px solid white;
+  margin-bottom: -1px;
 }
 
 .Panel1Row1B {
   text-transform: capitalize;
   font-size: 30px;
   color: #39302e;
-  max-width: 250PX;
+  max-width: 250px;
   padding-right: 0;
   margin-right: 10px;
 }
@@ -424,8 +397,9 @@ a:visited{
   font-weight: lighter;
 }
 
-.Panel1Row2A a:hover{
+.Panel1Row2A a:hover {
   border-bottom: 1px solid white;
+  margin-bottom: -1px;
 }
 
 .Panel1Row2B {
@@ -435,7 +409,7 @@ a:visited{
   font-weight: lighter;
 }
 
-.Panel1Row2B a:hover{
+.Panel1Row2B a:hover {
   color: #ffbe00;
   font-weight: lighter;
 }
@@ -450,7 +424,7 @@ a:visited{
   border-radius: 300px;
 }
 
-.CharacterPageLower{
+.CharacterPageLower {
   width: 80vw;
   padding-right: 5px;
   display: flex;
@@ -460,21 +434,24 @@ a:visited{
 }
 
 .CharacterPageLower a {
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.CharacterPagePanel2:hover .InterpageLink, .CharacterPagePanel3:hover .InterpageLink, .CharacterPagePanel4:hover .InterpageLink{
+.CharacterPagePanel2:hover .InterpageLink,
+.CharacterPagePanel3:hover .InterpageLink,
+.CharacterPagePanel4:hover .InterpageLink {
   filter: brightness(0.4);
 }
 
-
-.CharacterPagePanel2 .InterpageLink:hover, .CharacterPagePanel3 .InterpageLink:hover, .CharacterPagePanel4 .InterpageLink:hover{
-  filter:brightness(1.0);
+.CharacterPagePanel2 .InterpageLink:hover,
+.CharacterPagePanel3 .InterpageLink:hover,
+.CharacterPagePanel4 .InterpageLink:hover {
+  filter: brightness(1);
   border-radius: 15px;
 }
 
-.CharacterPagePanel1{
+.CharacterPagePanel1 {
   display: flex;
   justify-self: center;
   flex-direction: column;
@@ -495,12 +472,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-.CharacterPagePanel3{
+.CharacterPagePanel3 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -508,12 +485,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-.CharacterPagePanel4{
+.CharacterPagePanel4 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -521,7 +498,7 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
 }
 
@@ -529,7 +506,7 @@ a:visited{
   text-transform: lowercase;
   padding: 5px 12px;
   border-radius: 25px;
-  background-color:#ffbe00;
+  background-color: #ffbe00;
   color: #39302e;
   font-weight: lighter;
   font-size: 25px;
@@ -539,12 +516,12 @@ a:visited{
   position: absolute;
   top: -12px;
   left: -50px;
-  z-index: 999999
+  z-index: 999999;
 }
 
 .IndividualPageNoDataFound {
   background-color: #39302e;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 100%;
   height: 250px;
   display: flex;
@@ -553,7 +530,7 @@ a:visited{
   border-radius: 10px;
 }
 
-.CharacterList{
+.CharacterList {
   max-height: 100%;
   width: 100%;
   list-style: none;
@@ -565,7 +542,7 @@ a:visited{
   overflow-x: auto;
 }
 
-.CharacterListItem {  
+.CharacterListItem {
   border-radius: 5px;
   max-height: 100%;
   margin-right: 10px;
@@ -586,11 +563,10 @@ a:visited{
   border-radius: 15px;
 }
 
-
-.CharacterListItem div{
+.CharacterListItem div {
   padding: 5px 10px;
   border-radius: 30px;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   font-size: 20px;
   font-weight: lighter;
@@ -601,7 +577,6 @@ a:visited{
   top: 20px;
   left: 15px;
 }
-
 
 .FilmList {
   max-height: 100%;
@@ -636,12 +611,11 @@ a:visited{
   border-radius: 15px;
 }
 
-
-.FilmListItem div{
+.FilmListItem div {
   display: none;
   padding: 5px 10px;
   border-radius: 30px;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   font-size: 18px;
   font-weight: lighter;
@@ -683,10 +657,10 @@ a:visited{
   border-radius: 30px;
 }
 
-.PlanetListItem div{
+.PlanetListItem div {
   padding: 5px 10px;
   border-radius: 30px;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   font-size: 20px;
   font-weight: lighter;
@@ -698,8 +672,7 @@ a:visited{
   left: 15px;
 }
 
-
-.SpeciesList{
+.SpeciesList {
   max-height: 100%;
   width: 100%;
   list-style: none;
@@ -729,10 +702,10 @@ a:visited{
   border-radius: 15px;
 }
 
-.SpeciesListItem div{
+.SpeciesListItem div {
   padding: 5px 10px;
   border-radius: 30px;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   font-size: 20px;
   font-weight: lighter;
@@ -767,7 +740,6 @@ a:visited{
   position: relative;
 }
 
-
 .StarshipListItem img {
   height: 325px;
   width: 325px;
@@ -776,10 +748,10 @@ a:visited{
   border-radius: 15px;
 }
 
-.StarshipListItem div{
+.StarshipListItem div {
   padding: 5px 10px;
   border-radius: 30px;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   font-size: 20px;
   font-weight: lighter;
@@ -821,10 +793,10 @@ a:visited{
   border-radius: 15px;
 }
 
-.VehicleListItem div{
+.VehicleListItem div {
   padding: 5px 10px;
   border-radius: 30px;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   font-size: 20px;
   font-weight: lighter;
@@ -836,12 +808,11 @@ a:visited{
   left: 15px;
 }
 
-.NoDataFound{
+.NoDataFound {
   padding-top: 25%;
 }
 
-
-.FilmsPage{
+.FilmsPage {
   background-image: url(assets/Images/Star-Background.jpg);
   height: 100vh;
   width: 100vw;
@@ -851,7 +822,7 @@ a:visited{
   align-items: center;
 }
 
-.FilmsPageLoading{
+.FilmsPageLoading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -868,10 +839,8 @@ a:visited{
   justify-content: center;
   align-items: center;
   color: #ffbe00;
-  overflow-y: auto
+  overflow-y: auto;
 }
-
-
 
 .FilmCardContainer {
   padding: 2px;
@@ -885,44 +854,42 @@ a:visited{
   column-gap: 2px;
   overflow-y: auto;
   color: #ffbe00;
-  font-size: 10px
+  font-size: 10px;
 }
 
-.FilmCard{
+.FilmCard {
   height: 100%;
   border-radius: 20px;
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-
-.FilmCardContainer:hover .FilmCard{
-  filter:brightness(0.4);
+.FilmCardContainer:hover .FilmCard {
+  filter: brightness(0.4);
 }
 
 .FilmCardContainer .FilmCard:hover {
-  filter: brightness(1.0);
+  filter: brightness(1);
   outline: 2px solid #ffbe00;
 }
 
-
 .FilmCardName {
-  background-color:  #39302e;
+  background-color: #39302e;
   font-size: 20px;
   justify-content: center;
   align-items: center;
   padding: 6px 10px;
-  border-radius: 50px; 
+  border-radius: 50px;
 }
 
-.FilmCardContainer .FilmCard:hover .FilmCardName{
+.FilmCardContainer .FilmCard:hover .FilmCardName {
   background-color: #ffbe00;
   color: #39302e;
 }
 
-.FilmPageContainer{
+.FilmPageContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 7vh;
   max-height: 80vh;
   height: 80vh;
@@ -934,7 +901,7 @@ a:visited{
   overflow-y: scroll;
 }
 
-.FilmPageMain{
+.FilmPageMain {
   width: 82vw;
   max-height: 75vh;
   display: flex;
@@ -958,14 +925,11 @@ a:visited{
   overflow-x: hidden;
 }
 
-.FilmPageMainPanelContainer div{
+.FilmPageMainPanelContainer div {
   padding-top: 10px;
 }
 
-
-
-
-.FilmPageLower{
+.FilmPageLower {
   flex: 1;
   width: 80vw;
   padding-right: 5px;
@@ -977,21 +941,28 @@ a:visited{
 }
 
 .FilmPageLower a {
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.FilmPagePanel2:hover .InterpageLink, .FilmPagePanel3:hover .InterpageLink, .FilmPagePanel4:hover .InterpageLink, .FilmPagePanel5:hover .InterpageLink, .FilmPagePanel6:hover .InterpageLink{
+.FilmPagePanel2:hover .InterpageLink,
+.FilmPagePanel3:hover .InterpageLink,
+.FilmPagePanel4:hover .InterpageLink,
+.FilmPagePanel5:hover .InterpageLink,
+.FilmPagePanel6:hover .InterpageLink {
   filter: brightness(0.4);
 }
 
-
-.FilmPagePanel2 .InterpageLink:hover, .FilmPagePanel3 .InterpageLink:hover, .FilmPagePanel4 .InterpageLink:hover, .FilmPagePanel5 .InterpageLink:hover, .FilmPagePanel6 .InterpageLink:hover{
-  filter:brightness(1.0);
+.FilmPagePanel2 .InterpageLink:hover,
+.FilmPagePanel3 .InterpageLink:hover,
+.FilmPagePanel4 .InterpageLink:hover,
+.FilmPagePanel5 .InterpageLink:hover,
+.FilmPagePanel6 .InterpageLink:hover {
+  filter: brightness(1);
   border-radius: 15px;
 }
 
-.FilmPagePanel1{
+.FilmPagePanel1 {
   display: flex;
   justify-self: center;
   flex-direction: column;
@@ -1012,13 +983,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-
-.FilmPagePanel3{
+.FilmPagePanel3 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1026,13 +996,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-
-.FilmPagePanel4{
+.FilmPagePanel4 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1040,13 +1009,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-
-.FilmPagePanel5{
+.FilmPagePanel5 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1054,13 +1022,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
-
 }
 
-.FilmPagePanel6{
+.FilmPagePanel6 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1068,15 +1035,14 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-
-#FilmPagePanel1Row1{
+#FilmPagePanel1Row1 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -1089,15 +1055,15 @@ a:visited{
   margin-bottom: 10px;
 }
 
-#FilmPagePanel1Row2{
+#FilmPagePanel1Row2 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
   left: 0;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   border-radius: 35px;
   padding: 0px 5px 5px 30px;
@@ -1107,7 +1073,7 @@ a:visited{
 .FilmCard {
   background-position: center;
   display: flex;
-  position:relative;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1119,8 +1085,7 @@ a:visited{
   background-size: cover;
 }
 
-
-.FilmCard img{
+.FilmCard img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -1135,13 +1100,12 @@ a:visited{
   align-items: center;
 }
 
-.PlanetsPageLoading{
+.PlanetsPageLoading {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffbe00;
 }
-
 
 .PlanetPage {
   background-image: url(assets/Images/Star-Background.jpg);
@@ -1155,12 +1119,9 @@ a:visited{
   color: #ffbe00;
 }
 
-
-
-
 .PlanetPageContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 7vh;
   max-height: 80vh;
   height: 80vh;
@@ -1172,8 +1133,7 @@ a:visited{
   overflow-y: scroll;
 }
 
-
-.PlanetPageMain{
+.PlanetPageMain {
   width: 80vw;
   max-height: 60vh;
   display: flex;
@@ -1191,7 +1151,7 @@ a:visited{
   border-radius: 300px;
 }
 
-.PlanetPageMainPanelContainer{
+.PlanetPageMainPanelContainer {
   height: 88%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -1201,8 +1161,7 @@ a:visited{
   font-size: 30px;
 }
 
-
-.PlanetPageLower{
+.PlanetPageLower {
   width: 80vw;
   padding-right: 5px;
   display: flex;
@@ -1212,20 +1171,22 @@ a:visited{
 }
 
 .PlanetPageLower a {
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.PlanetPagePanel2:hover .InterpageLink, .PlanetPagePanel3:hover .InterpageLink{
+.PlanetPagePanel2:hover .InterpageLink,
+.PlanetPagePanel3:hover .InterpageLink {
   filter: brightness(0.4);
 }
 
-.PlanetPagePanel2 .InterpageLink:hover, .PlanetPagePanel3 .InterpageLink:hover{
-  filter:brightness(1.0);
+.PlanetPagePanel2 .InterpageLink:hover,
+.PlanetPagePanel3 .InterpageLink:hover {
+  filter: brightness(1);
   border-radius: 15px;
 }
 
-.PlanetPagePanel1{
+.PlanetPagePanel1 {
   display: flex;
   justify-self: center;
   flex-direction: column;
@@ -1246,12 +1207,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-.PlanetPagePanel3{
+.PlanetPagePanel3 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1259,14 +1220,14 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
-  margin-bottom: 30px;  
+  margin-bottom: 30px;
 }
 
-#PlanetPagePanel1Row1{
+#PlanetPagePanel1Row1 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -1279,43 +1240,41 @@ a:visited{
   margin-bottom: 10px;
 }
 
-#PlanetPagePanel1Row2{
+#PlanetPagePanel1Row2 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
   left: 0;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   border-radius: 35px;
   padding: 0px 5px 5px 30px;
   margin-bottom: 10px;
 }
 
-
-.PlanetCardContainer{
+.PlanetCardContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 10vh;
   max-height: 100%;
   height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 360px; 
+  grid-auto-rows: 360px;
   gap: 10px;
-  overflow-y: auto;        
+  overflow-y: auto;
 }
 
-
-.PlanetCard{
+.PlanetCard {
   border-radius: 20px;
   background-position: top;
   padding: 100px;
   display: flex;
-  position:relative;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1326,32 +1285,31 @@ a:visited{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.PlanetCardContainer:hover .PlanetCard{
-  filter:brightness(0.4);
+.PlanetCardContainer:hover .PlanetCard {
+  filter: brightness(0.4);
 }
 
-
 .PlanetCardContainer .PlanetCard:hover {
-  filter: brightness(1.0);
+  filter: brightness(1);
   outline: 2px solid #ffbe00;
 }
 
 .PlanetCardName {
-  background-color:  #39302e;
+  background-color: #39302e;
   font-size: 22px;
   position: absolute;
   top: 10px;
   left: 10px;
   justify-content: center;
   padding: 6px 10px;
-  border-radius: 50px; 
+  border-radius: 50px;
 }
 
-.PlanetCardContainer .PlanetCard:hover .PlanetCardName{
+.PlanetCardContainer .PlanetCard:hover .PlanetCardName {
   background-color: #ffbe00;
   color: #39302e;
 }
@@ -1366,27 +1324,26 @@ a:visited{
   align-items: center;
 }
 
-
-.SpeciesCardContainer{
+.SpeciesCardContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 10vh;
   max-height: 100%;
   height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 360px;  
+  grid-auto-rows: 360px;
   gap: 10px;
-  overflow-y: auto;   
+  overflow-y: auto;
 }
 
-.SpeciesCard{
+.SpeciesCard {
   border-radius: 20px;
   background-position: top;
   padding: 100px;
   display: flex;
-  position:relative;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1397,43 +1354,36 @@ a:visited{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-
-.SpeciesCardContainer:hover .SpeciesCard{
-  filter:brightness(0.4);
+.SpeciesCardContainer:hover .SpeciesCard {
+  filter: brightness(0.4);
 }
 
 .SpeciesCardContainer .SpeciesCard:hover {
-  filter: brightness(1.0);
+  filter: brightness(1);
   outline: 2px solid #ffbe00;
 }
 
-
-.SpeciesCardName{
-  background-color:  #39302e;
+.SpeciesCardName {
+  background-color: #39302e;
   font-size: 22px;
   position: absolute;
   top: 10px;
   left: 10px;
   justify-content: center;
   padding: 6px 10px;
-  border-radius: 50px; 
+  border-radius: 50px;
 }
 
-.SpeciesCardContainer .SpeciesCard:hover .SpeciesCardName{
+.SpeciesCardContainer .SpeciesCard:hover .SpeciesCardName {
   background-color: #ffbe00;
   color: #39302e;
 }
 
-
-
-
-
-
-.SpeciesPageLoading{
+.SpeciesPageLoading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1450,16 +1400,12 @@ a:visited{
   justify-content: center;
   align-items: center;
   color: #ffbe00;
-  overflow-y: auto
+  overflow-y: auto;
 }
-
-
-
-
 
 .SpeciePageContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 7vh;
   max-height: 80vh;
   height: 80vh;
@@ -1471,8 +1417,7 @@ a:visited{
   overflow-y: scroll;
 }
 
-
-.SpeciePageMain{
+.SpeciePageMain {
   width: 80vw;
   max-height: 60vh;
   display: flex;
@@ -1490,8 +1435,7 @@ a:visited{
   border-radius: 300px;
 }
 
-
-.SpeciePageLower{
+.SpeciePageLower {
   width: 80vw;
   padding-right: 5px;
   display: flex;
@@ -1501,29 +1445,28 @@ a:visited{
 }
 
 .SpeciePageLower a {
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.SpeciePagePanel2:hover .InterpageLink, .SpeciePagePanel3:hover .InterpageLink{
+.SpeciePagePanel2:hover .InterpageLink,
+.SpeciePagePanel3:hover .InterpageLink {
   filter: brightness(0.4);
 }
 
-
-.SpeciePagePanel2 .InterpageLink:hover, .SpeciePagePanel3 .InterpageLink:hover{
-  filter:brightness(1.0);
+.SpeciePagePanel2 .InterpageLink:hover,
+.SpeciePagePanel3 .InterpageLink:hover {
+  filter: brightness(1);
   border-radius: 15px;
 }
 
-.SpeciePagePanel1{
+.SpeciePagePanel1 {
   height: 88%;
   width: 50%;
   text-transform: capitalize;
   margin-left: 20px;
   border: 1px;
 }
-
-
 
 .SpeciePagePanel2 {
   min-height: 200px;
@@ -1533,14 +1476,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-
-
-.SpeciePagePanel3{
+.SpeciePagePanel3 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1548,12 +1489,10 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
-
-
 
 .StarshipsPage {
   background-image: url(assets/Images/Star-Background.jpg);
@@ -1565,28 +1504,26 @@ a:visited{
   align-items: center;
 }
 
-
-
-.StarshipCardContainer{
+.StarshipCardContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 10vh;
   max-height: 100%;
   height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-auto-rows: 360px; 
+  grid-auto-rows: 360px;
   gap: 10px;
-  overflow-y: auto;  
+  overflow-y: auto;
 }
 
-.StarshipCard{
+.StarshipCard {
   border-radius: 20px;
   background-position: top;
   padding: 100px;
   display: flex;
-  position:relative;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1597,23 +1534,22 @@ a:visited{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-
-.StarshipCardContainer:hover .StarshipCard{
-  filter:brightness(0.4);
+.StarshipCardContainer:hover .StarshipCard {
+  filter: brightness(0.4);
 }
 
 .StarshipCardContainer .StarshipCard:hover {
-  filter: brightness(1.0);
+  filter: brightness(1);
   outline: 2px solid #ffbe00;
 }
 
-.StarshipCardName{
+.StarshipCardName {
   display: flex;
-  background-color:  #39302e;
+  background-color: #39302e;
   font-size: 20px;
   position: absolute;
   top: 10px;
@@ -1621,24 +1557,22 @@ a:visited{
   justify-content: center;
   align-items: center;
   padding: 6px 10px;
-  border-radius: 50px; 
+  border-radius: 50px;
 }
 
-.StarshipCardContainer .StarshipCard:hover .StarshipCardName{
+.StarshipCardContainer .StarshipCard:hover .StarshipCardName {
   background-color: #ffbe00;
   color: #39302e;
 }
 
-
-
-.StarshipsPageLoading{
+.StarshipsPageLoading {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffbe00;
 }
 
-.StarshipPage{
+.StarshipPage {
   background-image: url(assets/Images/Star-Background.jpg);
   background-size: cover;
   height: 100vh;
@@ -1650,12 +1584,9 @@ a:visited{
   color: #ffbe00;
 }
 
-
-
-
 .StarshipPageContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 7vh;
   max-height: 80vh;
   height: 80vh;
@@ -1667,8 +1598,7 @@ a:visited{
   overflow-y: scroll;
 }
 
-
-.StarshipPageMain{
+.StarshipPageMain {
   width: 65vw;
   max-height: 60vh;
   display: flex;
@@ -1686,7 +1616,7 @@ a:visited{
   border-radius: 175px;
 }
 
-.StarshipPageMainPanelContainer{
+.StarshipPageMainPanelContainer {
   height: 88%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -1696,7 +1626,7 @@ a:visited{
   font-size: 30px;
 }
 
-.StarshipPageLower{
+.StarshipPageLower {
   width: 80vw;
   padding-right: 5px;
   display: flex;
@@ -1706,20 +1636,22 @@ a:visited{
 }
 
 .StarshipPageLower a {
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.StarshipPagePanel2:hover .InterpageLink, .StarshipPagePanel3:hover .InterpageLink{
+.StarshipPagePanel2:hover .InterpageLink,
+.StarshipPagePanel3:hover .InterpageLink {
   filter: brightness(0.4);
 }
 
-.StarshipPagePanel2 .InterpageLink:hover, .StarshipPagePanel3 .InterpageLink:hover{
-  filter:brightness(1.0);
+.StarshipPagePanel2 .InterpageLink:hover,
+.StarshipPagePanel3 .InterpageLink:hover {
+  filter: brightness(1);
   border-radius: 15px;
 }
 
-.StarshipPagePanel1{
+.StarshipPagePanel1 {
   display: flex;
   justify-self: center;
   flex-direction: column;
@@ -1729,7 +1661,6 @@ a:visited{
   margin-left: 20px;
 }
 
-
 .StarshipPagePanel2 {
   min-height: 250px;
   max-height: 100%;
@@ -1738,12 +1669,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-.StarshipPagePanel3{
+.StarshipPagePanel3 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1751,14 +1682,14 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
-  margin-bottom: 30px;   
+  margin-bottom: 30px;
 }
 
-#StarshipPagePanel1Row1{
+#StarshipPagePanel1Row1 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -1771,23 +1702,20 @@ a:visited{
   margin-bottom: 10px;
 }
 
-#StarshipPagePanel1Row2{
+#StarshipPagePanel1Row2 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
   left: 0;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   border-radius: 35px;
   padding: 0px 5px 5px 30px;
   margin-bottom: 10px;
 }
-
-
-
 
 .VehiclesPage {
   background-image: url(assets/Images/Star-Background.jpg);
@@ -1800,28 +1728,26 @@ a:visited{
   overflow: auto;
 }
 
-
-
-.VehicleCardContainer{
+.VehicleCardContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 10vh;
   max-height: 100%;
   height: 77vh;
   width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  grid-auto-rows: 360px; 
+  grid-auto-rows: 360px;
   gap: 10px;
-  overflow-y: auto;      
+  overflow-y: auto;
 }
 
-.VehicleCard{
+.VehicleCard {
   border-radius: 20px;
   background-position: top;
   padding: 100px;
   display: flex;
-  position:relative;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1832,37 +1758,36 @@ a:visited{
   overflow: hidden;
   color: #ffbe00;
   background-size: cover;
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.VehicleCardContainer:hover .VehicleCard{
-  filter:brightness(0.4);
+.VehicleCardContainer:hover .VehicleCard {
+  filter: brightness(0.4);
 }
 
 .VehicleCardContainer .VehicleCard:hover {
-  filter: brightness(1.0);
+  filter: brightness(1);
   outline: 2px solid #ffbe00;
 }
 
-.VehicleCardName{
-  background-color:  #39302e;
+.VehicleCardName {
+  background-color: #39302e;
   font-size: 22px;
   position: absolute;
   top: 10px;
   left: 10px;
   justify-content: center;
   padding: 6px 10px;
-  border-radius: 50px; 
+  border-radius: 50px;
 }
 
-.VehicleCardContainer .VehicleCard:hover .VehicleCardName{
+.VehicleCardContainer .VehicleCard:hover .VehicleCardName {
   background-color: #ffbe00;
   color: #39302e;
 }
 
-
-.VehiclesPageLoading{
+.VehiclesPageLoading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1881,10 +1806,9 @@ a:visited{
   color: #ffbe00;
 }
 
-
 .VehiclePageContainer {
   padding: 2px;
-  position:absolute;
+  position: absolute;
   bottom: 7vh;
   max-height: 80vh;
   height: 80vh;
@@ -1896,8 +1820,7 @@ a:visited{
   overflow-y: scroll;
 }
 
-
-.VehiclePageMain{
+.VehiclePageMain {
   width: 80vw;
   max-height: 60vh;
   display: flex;
@@ -1915,8 +1838,7 @@ a:visited{
   border-radius: 300px;
 }
 
-
-.VehiclePageMainPanelContainer{
+.VehiclePageMainPanelContainer {
   height: 88%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -1926,8 +1848,7 @@ a:visited{
   font-size: 30px;
 }
 
-
-.VehiclePageLower{
+.VehiclePageLower {
   width: 80vw;
   padding-right: 5px;
   display: flex;
@@ -1937,20 +1858,22 @@ a:visited{
 }
 
 .VehiclePageLower a {
-  filter: brightness(1.0);
+  filter: brightness(1);
   transition: filter 0.5s ease;
 }
 
-.VehiclePagePanel2:hover .InterpageLink, .VehiclePagePanel3:hover .InterpageLink{
+.VehiclePagePanel2:hover .InterpageLink,
+.VehiclePagePanel3:hover .InterpageLink {
   filter: brightness(0.4);
 }
 
-.VehiclePagePanel2 .InterpageLink:hover, .VehiclePagePanel3 .InterpageLink:hover{
-  filter:brightness(1.0);
+.VehiclePagePanel2 .InterpageLink:hover,
+.VehiclePagePanel3 .InterpageLink:hover {
+  filter: brightness(1);
   border-radius: 15px;
 }
 
-.VehiclePagePanel1{
+.VehiclePagePanel1 {
   display: flex;
   justify-self: center;
   flex-direction: column;
@@ -1961,8 +1884,6 @@ a:visited{
   margin-left: 20px;
 }
 
-
-
 .VehiclePagePanel2 {
   min-height: 250px;
   max-height: 100%;
@@ -1971,12 +1892,12 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
   margin-bottom: 30px;
 }
 
-.VehiclePagePanel3{
+.VehiclePagePanel3 {
   min-height: 200px;
   max-height: 100%;
   display: flex;
@@ -1984,14 +1905,14 @@ a:visited{
   justify-content: flex-start;
   flex-wrap: nowrap;
   text-align: center;
-  align-items: center;  
+  align-items: center;
   position: relative;
-  margin-bottom: 30px;   
+  margin-bottom: 30px;
 }
 
-#VehiclePagePanel1Row1{
+#VehiclePagePanel1Row1 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -2004,21 +1925,20 @@ a:visited{
   margin-bottom: 10px;
 }
 
-#VehiclePagePanel1Row2{
+#VehiclePagePanel1Row2 {
   max-width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
   left: 0;
-  background-color:#39302e;
+  background-color: #39302e;
   color: #ffbe00;
   border-radius: 35px;
   padding: 0px 5px 5px 30px;
   margin-bottom: 10px;
 }
-
 
 .SeeMoreButton {
   position: absolute;
@@ -2033,11 +1953,10 @@ a:visited{
   margin-top: 10px;
   min-width: 100px;
   min-height: 55px;
-  
 }
 
 .SeeMoreButton:active {
-  background-color:black;
+  background-color: black;
   color: white;
 }
 
@@ -2057,7 +1976,7 @@ a:visited{
   z-index: 999;
 }
 
-.NavBar ul{
+.NavBar ul {
   max-width: max-content;
   width: 100vw;
   height: 100%;
@@ -2071,7 +1990,7 @@ a:visited{
   overflow: hidden;
 }
 
-.NavBar li{
+.NavBar li {
   font-size: 25px;
   margin: 0 30px;
   display: flex;
@@ -2079,22 +1998,23 @@ a:visited{
   white-space: nowrap;
 }
 
-.NavBar a{
+.NavBar a {
   text-decoration: none;
   color: #ffbe00;
   filter: brightness(0.4);
   transition: filter 0.3s ease;
 }
 
-.NavBar:hover a{
+.NavBar:hover a {
   filter: brightness(0.4);
 }
 
-.NavBar a:hover{
-  filter: brightness(1.0);
+.NavBar a:hover {
+  filter: brightness(1);
   text-decoration: none;
   color: #ffbe00;
   border-bottom: 2px solid #ffbe00;
+  margin-bottom: -1px;
 }
 
 .NavBar a:visited {
@@ -2103,26 +2023,22 @@ a:visited{
 }
 
 #NavBarHomeLink a {
-  filter: brightness(1);  
+  filter: brightness(1);
 }
 
-.NavBarLinkActive a{
+.NavBarLinkActive a {
   filter: brightness(1);
   text-decoration: none;
   color: #ffbe00;
   border-bottom: 2px solid #ffbe00;
+  margin-bottom: -1px;
 }
 
-
-
-
-.LoadingPanel{
+.LoadingPanel {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-
 
 .lds-spinner {
   color: official;
@@ -2202,5 +2118,3 @@ a:visited{
     opacity: 0;
   }
 }
-
-
